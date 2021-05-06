@@ -67,6 +67,34 @@ for (i in file_names) {
   
 }
 
+
+##-----------------------
+## clean `method` names
+##-----------------------
+
+## change all names to lowercase
+df_all$method <- df_all$method %>%
+  tolower()
+
+## weir counts
+weir_i <- df_all$method %in% c("weir", "wier count", "weir count")
+df_all$method[weir_i] <- "weir"
+
+## redd counts
+redd_i <- grep("redd", df_all$method)
+df_all$method[redd_i] <- "redd"
+
+## snorkel surveys
+snorkel_i <- grep("snorkel", df_all$method)
+df_all$method[snorkel_i] <- "snorkel"
+
+unique(df_all$method)
+
+
+##------------
+## write data
+##------------
+
 ## write data for all states to one file
 df_all %>% 
   write_csv(file = file.path(data_dir, "bull_trout_SSA_data_all_states.csv"))
