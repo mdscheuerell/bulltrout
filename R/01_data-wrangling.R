@@ -7,6 +7,7 @@
 ## load libraries
 library(here)
 library(readxl)
+library(readr)
 library(dplyr)
 
 ## set directories
@@ -28,8 +29,6 @@ colnames_nice <- c("dataset", "recovery_unit", "core_area", "popn_stream",
 ## get raw file names
 file_names <- dir(data_dir)
 
-i <- file_names[1]
-
 ## empty tibble for full data set
 df_all <- NULL
 
@@ -41,26 +40,34 @@ for (i in file_names) {
   
   ## read raw file into tmp
   tmp <- file.path(data_dir, i) %>%
-    read_xlsx(na = c("", "NA", "n/a")) %>%
+    read_xlsx(range = cell_cols("A:H"),
+              col_types = c("guess", "text", "text", "text", "text", "text", "numeric", "numeric"),
+              na = c("", "NA", "n/a", "na", ".")) %>%
     ## set column names to lowercase
     rename_with(tolower) %>%
     ## select columns of interest & rename them
     select(all_of(colnames_default)) %>%
     `colnames<-`(colnames_nice) %>%
     ## add state abbreviation
-    mutate(state = st, .before = 1)
+    mutate(state = st, .before = 1) %>%
+    ## remove `dataset == "MetaData"`
+    filter(dataset != "MetaData")
+  
+  ## remove "WA." from `dataset` for WA file
+  if (st == "WA") {
+    tmp$dataset <- sub("([A-Z]{2}\\.)([0-9]{1,})", "\\2", tmp$dataset)
+  }
+  
+  ## convert `dataset` to integer
+  tmp <- tmp %>%
+    mutate(dataset = as.integer(dataset))
   
   ## add state to regional tibble
   df_all <- rbind.data.frame(df_all, tmp)
   
 }
 
-xx <- df_all %>% filter(state == "OR")
-
-
-
-
 ## write data for all states to one file
-df_all %<% 
+df_all %>% 
   write_csv(file = file.path(data_dir, "bull_trout_SSA_data_all_states.csv"))
 
