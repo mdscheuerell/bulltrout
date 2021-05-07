@@ -68,6 +68,23 @@ for (i in file_names) {
 }
 
 
+##----------------------
+## clean `metric` names
+##----------------------
+
+## `metric` describes the state or transition
+## it does not contain info on life stage
+
+## abundance
+abund_i <- grep("[A|a]bund", df_all$metric)
+df_all$metric[abund_i] <- "abundance"
+
+## survival
+surv_i <- grep("survival", df_all$metric)
+df_all$metric[surv_i] <- "survival"
+
+df_all$metric %>% unique()
+
 
 ##----------------------
 ## clean `method` names
@@ -122,16 +139,27 @@ df_all$source[snorkel_i] <- "snorkel"
 mark_i <- grep("mark", df_all$source)
 df_all$source[mark_i] <- "mark_output"
 
+## escapement
+esc_i <- grep("escape", df_all$source)
+df_all$source[esc_i] <- "escapement"
+
 ## replace spaces with underscores
 df_all$source <- gsub("\\s", "_", df_all$source)
-
-## short names for data sources
-data_sources <- c("dam", "efishing", "escape", "redd", "screw", "snorkel", "trap", "weir")
 
 
 ##--------------
 ## data summary
 ##--------------
+
+## sources of adult data
+adults <- c("adult_count", "dam_counts", "escapement", "fishery_catch_rates",
+            "mark_output", "redd_counts", "trap_count", "weir")
+
+## sources of juvenile data
+juvies <- c("electrofishing", "screw_trap", "snorkel")
+
+## short names for data sources
+# data_sources <- c("dam", "efishing", "escape", "redd", "screw", "snorkel", "trap", "weir")
 
 year_smry <- df_all %>%
   group_by(state, 
