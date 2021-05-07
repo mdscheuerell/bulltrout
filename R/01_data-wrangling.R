@@ -19,7 +19,7 @@ colnames_default <- c("dataset", "recovery unit", "core area", "popn/stream",
 
 ## better column names
 colnames_nice <- c("dataset", "recovery_unit", "core_area", "popn_stream",
-                   "metric", "method", "year", "value")
+                   "metric", "source", "year", "value")
 
 
 ##---------------
@@ -68,27 +68,81 @@ for (i in file_names) {
 }
 
 
-##-----------------------
+
+##----------------------
 ## clean `method` names
-##-----------------------
+##----------------------
+
+## `method` is the type or source of data 
 
 ## change all names to lowercase
-df_all$method <- df_all$method %>%
-  tolower()
+df_all$source <- tolower(df_all$source)
+
+## check methods by state
+df_all %>%
+  group_by(state) %>%
+  summarise(source = unique(source))
+# example output
+# state source                                                  
+# <chr> <chr>                                                   
+#  1 ID program mark (barker model)                             
+#  2 ID program mark (robust design model - huggins formulation)
+#  3 ID weir                                                    
+#  4 ID screw trap                                              
+#  5 ID snorkel                                                 
+#  6 ID electrofishing                                          
+#  7 ID fishery catch rates                                     
+#  8 ID redd survey                                             
+#  9 OR redd surveys                                            
+# 10 OR juvenile snorkel surveys                                
+# 11 OR dam counts                                              
+# 12 OR wier count                                              
+# 13 OR weir count                                              
+# 14 OR NA                                                      
+# 15 WA adult count                                             
+# 16 WA cumulative redd count                                   
+# 17 WA trap count                                              
+# 18 WA escapement (proportion)                                 
+# 19 WA index snorkel                                           
+# 20 WA weir                                                    
 
 ## weir counts
-weir_i <- df_all$method %in% c("weir", "wier count", "weir count")
-df_all$method[weir_i] <- "weir"
+weir_i <- df_all$source %in% c("weir", "wier count", "weir count")
+df_all$source[weir_i] <- "weir"
 
 ## redd counts
-redd_i <- grep("redd", df_all$method)
-df_all$method[redd_i] <- "redd"
+redd_i <- grep("redd", df_all$source)
+df_all$source[redd_i] <- "redd_counts"
 
 ## snorkel surveys
-snorkel_i <- grep("snorkel", df_all$method)
-df_all$method[snorkel_i] <- "snorkel"
+snorkel_i <- grep("snorkel", df_all$source)
+df_all$source[snorkel_i] <- "snorkel"
 
-unique(df_all$method)
+## MARK estimates
+mark_i <- grep("mark", df_all$source)
+df_all$source[mark_i] <- "mark_output"
+
+## replace spaces with underscores
+df_all$source <- gsub("\\s", "_", df_all$source)
+
+## short names for data sources
+data_sources <- c("dam", "efishing", "escape", "redd", "screw", "snorkel", "trap", "weir")
+
+
+##--------------
+## data summary
+##--------------
+
+year_smry <- df_all %>%
+  group_by(state, 
+           recovery_unit, 
+           core_area, 
+           popn_stream, 
+           metric,
+           source) %>%
+  summarise(first_year = min(year), last_year = max(year))
+
+print(as.data.frame(year_smry))
 
 
 ##------------
@@ -96,6 +150,6 @@ unique(df_all$method)
 ##------------
 
 ## write data for all states to one file
-df_all %>% 
-  write_csv(file = file.path(data_dir, "bull_trout_SSA_data_all_states.csv"))
+# df_all %>% 
+#   write_csv(file = file.path(data_dir, "bull_trout_SSA_data_all_states.csv"))
 
