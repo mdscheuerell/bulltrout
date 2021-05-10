@@ -208,7 +208,11 @@ print(as.data.frame(year_smry))
 ## write data
 ##------------
 
-## write adult data for all states to one file
+## write all data for all states to one file
 df_all %>% 
-  write_csv(file = file.path(clean_data_dir, "adult_bull_trout_SSA_data_all_states.csv"))
+  write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states.csv"))
+
+## write adult data only for all states to one file
+df_all %>% 
+  write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states_adults.csv"))
 
