@@ -11,7 +11,8 @@ library(readr)
 library(dplyr)
 
 ## set directories
-data_dir <- here("data")
+raw_data_dir <- here("data", "raw")
+clean_data_dir <- here("data", "clean")
 
 ## expected column names
 colnames_default <- c("dataset", "recovery unit", "core area", "popn/stream",
@@ -22,12 +23,21 @@ colnames_nice <- c("dataset", "recovery_unit", "core_area", "popn_stream",
                    "metric", "source", "year", "value")
 
 
+##--------------
+## get metadata
+##--------------
+
+## get all file names
+all_files <- dir(raw_data_dir)
+
+metadata_file <- grep("metadata", all_files, value = TRUE)
+
+metadata <- read_csv(file.path(raw_data_dir, metadata_file))
+
+
 ##---------------
 ## read raw data
 ##---------------
-
-## get file names
-all_files <- dir(data_dir)
 
 ## get file names
 file_names <- grep("USFWS", all_files, value = TRUE)
@@ -42,7 +52,7 @@ for (i in file_names) {
   st <- sub("(USFWS_bull_trout_SSA_data_)([A-Z]{2})(.*)", "\\2", i)
   
   ## read raw file into tmp
-  tmp <- file.path(data_dir, i) %>%
+  tmp <- file.path(raw_data_dir, i) %>%
     read_xlsx(range = cell_cols("A:H"),
               col_types = c("guess", "text", "text", "text", "text", "text", "numeric", "numeric"),
               na = c("", "NA", "n/a", "na", ".")) %>%
@@ -85,8 +95,6 @@ df_all$metric[abund_i] <- "abundance"
 ## survival
 surv_i <- grep("survival", df_all$metric)
 df_all$metric[surv_i] <- "survival"
-
-df_all$metric %>% unique()
 
 
 ##----------------------
@@ -150,6 +158,25 @@ df_all$source[esc_i] <- "escapement"
 df_all$source <- gsub("\\s", "_", df_all$source)
 
 
+##----------------
+## get adult data
+##----------------
+
+## create primary key for filtering adult data
+adult_ID <- metadata %>%
+  filter(lifestage == "A") %>%
+  tidyr::unite("data_ID", state:dataset, remove = TRUE) %>%
+  select(data_ID)
+
+## add primary key to df_all
+df_tmp <- df_all %>%
+  tidyr::unite("data_ID", state:dataset, remove = FALSE)
+
+## filter out non-adult sites
+adult_data <- left_join(adult_ID, df_tmp) %>%
+  select(-data_ID)
+  
+
 ##--------------
 ## data summary
 ##--------------
@@ -164,7 +191,8 @@ juvies <- c("electrofishing", "screw_trap", "snorkel")
 ## short names for data sources
 # data_sources <- c("dam", "efishing", "escape", "redd", "screw", "snorkel", "trap", "weir")
 
-year_smry <- df_all %>%
+## data summary for adults
+year_smry <- adult_data %>%
   group_by(state, 
            recovery_unit, 
            core_area, 
@@ -180,7 +208,7 @@ print(as.data.frame(year_smry))
 ## write data
 ##------------
 
-## write data for all states to one file
-# df_all %>% 
-#   write_csv(file = file.path(data_dir, "bull_trout_SSA_data_all_states.csv"))
+## write adult data for all states to one file
+df_all %>% 
+  write_csv(file = file.path(clean_data_dir, "adult_bull_trout_SSA_data_all_states.csv"))
 
