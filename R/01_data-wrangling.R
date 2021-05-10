@@ -26,8 +26,11 @@ colnames_nice <- c("dataset", "recovery_unit", "core_area", "popn_stream",
 ## read raw data
 ##---------------
 
-## get raw file names
-file_names <- dir(data_dir)
+## get file names
+all_files <- dir(data_dir)
+
+## get file names
+file_names <- grep("USFWS", all_files, value = TRUE)
 
 ## empty tibble for full data set
 df_all <- NULL
