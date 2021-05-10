@@ -213,6 +213,6 @@ df_all %>%
   write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states.csv"))
 
 ## write adult data only for all states to one file
-df_all %>% 
+adult_data %>% 
   write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states_adults.csv"))
 
