@@ -1,5 +1,16 @@
 ## model fitting for USFWS bull trout SSA
 
+##-------
+## setup
+##-------
+
+## load libraries
+library(readr)
+library(dplyr)
+library(tidyr)
+library(MARSS)
+
+
 ##-----------
 ## read data
 ##-----------
@@ -12,28 +23,57 @@ adult_data <- read_csv(file = file.path(clean_data_dir,
 ## data summary
 ##--------------
 
+## select only abundance metrics
+model_data <- adult_data %>%
+  filter(metric == "abundance") %>%
+  select(-metric)
+
 ## data summary for adults
-year_smry <- adult_data %>%
+year_smry <- model_data %>%
   group_by(state, 
+           dataset,
            recovery_unit, 
            core_area, 
            popn_stream, 
-           metric,
            source) %>%
   summarise(first_year = min(year), last_year = max(year))
 
 ## remove all-NA records
-year_smry <- year_smry[-which(is.na(year_smry$state)),]
+# year_smry <- year_smry[-which(is.na(year_smry$state)),]
 
 ## number of sites per core area
 core_tbl <- year_smry %>% 
   group_by(state, core_area) %>%
   summarise(n = length(core_area))
 
-## number of core areas (processes)
+## number of sites per core area
+core_tbl <- yy %>% 
+  group_by(state, core_area) %>%
+  summarise(n = length(core_area))
+
+## reshape to "wide" format for MARSS
+yy <- model_data %>%
+  pivot_wider(names_from = year, values_from = value, names_prefix = "yr")
+
+## number of core areas (processes, x)
 cc <- length(core_tbl$core_area)
-## number of locations (streams/rivers)
+## number of locations (streams/rivers, y)
 rr <- length(year_smry$core_area)
+
+
+
+yy <- tribble(
+  ~ x, ~ y, ~ z, ~ value,
+  "a", "b", 1, -1,
+  "a", "b", 2, -1,
+  "a", "c", 3, -1,
+  "a", "c", 4, -1,
+  "a", "d", 5, -1,
+  "a", "d", 6, -1
+)
+
+yy %>%
+  pivot_wider(names_from = z, values_from = value, names_prefix = "yr")
 
 
 ##-------------
@@ -55,3 +95,6 @@ for (jj in 1:cc) {
   ZZ[ii, jj] <- 1
 }
 
+## cov matrix for obs (R)
+RR <- matrix(list(0), rr, rr)
+diag(RR) <- yy$source
