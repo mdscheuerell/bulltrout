@@ -1,8 +1,6 @@
 ## model fitting for USFWS bull trout SSA
 
-##-------
-## setup
-##-------
+#### setup ####
 
 ## load libraries
 library(here)
@@ -15,18 +13,12 @@ library(MARSS)
 raw_data_dir <- here("data", "raw")
 clean_data_dir <- here("data", "clean")
 
-
-##-----------
 ## read data
-##-----------
-
 adult_data <- read_csv(file = file.path(clean_data_dir,
                                         "bull_trout_SSA_data_all_states_adults.csv"))
 
 
-##--------------
-## data summary
-##--------------
+#### data summary ####
 
 ## select only abundance metrics
 model_data <- adult_data %>%
@@ -64,10 +56,7 @@ cc <- length(core_tbl$core_area)
 rr <- length(year_smry$core_area)
 
 
-
-##-------------
-## MARSS setup
-##-------------
+#### MARSS setup ####
 
 ## empty Z matrix for mapping obs to processes
 ZZ <- matrix(0, rr, cc)
@@ -84,7 +73,13 @@ for (jj in 1:cc) {
   ZZ[ii, jj] <- 1
 }
 
+## offsets for obs (a); data de-meaned so all 0's
+AA <- matrix(0, rr, 1)
+
 ## cov matrix for obs (R)
 RR <- matrix(list(0), rr, rr)
 diag(RR) <- yy$source
+
+
+
 
