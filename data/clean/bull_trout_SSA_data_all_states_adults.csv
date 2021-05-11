@@ -571,7 +571,7 @@ ID,37,COLR Headwaters,Priest Lakes,Hughes Cr,abundance,redd_counts,2016,1
 ID,37,COLR Headwaters,Priest Lakes,Hughes Cr,abundance,redd_counts,2017,11
 ID,37,COLR Headwaters,Priest Lakes,Hughes Cr,abundance,redd_counts,2018,1
 ID,37,COLR Headwaters,Priest Lakes,Hughes Cr,abundance,redd_counts,2019,0
-ID,38,COLR Headwaters,Priest Lakes,Gold Creek,abundance,redd_counts,2020,4
+ID,37,COLR Headwaters,Priest Lakes,Hughes Cr,abundance,redd_counts,2020,4
 ID,38,COLR Headwaters,Priest Lakes,Gold Creek,abundance,redd_counts,1985,24
 ID,38,COLR Headwaters,Priest Lakes,Gold Creek,abundance,redd_counts,1986,23
 ID,38,COLR Headwaters,Priest Lakes,Gold Creek,abundance,redd_counts,1992,5
@@ -2103,7 +2103,6 @@ WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_c
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2011,29
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2012,37
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2013,57
-WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2013,55
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2014,NA
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2015,14
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2016,12
