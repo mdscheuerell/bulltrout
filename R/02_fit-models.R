@@ -58,6 +58,8 @@ rr <- length(year_smry$core_area)
 
 #### MARSS setup ####
 
+## observation eqn
+
 ## empty Z matrix for mapping obs to processes
 ZZ <- matrix(0, rr, cc)
 
@@ -76,10 +78,19 @@ for (jj in 1:cc) {
 ## offsets for obs (a); data de-meaned so all 0's
 AA <- matrix(0, rr, 1)
 
-## cov matrix for obs (R)
+## covariance matrix for obs (R)
 RR <- matrix(list(0), rr, rr)
 diag(RR) <- yy$source
 
+## process eqn
 
+## interactions matrix (B); set to I for RW's
+BB <- diag(cc)
+
+## bias terms (u); each core area gets a unique bias term
+UU <- core_tbl %>%
+  select(-n) %>%
+  unite("core_area", state:core_area, sep = ": ") %>%
+  as.matrix(nrow = cc, ncol = 1)
 
 
