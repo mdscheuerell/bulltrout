@@ -1,3 +1,4 @@
+## model fitting for USFWS bull trout SSA
 
 ##-----------
 ## read data
@@ -7,6 +8,9 @@ adult_data <- read_csv(file = file.path(clean_data_dir,
                                         "bull_trout_SSA_data_all_states_adults.csv"))
 
 
+##--------------
+## data summary
+##--------------
 
 ## data summary for adults
 year_smry <- adult_data %>%
@@ -18,32 +22,36 @@ year_smry <- adult_data %>%
            source) %>%
   summarise(first_year = min(year), last_year = max(year))
 
+## remove all-NA records
+year_smry <- year_smry[-which(is.na(year_smry$state)),]
 
-# dd <- data.frame(
-#   state = rep(c("ID", "WA"), ea = 3),
-#   core_area = c("a", "a", "b", "c", "d", "d")
-# )
-# 
-# dd
-
+## number of sites per core area
 core_tbl <- year_smry %>% 
   group_by(state, core_area) %>%
   summarise(n = length(core_area))
 
-cc <- length(unique(dd$core_area))
+## number of core areas (processes)
+cc <- length(core_tbl$core_area)
+## number of locations (streams/rivers)
+rr <- length(year_smry$core_area)
 
-rr <- length(dd$core_area)
 
+##-------------
+## MARSS setup
+##-------------
+
+## empty Z matrix for mapping obs to processes
 ZZ <- matrix(0, rr, cc)
 
-for (j in 1:cc) {
-  
-  ll <- seq(as.integer(core_tbl[j, 2]))
-  
-  xx <- ifelse(j == 1, 0, max(ii))
-
+## loop over core areas to set cols of Z
+for (jj in 1:cc) {
+  ## seq for row indices
+  ll <- seq(as.integer(core_tbl[jj, 3]))
+  ## last row
+  xx <- ifelse(jj == 1, 0, max(ii))
+  ## seq for row indices
   ii <- ll + xx
-
-  ZZ[ii, j] <- 1
-  
+  ## assign 1's to respective rows/obs
+  ZZ[ii, jj] <- 1
 }
+
