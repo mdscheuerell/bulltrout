@@ -5,10 +5,15 @@
 ##-------
 
 ## load libraries
+library(here)
 library(readr)
 library(dplyr)
 library(tidyr)
 library(MARSS)
+
+## set directories
+raw_data_dir <- here("data", "raw")
+clean_data_dir <- here("data", "clean")
 
 
 ##-----------
@@ -36,7 +41,8 @@ year_smry <- model_data %>%
            core_area, 
            popn_stream, 
            source) %>%
-  summarise(first_year = min(year), last_year = max(year))
+  summarise(first_year = min(year),
+            last_year = max(year))
 
 ## remove all-NA records
 # year_smry <- year_smry[-which(is.na(year_smry$state)),]
@@ -46,34 +52,17 @@ core_tbl <- year_smry %>%
   group_by(state, core_area) %>%
   summarise(n = length(core_area))
 
-## number of sites per core area
-core_tbl <- yy %>% 
-  group_by(state, core_area) %>%
-  summarise(n = length(core_area))
-
 ## reshape to "wide" format for MARSS
 yy <- model_data %>%
-  pivot_wider(names_from = year, values_from = value, names_prefix = "yr")
+  pivot_wider(names_from = year,
+              values_from = value,
+              names_prefix = "yr")
 
 ## number of core areas (processes, x)
 cc <- length(core_tbl$core_area)
 ## number of locations (streams/rivers, y)
 rr <- length(year_smry$core_area)
 
-
-
-yy <- tribble(
-  ~ x, ~ y, ~ z, ~ value,
-  "a", "b", 1, -1,
-  "a", "b", 2, -1,
-  "a", "c", 3, -1,
-  "a", "c", 4, -1,
-  "a", "d", 5, -1,
-  "a", "d", 6, -1
-)
-
-yy %>%
-  pivot_wider(names_from = z, values_from = value, names_prefix = "yr")
 
 
 ##-------------
@@ -98,3 +87,4 @@ for (jj in 1:cc) {
 ## cov matrix for obs (R)
 RR <- matrix(list(0), rr, rr)
 diag(RR) <- yy$source
+
