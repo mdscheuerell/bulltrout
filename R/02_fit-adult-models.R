@@ -187,6 +187,6 @@ bias_smry$trend[pos] <- "+"
 
 ## write bias summary to file
 bias_smry %>% 
-  write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_biases.csv"))
+  write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_adults_biases.csv"))
 
 
