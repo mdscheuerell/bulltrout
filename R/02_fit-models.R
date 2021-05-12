@@ -13,6 +13,9 @@ library(MARSS)
 raw_data_dir <- here("data", "raw")
 clean_data_dir <- here("data", "clean")
 
+## first year of data to consider in model
+yr_first <- 1991
+
 ## read data
 adult_data <- read_csv(file = file.path(clean_data_dir,
                                         "bull_trout_SSA_data_all_states_adults.csv"))
@@ -44,8 +47,9 @@ core_tbl <- year_smry %>%
   group_by(state, core_area) %>%
   summarise(n = length(core_area))
 
-## reshape to "wide" format for MARSS
+## trim years & reshape to "wide" format for MARSS
 yy <- model_data %>%
+  filter(year >= yr_first) %>%
   pivot_wider(names_from = year,
               values_from = value,
               names_prefix = "yr")
@@ -93,4 +97,49 @@ UU <- core_tbl %>%
   unite("core_area", state:core_area, sep = ": ") %>%
   as.matrix(nrow = cc, ncol = 1)
 
+## cov matrix for processes (Q)
+QQ <- matrix(list(0), cc, cc)
+## diagonal and unequal
+# diag(QQ) <- core_tbl %>%
+#   select(-n) %>%
+#   unite("core_area", state:core_area, sep = ": ") %>%
+#   unlist()
+## diagonal and equal (IID)
+diag(QQ) <- rep("q", cc)
 
+## data for fitting
+
+## reformat for MARSS
+yy <- yy %>%
+  ## drop ID cols
+  select(-(state:source)) %>%
+  ## convert to matrix
+  as.matrix() %>%
+  + 1 %>%
+  ## log-transform
+  log() %>%
+  ## remove the mean
+  zscore(mean.only = TRUE)
+
+## check number of non-NA values by year
+# apply(!is.na(yy), 2, sum)
+
+
+#### model fitting ####
+
+## model list
+mod_list <- list(
+  B = BB,
+  U = UU,
+  Q = QQ,
+  Z = ZZ,
+  A = AA,
+  R = RR
+)
+
+## control list
+con_list <- list(
+  maxit = 5000
+)
+
+mod_fit <- MARSS(yy, model = mod_list, control = con_list)
