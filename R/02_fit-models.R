@@ -40,6 +40,10 @@ year_smry <- model_data %>%
   summarise(first_year = min(year),
             last_year = max(year))
 
+## write summary info to file
+year_smry %>% 
+  write_csv(file = file.path(output_dir, "bull_trout_SSA_adult_data_summary.csv"))
+
 ## remove all-NA records
 # year_smry <- year_smry[-which(is.na(year_smry$state)),]
 
