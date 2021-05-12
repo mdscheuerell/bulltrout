@@ -135,12 +135,37 @@ df_tmp <- df_all %>%
 ## filter out non-adult sites
 adult_data <- left_join(adult_ID, df_tmp) %>%
   select(-data_ID)
+
+
+#### get juvenile data ####
+
+## create primary key for filtering adult data
+juvie_ID <- metadata %>%
+  filter(lifestage == "J") %>%
+  tidyr::unite("data_ID", state:dataset, remove = TRUE) %>%
+  select(data_ID)
+
+## filter out non-juvenile sites
+juvie_data <- left_join(juvie_ID, df_tmp) %>%
+  select(-data_ID)
   
 
 #### data summary ####
 
 ## data summary for adults
 year_smry <- adult_data %>%
+  group_by(state, 
+           recovery_unit, 
+           core_area, 
+           popn_stream, 
+           metric,
+           source) %>%
+  summarise(first_year = min(year), last_year = max(year))
+
+print(as.data.frame(year_smry))
+
+## data summary for juveniles
+year_smry <- juvie_data %>%
   group_by(state, 
            recovery_unit, 
            core_area, 
@@ -161,4 +186,8 @@ df_all %>%
 ## write adult data only for all states to one file
 adult_data %>% 
   write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states_adults.csv"))
+
+## write juvenile data only for all states to one file
+juvie_data %>% 
+  write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states_juveniles.csv"))
 
