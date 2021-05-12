@@ -12,6 +12,7 @@ library(MARSS)
 ## set directories
 raw_data_dir <- here("data", "raw")
 clean_data_dir <- here("data", "clean")
+output_dir <- here("output")
 
 ## first year of data to consider in model
 yr_first <- 1991
@@ -142,4 +143,46 @@ con_list <- list(
   maxit = 5000
 )
 
+## fit base model
 mod_fit <- MARSS(yy, model = mod_list, control = con_list)
+
+
+#### bootstrapped CI's ####
+
+## bootstrap parameters from the Hessian matrix
+mod_fit_CI <- MARSSboot(mod_fit, param.gen = "hessian", nboot = 1000)
+
+## extract bias params
+bias_mat <- mod_fit_CI$boot.params[grep("U.", rownames(mod_fit_CI$boot.params)),]
+
+## summary table of bias CI's
+bias_smry <- bias_mat %>%
+  apply(1, quantile, c(0.025, 0.5, 0.975)) %>%
+  round(digits = 3) %>%
+  t() %>%
+  as.data.frame()
+## better row names
+rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", rownames(bias_smry))
+
+## summarize trends
+## negative
+neg <- bias_smry %>%
+  apply(1, function(x) x < 0) %>%
+  t() %>%
+  apply(1, all)
+## positive
+pos <- bias_smry %>%
+  apply(1, function(x) x > 0) %>%
+  t() %>%
+  apply(1, all)
+## add trend col
+bias_smry <- bias_smry %>%
+  mutate(trend = "0")
+bias_smry$trend[neg] <- "-"
+bias_smry$trend[pos] <- "+"
+
+## write bias summary to file
+bias_smry %>% 
+  write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_biases.csv"))
+
+
