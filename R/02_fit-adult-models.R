@@ -57,7 +57,8 @@ yy <- model_data %>%
   filter(year >= yr_first) %>%
   pivot_wider(names_from = year,
               values_from = value,
-              names_prefix = "yr")
+              names_prefix = "yr") %>%
+  arrange(state, core_area)
 
 ## number of core areas (processes, x)
 cc <- length(core_tbl$core_area)
@@ -124,7 +125,7 @@ yy <- yy %>%
   ## log-transform
   log() %>%
   ## remove the mean
-  zscore(mean.only = TRUE)
+  zscore(mean.only = FALSE)
 
 ## check number of non-NA values by year
 # apply(!is.na(yy), 2, sum)
@@ -188,5 +189,6 @@ bias_smry$trend[pos] <- "+"
 ## write bias summary to file
 bias_smry %>% 
   write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_adults_biases.csv"))
+
 
 
