@@ -1,0 +1,56 @@
+---
+title: "Trend analysis for USFWS bulltrout species status assessment"
+author:
+  - Mark D. Scheuerell:
+      email: scheuerl@uw.edu
+      institute: wacfwru
+      correspondence: true
+institute:
+  - wacfwru: U.S. Geological Survey Washington Cooperative Fish and Wildlife Research Unit, School of Aquatic and Fishery Sciences, University of Washington, Seattle, WA
+output:
+  pdf_document:
+    highlight: haddock
+    pandoc_args:
+      - '--lua-filter=scholarly-metadata.lua'
+      - '--lua-filter=author-info-blocks.lua'
+documentclass: article
+geometry: margin=1in
+linestretch: 1.1
+fontsize: 12pt
+header-includes:
+  - \usepackage{lineno}
+  - \linenumbers
+bibliography: "references.bib"
+csl: "frontiers-in-ecology-and-the-environment.csl"
+urlcolor: blue
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+
+## load {knitcitations}
+library("knitcitations")
+
+## clean out any existing .bib files
+# cleanbib()
+
+## set pandoc for formatting
+options("citation_format" = "pandoc")
+```
+
+\vspace{4in}
+
+This draft manuscript is distributed solely for purposes of scientific peer review. Its content is deliberative and predecisional, so it must not be disclosed or released by reviewers. Because the manuscript has not yet been approved for publication by the U.S. Geological Survey (USGS), it does not represent any official USGS finding or policy.
+
+\newpage
+
+`r citep(citation("MARSS"))`
+
+# References
+
+```{r}
+## create ref cited section
+write.bibtex(file = "references.bib")
+```
+
+
