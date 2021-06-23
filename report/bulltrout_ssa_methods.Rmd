@@ -88,21 +88,156 @@ N_t = N_{t-1} \exp(u + w_t).
 
 If we take the logarithm of both sides and define $x_t = \log(N_t)$, we have
 
-\begin{equation}
+\begin{equation} \label{brw}
 x_t = x_{t-1} + u + w_t.
 \end{equation}
 
-Further defining $w_t \sim \text{N}(0, q)$ leads us to a so-called "biased random walk" model, where $u$ is the tendency for the population to increase or decrease each time step (i.e., the bias), and $w_t$ is some unknown stochastic of the environment.
+Further defining $w_t \sim \text{N}(0, q)$ leads us to a so-called "biased random walk" model, where $u$ is the tendency for the population to increase or decrease each time step (i.e., the bias), and $w_t$ is some unknown stochastic aspect of the environment that partially drives population dynamics.
 
-## Observation model
+### Observation model
 
-The data available to us rarely come from complete censuses, and instead are typically derived from partial counts. Furthermore, sampling or observation errors may occur when counting individuals or redds. Thus, we should account for these possible errors with a so-called "data model". In this case, we can assume that the data in hand are a somewhat distorted view of the "true state of nature", such that the logarithm of the observed count at time $t$ $(y_t)$ equals the true count plus or minus some error. Specifically, we can write this as
+The data available to us rarely come from complete censuses, and instead are typically derived from partial counts. Furthermore, mistakes may occur when counting individuals or redds. Thus, we should account for these possible sampling or observation errors with a so-called "data model".
 
-\begin{equation}
-y_t = x_t + v_t
+In this case, we assume that the data in hand are a somewhat distorted view of the "true state of nature", such that the logarithm of the observed count at time $t$ $(y_t)$ equals that of the true count plus or minus some error. Specifically, we can write this as
+
+\begin{equation} \label{obs}
+y_t = x_t + a + v_t
 \end{equation}
 
-where $v_t \sim \text{N}(0, r)$.
+where $a$ is an offset to account for partial sampling, and $v_t \sim \text{N}(0, r)$.
+
+### State-space model
+
+We can combine equations \ref{brw} and \ref{obs}, along with a definition for the initial state $(x_0)$, into a so-called "state-space model", where
+
+\begin{equation} \label{ssm}
+  \begin{gathered}
+    y_t = x_t + a + v_t \\
+    x_t = x_{t-1} + u + w_t \\
+    x_0 \sim \text{N}(\mu, \sigma) 
+  \end{gathered}
+\end{equation}
+
+
+## Multiple populations
+
+Here we want to estimate the annual change in population size for each of the many different core areas across the four states. Furthermore, some core areas comprise several different populations/locations, so we need to frame our state-space model in a multivariate context. 
+
+### Observation model
+
+If we have $n$ different populations within a core area, then our observation model becomes
+
+\begin{equation}
+  y_{i,t} = x_{i,t} + a_i + v_{i,t}
+\end{equation}
+
+where $y_{i,t}$ is the log-count for population $i$ and year $t$, $a_i$ is an offset to account for partial sampling in population $i$, and $v_{i,t} \sim \text{N}(0, r_i)$\footnote{Here the variance of the observation errors is assumed to be population specific, but it might be reasonable to assume that they all have the same variance, such that $v_{i,t} \sim \text{N}(0, r)$.}. We can combine each of the population specific observation models into a matrix form, such that
+
+\begin{equation} 
+  \begin{gathered}
+    y_{1,t} = x_{1,t} + a_1 + v_{1,t} \\
+    y_{2,t} = x_{2,t} + a_2 + v_{2,t} \\
+    \vdots \\
+    y_{n,t} = x_{n,t} + a_3 + v_{n,t} \\
+  \end{gathered} 
+\end{equation}
+
+becomes
+
+\begin{equation}
+\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    \vdots \\
+    y_{n} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_{1} \\
+    x_{2} \\
+    \vdots \\
+    x_{n} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    \vdots \\
+    a_n \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    \vdots \\
+    v_{n} \end{bmatrix}_t,
+\end{equation}
+
+or more compactly in matrix notation as
+
+\begin{equation} \label{mobs}
+  \mathbf{y}_t = \mathbf{x}_t + \mathbf{a} + \mathbf{v}_t.
+\end{equation}
+
+### Population model
+
+Just as we did for the observation model, we can write the models for population dynamics as
+
+\begin{equation}
+  x_{i,t} = x_{i,t-1} + u_i + w_{i,t}
+\end{equation}
+
+where $u_i$ is the unique bias for each population, and $w_{i,t} \sim \text{N}(0, q_i)$\footnote{Here the variance of the process errors is assumed to be population specific, but it might be reasonable to assume that they all have the same variance, given their membership within a core area, such that $w_{i,t} \sim \text{N}(0, q)$.}.
+
+We can again express all of the population models in matrix form, such that
+
+\begin{equation} 
+  \begin{gathered}
+    x_{1,t} = x_{1,t-1} + a_1 + w_{1,t} \\
+    x_{2,t} = x_{2,t-1} + a_2 + w_{2,t} \\
+    \vdots \\
+    x_{n,t} = x_{n,t-1} + a_3 + w_{n,t} \\
+  \end{gathered} 
+\end{equation}
+
+becomes
+
+\begin{equation}
+\begin{bmatrix}
+    x_{1,t} \\
+    x_{2,t} \\
+    \vdots \\
+    x_{n,t} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_{1, t-1} \\
+    x_{2, t-1} \\
+    \vdots \\
+    x_{n, t-1} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    u_1 \\
+    u_2 \\
+    \vdots \\
+    u_n \end{bmatrix} + 
+ \begin{bmatrix}
+    w_{1} \\
+    w_{2} \\
+    \vdots \\
+    w_{n} \end{bmatrix}_t,
+\end{equation}
+
+or more compactly in matrix notation as
+
+\begin{equation} \label{mbrw}
+  \mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t
+\end{equation}
+
+
+
+### State-space forms
+
+At this point, however, we are assuming that the monitoring data for each population is telling us something about only itself, rather than contributing information to the population trend at the larger scale of their core area.
+
+\begin{equation} \label{mssm}
+  \begin{gathered}
+    \mathbf{y}_t = \mathbf{Z} \mathbf{x}_t + \mathbf{a} + \mathbf{v}_t \\
+    \mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t
+  \end{gathered}
+\end{equation}
+
 
 # Model fitting
 
