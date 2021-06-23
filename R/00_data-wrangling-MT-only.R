@@ -1,22 +1,37 @@
 ## data munging for USFWS bull trout SSA
 
-## NOTES
+#### NOTES ####
+
 ## The data from MT cam in a format different than the tidy template I sent
 ## to state coordinators, so they need to be cleaned before being processed
-## with the other states
+## with the other states.
+
+## There are some questionable data based on the metadata in the original
+## file (~50 site/year combinations out of 8000+). We can exlcude these with
+## the following `qaqc` set to TRUE
+
+## flag to do QA/QC
+qaqc <- TRUE
+
+## metadata codes
+mt_metadata_codes <- c("a", "b", "d", "e", "f", "g", "z")
+
+## save file for Excel out
+mt_file_name_out <- "USFWS_bull_trout_SSA_data_MT.xlsx"
 
 #### setup ####
 
 ## load libraries
 library(here)
 library(readxl)
+library(writexl)
 library(readr)
 library(dplyr)
 library(tidyr)
 
 ## set directories
 raw_data_dir <- here("data", "raw")
-clean_data_dir <- here("data", "clean")
+mt_data_dir <- here("data", "raw", "MT")
 
 ## expected column names
 colnames_default <- c("dataset", "recovery unit", "core area", "popn/stream",
@@ -40,46 +55,69 @@ metadata <- read_csv(file.path(raw_data_dir, metadata_file))
 #### read raw data ####
 
 ## get Excel file name
-mt_file_name <- grep("MT", all_files, value = TRUE)
+mt_file_name <- "FWS_MT_LP_All_Redd_Data_to_Scheuerell.xlsx"
 
 ## read Excel file
-mt_data_all <- file.path(raw_data_dir, mt_file_name) %>%
-  read_xlsx(col_type = "text", na = c("", "NA", "n/a", "na", ".")) %>%
+mt_data_all <- file.path(mt_data_dir, mt_file_name) %>%
+  read_xlsx(col_type = "text", na = c("", "NA", "n/a", "na", ".", "-")) %>%
   ## add integer col for dataset ID to match other states
   ## specific number doesn't matter b/c will be linked to data dictionary
-  mutate(dataset = seq(nrow(.)), .before = 1) %>%
+  mutate(dataset = seq(nrow(.)), .before = 1)
+
+## clean raw data
+mt_data_clean <- mt_data_all %>%
+  ## drop cols that don't match template
+  select(!c(`FWP Stream Name For Redd Count Data`, LifeHistory, Kovach_ID, MT_ID, TotalYearsCounted)) %>%
   ## years are cols spread out wide; pivot to tidy long format
   pivot_longer(cols = `1979`:`2020`, names_to = "year", values_to = "redds") %>%
-  ## drop col with total years sampled
-  select(!TotalYearsCounted) %>%
   ## need to extract embedded metadata codes from redd counts
   ## create cols for `n_redds` and `notes`
   mutate(n_redds = gsub(pattern = "\\D{1,2}", replacement  = "", x = redds),
          notes = gsub(pattern = "\\d{1,3}", replacement  = "", x = redds)) %>%
-  ## convert empty strings for metadata into NA
+  ## convert empty strings from metadata into NA
   mutate(notes = ifelse(notes == "", NA, notes)) %>%
   ## convert year and n_redds to integer
   mutate(year = as.integer(year),
          n_redds = as.integer(n_redds)) %>%
   ## drop col with orig counts/codes
-  select(-redds) 
+  select(-redds) %>%
+  ## create abundance and method cols to match template
+  mutate(metric = "abundance",
+         method = "redd count", .before = year) %>%
+  ## rename `n_redds` to `value` to match template
+  rename(value = n_redds)
+
+## possibly exclude questionable data by setting values to NA
+if(qaqc) {
+  mt_data_clean <- mt_data_clean %>%
+    mutate(value = ifelse(notes %in% mt_metadata_codes, NA, value))
+}
+  
+## write revamped file to Excel
+mt_data_clean %>%
+  write_xlsx(path = file.path(raw_data_dir, mt_file_name_out))
+
+
+#### metadata ####
+mt_data_clean %>%
+  #filter((notes %in% mt_metadata_codes)) %>% 
+  select(dataset, notes) %>%
+  table() %>%
+  as_tibble() %>%
+  pivot_wider(names_from = notes,
+              values_from = n,
+              names_prefix = "note_") %>%
+  mutate(dataset = as.integer(dataset),
+         state = "MT", .before = dataset) %>%
+  mutate(lifestage = "A",
+         DataType = "Redd Survey", .after = dataset)
+
+
+#### lookup table for site data ####
 
 mt_dataset_lut <- mt_data_all %>%
-  filter(year == 2020) %>%
-  select(dataset, Kovach_ID, MT_ID)
+  select(dataset:MT_ID)
 
-mt_data_clean <- mt_data_all %>%
-  select(!c(LifeHistory, Kovach_ID, MT_ID)) %>%
-  mutate(metric = "abundance",
-         method = "redd count")
 
-## codes
-mt_metadata_codes <- c("a", "b", "d", "e", "f", "g", "z")
 
-which()
-
-tbl <- tibble(x = c(NA, "a", "b", ""))
-
-tbl %>% 
-  mutate(x = ifelse(x == "", NA, x)) -> tbl
 
