@@ -86,8 +86,8 @@ mt_data_clean <- mt_data_all %>%
   ## create abundance and method cols to match template
   mutate(metric = "abundance",
          method = "redd count", .before = year) %>%
-  ## rename `n_redds` to `value` to match template
-  rename(value = n_redds)
+  ## rename cols to match template
+  `colnames<-`(c(colnames_default, "notes"))
 
 ## possibly exclude questionable data by setting values to NA
 if(qaqc) {
