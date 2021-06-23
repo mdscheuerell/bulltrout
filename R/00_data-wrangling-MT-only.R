@@ -101,18 +101,35 @@ mt_data_clean %>%
 
 
 #### metadata ####
+
+## add metadata to existing .csv file
 mt_data_clean %>%
-  #filter((notes %in% mt_metadata_codes)) %>% 
+  ## select the datasets and notes  
   select(dataset, notes) %>%
+  ## contingency table
   table() %>%
   as_tibble() %>%
+  ## pivot wider
   pivot_wider(names_from = notes,
               values_from = n,
               names_prefix = "note_") %>%
+  ## add state ID
   mutate(dataset = as.integer(dataset),
          state = "MT", .before = dataset) %>%
+  ## add life stage and data type
   mutate(lifestage = "A",
-         DataType = "Redd Survey", .after = dataset)
+         DataType = "Redd Survey", .after = dataset) %>%
+  ## methods (no info at present)
+  mutate(`Escapement Methodology Description` = NA,
+         `Biologist Methodology Description` = NA, .after = DataType) %>%
+  ## drop contingency table
+  select(state:`Biologist Methodology Description`) %>%
+  ## combine with other metadata
+  rbind.data.frame(metadata) %>%
+  ## sort by state and dataset
+  arrange(state, dataset) %>%
+  ## write to csv
+  write_csv(file = file.path(raw_data_dir, metadata_file))
 
 
 #### lookup table for site data ####
