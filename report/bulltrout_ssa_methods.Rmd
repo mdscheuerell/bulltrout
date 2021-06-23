@@ -108,7 +108,7 @@ where $a$ is an offset to account for partial sampling, and $v_t \sim \text{N}(0
 
 ### State-space model
 
-We can combine equations \ref{brw} and \ref{obs}, along with a definition for the initial state $(x_0)$, into a so-called "state-space model", where
+We can combine equations (\ref{brw}) and (\ref{obs}), along with a definition for the initial state $(x_0)$, into a so-called "state-space model", where
 
 \begin{equation} \label{ssm}
   \begin{gathered}
@@ -131,7 +131,7 @@ If we have $n$ different populations within a core area, then our observation mo
   y_{i,t} = x_{i,t} + a_i + v_{i,t}
 \end{equation}
 
-where $y_{i,t}$ is the log-count for population $i$ and year $t$, $a_i$ is an offset to account for partial sampling in population $i$, and $v_{i,t} \sim \text{N}(0, r_i)$\footnote{Here the variance of the observation errors is assumed to be population specific, but it might be reasonable to assume that they all have the same variance, such that $v_{i,t} \sim \text{N}(0, r)$.}. We can combine each of the population specific observation models into a matrix form, such that
+where $y_{i,t}$ is the log-count for population $i$ and year $t$, $a_i$ is an offset to account for partial sampling in population $i$, and $v_{i,t} \sim \text{N}(0, r_i)$\footnote{Here the variance of the observation errors is assumed to be population specific, but it might be reasonable to assume that each survey/census type might have the same variance, such that $v_{i,t} \sim \text{N}(0, r)$.}. We can combine each of the population specific observation models into a matrix form, such that
 
 \begin{equation} 
   \begin{gathered}
@@ -144,7 +144,7 @@ where $y_{i,t}$ is the log-count for population $i$ and year $t$, $a_i$ is an of
 
 becomes
 
-\begin{equation}
+\begin{equation} \label{lobs}
 \begin{bmatrix}
     y_{1} \\
     y_{2} \\
@@ -154,7 +154,7 @@ becomes
     x_{1} \\
     x_{2} \\
     \vdots \\
-    x_{n} \end{bmatrix}_t = 
+    x_{n} \end{bmatrix}_t + 
  \begin{bmatrix}
     a_1 \\
     a_2 \\
@@ -173,6 +173,8 @@ or more compactly in matrix notation as
   \mathbf{y}_t = \mathbf{x}_t + \mathbf{a} + \mathbf{v}_t.
 \end{equation}
 
+where $\mathbf{y}_t$, $\mathbf{x}_t$, $\mathbf{a}$, and $\mathbf{v}_t$ are all $n \times 1$ vectors.
+
 ### Population model
 
 Just as we did for the observation model, we can write the models for population dynamics as
@@ -181,7 +183,7 @@ Just as we did for the observation model, we can write the models for population
   x_{i,t} = x_{i,t-1} + u_i + w_{i,t}
 \end{equation}
 
-where $u_i$ is the unique bias for each population, and $w_{i,t} \sim \text{N}(0, q_i)$\footnote{Here the variance of the process errors is assumed to be population specific, but it might be reasonable to assume that they all have the same variance, given their membership within a core area, such that $w_{i,t} \sim \text{N}(0, q)$.}.
+where $u_i$ is the bias, which is unique to each population\footnote{It might be reasonable to assume that some/all of the populations have the same bias, given their membership within a core area.}, and $w_{i,t} \sim \text{N}(0, q_i)$\footnote{Here the variance of the process errors is assumed to be population specific, but it might be reasonable to assume that they all have the same variance, given their membership within a core area, such that $w_{i,t} \sim \text{N}(0, q)$.}.
 
 We can again express all of the population models in matrix form, such that
 
@@ -206,7 +208,7 @@ becomes
     x_{1, t-1} \\
     x_{2, t-1} \\
     \vdots \\
-    x_{n, t-1} \end{bmatrix}_t = 
+    x_{n, t-1} \end{bmatrix}_t + 
  \begin{bmatrix}
     u_1 \\
     u_2 \\
@@ -225,11 +227,75 @@ or more compactly in matrix notation as
   \mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t
 \end{equation}
 
+where $\mathbf{x}_t$, $\mathbf{x}_{t-1}$, $\mathbf{u}$, and $\mathbf{w}_t$ are all $n \times 1$ vectors.
 
 
 ### State-space forms
 
-At this point, however, we are assuming that the monitoring data for each population is telling us something about only itself, rather than contributing information to the population trend at the larger scale of their core area.
+At this point, however, we are assuming that the monitoring data for each population is telling us something about only the specific population itself, rather than contributing information to the population trend at the larger scale of their core area, which is the really the scale of interest here. Thus, we need to modify our equations to accommodate this hierarchical framework.
+
+For example, assume that we have $p = 2$ core areas (call them $A$ and $B$), each with data from 2 representative populations. In this case, $n = 4$, but the number of states (i.e., the number of rows in $\mathbf{x}_t$) is 2, so we need a way to "map" each of the observed time series onto its respective core area. We begin by writing out the equations for the observations in long matrix form akin to equation (\ref{lobs}), such that
+
+\begin{equation} \label{ex:obs}
+\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    y_{3} \\
+    y_{4} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_{A} \\
+    x_{A} \\
+    x_{B} \\
+    x_{B} \end{bmatrix}_t + 
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+    a_4 \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    v_{3} \\
+    v_{4} \end{bmatrix}_t,
+\end{equation}
+
+Because both $x_A$ and $x_B$ appear twice in equation (\ref{ex:obs}), we can use a $4 \times 2$ matrix of 1's and 0's as our map. Specifically, we have
+
+\begin{equation} \label{ex:obs2}
+\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    y_{3} \\
+    y_{4} \end{bmatrix}_t = 
+\begin{bmatrix}
+    1 & 0 \\
+    1 & 0 \\
+    0 & 1 \\
+    0 & 1 \end{bmatrix}  
+ \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_t +
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+    a_4 \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    v_{3} \\
+    v_{4} \end{bmatrix}_t,
+\end{equation}
+
+We can write equation (\ref{ex:obs2}) more compactly in matrix notation as
+
+\begin{equation} \label{mobs2}
+  \mathbf{y}_t = \mathbf{Z} \mathbf{x}_t + \mathbf{a} + \mathbf{v}_t.
+\end{equation}
+
+where $\mathbf{y}_t$, $\mathbf{a}$, and $\mathbf{v}_t$ are all $n \times 1$ vectors, $\mathbf{Z}$ is an $n \times k$ matrix, and $\mathbf{x}_t$ is a $k \times 1$ vector.
+
+
 
 \begin{equation} \label{mssm}
   \begin{gathered}
