@@ -92,11 +92,17 @@ If we take the logarithm of both sides and define $x_t = \log(N_t)$, we have
 x_t = x_{t-1} + u + w_t.
 \end{equation}
 
-Further defining $w_t \sim \text{N}(0, q)$ leads us to a so-called "biased random walk" model, where $u$ is the tendency for the population to increase or decrease each time step (i.e., the bias).
+Further defining $w_t \sim \text{N}(0, q)$ leads us to a so-called "biased random walk" model, where $u$ is the tendency for the population to increase or decrease each time step (i.e., the bias), and $w_t$ is some unknown stochastic of the environment.
 
 ## Observation model
 
+The data available to us rarely come from complete censuses, and instead are typically derived from partial counts. Furthermore, sampling or observation errors may occur when counting individuals or redds. Thus, we should account for these possible errors with a so-called "data model". In this case, we can assume that the data in hand are a somewhat distorted view of the "true state of nature", such that the logarithm of the observed count at time $t$ $(y_t)$ equals the true count plus or minus some error. Specifically, we can write this as
 
+\begin{equation}
+y_t = x_t + v_t
+\end{equation}
+
+where $v_t \sim \text{N}(0, r)$.
 
 # Model fitting
 
