@@ -66,6 +66,8 @@ mt_data_all <- file.path(mt_data_dir, mt_file_name) %>%
 
 ## clean raw data
 mt_data_clean <- mt_data_all %>%
+  ## drop rows with <10 years of data
+  filter(TotalYearsCounted > 10) %>%
   ## drop cols that don't match template
   select(!c(`FWP Stream Name For Redd Count Data`, LifeHistory, Kovach_ID, MT_ID, TotalYearsCounted)) %>%
   ## years are cols spread out wide; pivot to tidy long format
