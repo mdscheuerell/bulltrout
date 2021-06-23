@@ -1,5 +1,5 @@
 ---
-title: "Trend analysis for USFWS bulltrout species status assessment"
+title: "Trend analysis for USFWS species status assessment for bull trout (_Salvelinus confluentus_)"
 author:
   - Mark D. Scheuerell:
       email: scheuerl@uw.edu
@@ -44,9 +44,71 @@ This draft manuscript is distributed solely for purposes of scientific peer revi
 
 \newpage
 
-`r citep(citation("MARSS"))`
+# Background
+
+The purpose of this analysis is to estimate trends in the abundance (counts) of bull trout within predefined core areas spread across Oregon, Washington, Idaho, and Montana. 
+
+## Data
+
+I provided a template for the data in a "tidy" format, which consisted of the following 8 fields:
+
+* `dataset` (i.e., integer value for unique ID)
+* `recovery unit` (e.g., Mid Columbia)
+* `core area` (e.g., South Fork Clearwater)
+* `popn/stream` (e.g., Crooked River)
+* `metric` (e.g., abundance, survival)
+* `method` (e.g., redd survey, electrofishing)
+* `year`
+* `value` (i.e., generally a count)
+
+Data files were provided to me by data coordinators from each of the four states. They are:
+
+* Oregon: Stephanie Gunckel (ODFW)
+* Washington: Marie Winkowski (WDFW)
+* Idaho: Brett Bowersox (IDFG)
+* Montana: Dan Brewer (USFWS), Clint Muhlfeld (USGS), Tim Cline (USGS)
+
+The data coordinators also provided me with some metadata indicating which of the data specific to a location were generally for adults versus juveniles.
+
+# Modeling framework
+
+## Population model
+
+I fit discrete-time versions of exponential models for population growth (decline), such that the abundance of bull trout $(N)$ is a function of the initial population size $N_0$, time $(t)$, the population growth rate $(u)$, and a time-dependent stochastic effect of the environment $(w)$. Specifically, in continuous time the model is
+
+\begin{equation}
+N(t) = N_0 \exp(u) \exp(w t).
+\end{equation}
+
+In discrete time, with a time step of 1 unit (e.g., a year), the model becomes
+
+\begin{equation}
+N_t = N_{t-1} \exp(u + w_t).
+\end{equation}
+
+If we take the logarithm of both sides and define $x_t = \log(N_t)$, we have
+
+\begin{equation}
+x_t = x_{t-1} + u + w_t.
+\end{equation}
+
+Further defining $w_t \sim \text{N}(0, q)$ leads us to a so-called "biased random walk" model, where $u$ is the tendency for the population to increase or decrease each time step (i.e., the bias).
+
+## Observation model
+
+
+
+# Model fitting
+
+All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for the **R** computing software `r citep(citation())`.
+
 
 # References
+
+\setlength{\parindent}{-0.375in}
+\setlength{\leftskip}{0.375in}
+\setlength{\parskip}{8pt}
+\noindent
 
 ```{r}
 ## create ref cited section
