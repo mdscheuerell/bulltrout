@@ -200,15 +200,15 @@ becomes
 
 \begin{equation}
 \begin{bmatrix}
-    x_{1,t} \\
-    x_{2,t} \\
+    x_1 \\
+    x_2 \\
     \vdots \\
-    x_{n,t} \end{bmatrix}_t = 
+    x_n \end{bmatrix}_t = 
  \begin{bmatrix}
-    x_{1, t-1} \\
-    x_{2, t-1} \\
+    x_1 \\
+    x_2 \\
     \vdots \\
-    x_{n, t-1} \end{bmatrix}_t + 
+    x_n \end{bmatrix}_t + 
  \begin{bmatrix}
     u_1 \\
     u_2 \\
@@ -295,19 +295,67 @@ We can write equation (\ref{ex:obs2}) more compactly in matrix notation as
 
 where $\mathbf{y}_t$, $\mathbf{a}$, and $\mathbf{v}_t$ are all $n \times 1$ vectors, $\mathbf{Z}$ is an $n \times k$ matrix, and $\mathbf{x}_t$ is a $k \times 1$ vector.
 
+The equation for the population dynamics in each of the 2 core areas then becomes
 
+\begin{equation}
+\begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_{t-1} + 
+ \begin{bmatrix}
+    u_A \\
+    u_B \end{bmatrix} + 
+ \begin{bmatrix}
+    w_A \\
+    w_B \end{bmatrix}_t,
+\end{equation}
+
+which can be written more compactly in matrix notation as
+
+\begin{equation}
+  \mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t,
+\end{equation}
+
+and combined with equation (\ref{mobs2}) to form the full multivariate state-space model
 
 \begin{equation} \label{mssm}
   \begin{gathered}
     \mathbf{y}_t = \mathbf{Z} \mathbf{x}_t + \mathbf{a} + \mathbf{v}_t \\
-    \mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t
+    \mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t.
   \end{gathered}
 \end{equation}
 
+Thus, by simply altering the dimensions of $\mathbf{Z}$, and the locations of 1's and 0's within it, we can evaluate any number of different hypotheses about how the population dynamics are structured spatially. For example, if we set $\mathbf{Z}$ equal to an $n \times n$ identity matrix, where
+
+\begin{equation}
+  \mathbf{Z} = 
+    \begin{bmatrix}
+      1 & 0 & \cdots & 0 \\
+      0 & 1 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & 1 \\
+    \end{bmatrix}, 
+\end{equation}
+
+then each of the time series of data is assumed to represent a unique state of nature. If, on the other hand, we set $\mathbf{Z}$ equal to an $n \times 1$ column vector of 1's, such that
+
+\begin{equation}
+  \mathbf{Z} = 
+    \begin{bmatrix}
+      1 \\
+      1 \\
+      \vdots \\
+      1 \\
+    \end{bmatrix}, 
+\end{equation}
+
+then each of the time series of data is assumed to represent a sample from a single state of nature.
 
 # Model fitting
 
-All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for the **R** computing software `r citep(citation())`.
+All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for the **R** computing software `r citep(citation())`. All of the data and code necessary to reproduce the results of the analysis can be found online at https://github.com/mdscheuerell/bulltrout.
 
 
 # References
