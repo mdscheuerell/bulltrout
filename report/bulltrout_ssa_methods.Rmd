@@ -173,7 +173,7 @@ or more compactly in matrix notation as
   \mathbf{y}_t = \mathbf{x}_t + \mathbf{a} + \mathbf{v}_t.
 \end{equation}
 
-where $\mathbf{y}_t$, $\mathbf{x}_t$, $\mathbf{a}$, and $\mathbf{v}_t$ are all $n \times 1$ vectors.
+where $\mathbf{y}_t$, $\mathbf{x}_t$, $\mathbf{a}$, $\mathbf{v}_t$ are all $n \times 1$ vectors, and $\mathbf{w}_t \sim \text{MVN}(\mathbf{0}, \mathbf{Q})$.
 
 ### Population model
 
@@ -227,7 +227,7 @@ or more compactly in matrix notation as
   \mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t
 \end{equation}
 
-where $\mathbf{x}_t$, $\mathbf{x}_{t-1}$, $\mathbf{u}$, and $\mathbf{w}_t$ are all $n \times 1$ vectors.
+where $\mathbf{x}_t$, $\mathbf{x}_{t-1}$, $\mathbf{u}$, $\mathbf{w}_t$ are all $n \times 1$ vectors, and $\mathbf{w}_t \sim \text{MVN}(\mathbf{0}, \mathbf{Q})$.
 
 
 ### State-space forms
@@ -352,6 +352,46 @@ then each of the time series of data is assumed to represent a unique state of n
 \end{equation}
 
 then each of the time series of data is assumed to represent a sample from a single state of nature.
+
+
+### Variance specification
+
+The multivariate state-space model allows us to be quite specific about how the observation errors $(\mathbf{v}_t)$ and process errors $(\mathbf{w}_t)$ are related to one another, if at all. In the most simple case, the errors could be independent and identically distributed (IID), such that (for the observation variance)
+
+\begin{equation} 
+  \mathbf{R} = 
+    \begin{bmatrix}
+      r & 0 & \cdots & 0 \\
+      0 & r & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & r \\
+    \end{bmatrix}.
+\end{equation} 
+
+Alternatively, the errors might be independent, but not identically distributed
+
+\begin{equation} 
+  \mathbf{R} = 
+    \begin{bmatrix}
+      r_1 & 0 & \cdots & 0 \\
+      0 & r_2 & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & r_n \\
+    \end{bmatrix},
+\end{equation} 
+
+or identically distributed, but not independent
+
+\begin{equation} 
+  \mathbf{R} = 
+    \begin{bmatrix}
+      r & c & \cdots & c \\
+      c & r & \cdots & c \\
+      \vdots & \vdots & \ddots & \vdots \\
+      c & c & \cdots & r \\
+    \end{bmatrix}.
+\end{equation} 
+
 
 # Model fitting
 
