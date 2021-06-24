@@ -46,29 +46,29 @@ This draft manuscript is distributed solely for purposes of scientific peer revi
 
 # Background
 
-The purpose of this analysis is to estimate trends in the abundance (counts) of bull trout within predefined core areas spread across Oregon, Washington, Idaho, and Montana. 
+Bull trout (_Salvelinus confluentus_) in the western U.S. were listed as threatened under the U.S. Endangered Species Act in 1998. The purpose of this analysis is to estimate trends in the abundance (counts) of bull trout within predefined core areas spread across Oregon, Washington, Idaho, and Montana, as part of the current Species Status Assessment (SSA).
 
 ## Data
 
-I provided a template for the data in a "tidy" format, which consisted of the following 8 fields:
+I provided a MS Excel template for the desired data in a "tidy" format, which consisted of the following 8 fields (columns):
 
 * `dataset` (i.e., integer value for unique ID)
 * `recovery unit` (e.g., Mid Columbia)
 * `core area` (e.g., South Fork Clearwater)
 * `popn/stream` (e.g., Crooked River)
-* `metric` (e.g., abundance, survival)
-* `method` (e.g., redd survey, electrofishing)
+* `metric` (e.g., abundance)
+* `method` (e.g., redd survey)
 * `year`
-* `value` (i.e., generally a count)
+* `value` (i.e., counts)
 
-Data files were provided to me by data coordinators from each of the four states. They are:
+The data coordinators also provided me with some metadata indicating which of the data specific to a location were generally for adults versus juveniles. Data files were subsequently provided to me by data coordinators from each of the four states:
 
 * Oregon: Stephanie Gunckel (ODFW)
 * Washington: Marie Winkowski (WDFW)
 * Idaho: Brett Bowersox (IDFG)
-* Montana: Dan Brewer (USFWS), Clint Muhlfeld (USGS), Tim Cline (USGS)
+* Montana: Dan Brewer (USFWS)
 
-The data coordinators also provided me with some metadata indicating which of the data specific to a location were generally for adults versus juveniles.
+The data from Montana came via biologists with the USGS (Clint Muhlfeld, Tim Cline), and did not conform to the template file I had provided. Thus, those data were subjected to additional cleaning prior to their inclusion with the data from other states (see below).
 
 # Modeling framework
 
