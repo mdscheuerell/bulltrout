@@ -151,11 +151,16 @@ con_list <- list(
 ## fit base model
 mod_fit <- MARSS(yy, model = mod_list, control = con_list)
 
+## save fitted model object
+saveRDS(mod_fit, file.path(output_dir, "model_fits.rds"))
 
 #### bootstrapped CI's ####
 
 ## bootstrap parameters from the Hessian matrix
 mod_fit_CI <- MARSSboot(mod_fit, param.gen = "hessian", nboot = 1000)
+
+## save bootstrapped model object
+saveRDS(mod_fit_CI, file.path(output_dir, "model_fits_CI.rds"))
 
 ## extract bias params
 bias_mat <- mod_fit_CI$boot.params[grep("U.", rownames(mod_fit_CI$boot.params)),]
