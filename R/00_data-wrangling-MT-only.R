@@ -67,9 +67,9 @@ mt_data_all <- file.path(mt_data_dir, mt_file_name) %>%
 ## clean raw data
 mt_data_clean <- mt_data_all %>%
   ## drop rows with <10 years of data
-  filter(TotalYearsCounted > 10) %>%
+  filter(TotalYearsCounted >= 10) %>%
   ## drop cols that don't match template
-  select(!c(`FWP Stream Name For Redd Count Data`, LifeHistory, Kovach_ID, MT_ID, TotalYearsCounted)) %>%
+  select(!c(`Local Population 2015`, LifeHistory, Kovach_ID, MT_ID, TotalYearsCounted)) %>%
   ## years are cols spread out wide; pivot to tidy long format
   pivot_longer(cols = `1979`:`2020`, names_to = "year", values_to = "redds") %>%
   ## need to extract embedded metadata codes from redd counts
