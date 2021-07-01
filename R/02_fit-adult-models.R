@@ -91,6 +91,7 @@ AA <- matrix(0, rr, 1)
 ## covariance matrix for obs (R)
 RR <- matrix(list(0), rr, rr)
 diag(RR) <- yy$source
+# diag(RR) <- rep("r", rr)
 
 ## process eqn
 
@@ -106,12 +107,12 @@ UU <- core_tbl %>%
 ## cov matrix for processes (Q)
 QQ <- matrix(list(0), cc, cc)
 ## diagonal and unequal
-# diag(QQ) <- core_tbl %>%
-#   select(-n) %>%
-#   unite("core_area", state:core_area, sep = ": ") %>%
-#   unlist()
+diag(QQ) <- core_tbl %>%
+  select(-n) %>%
+  unite("core_area", state:core_area, sep = ": ") %>%
+  unlist()
 ## diagonal and equal (IID)
-diag(QQ) <- rep("q", cc)
+# diag(QQ) <- rep("q", cc)
 
 ## data for fitting
 
