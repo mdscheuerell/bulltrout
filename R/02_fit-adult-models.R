@@ -58,7 +58,12 @@ yy <- model_data %>%
   pivot_wider(names_from = year,
               values_from = value,
               names_prefix = "yr") %>%
-  arrange(state, core_area)
+  arrange(state, recovery_unit, core_area) %>%
+  rowwise(state:source) %>%
+  mutate(n_yrs = sum(!is.na(c_across(everything())))) %>%
+  ungroup() %>%
+  filter(n_yrs >= 10) %>%
+  select(-n_yrs)
 
 ## number of core areas (processes, x)
 cc <- length(core_tbl$core_area)
