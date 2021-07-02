@@ -47,11 +47,6 @@ year_smry %>%
 ## remove all-NA records
 # year_smry <- year_smry[-which(is.na(year_smry$state)),]
 
-## number of sites per core area
-core_tbl <- year_smry %>% 
-  group_by(state, core_area) %>%
-  summarise(n = length(core_area))
-
 ## trim years & reshape to "wide" format for MARSS
 yy <- model_data %>%
   filter(year >= yr_first) %>%
@@ -66,9 +61,14 @@ yy <- model_data %>%
   select(-n_yrs)
 
 ## number of core areas (processes, x)
-cc <- length(core_tbl$core_area)
+cc <- length(unique(yy$core_area))
 ## number of locations (streams/rivers, y)
-rr <- length(year_smry$core_area)
+rr <- nrow(yy)
+
+## number of sites per core area
+core_tbl <- yy %>% 
+  group_by(state, core_area) %>%
+  summarise(n = length(core_area))
 
 
 #### MARSS setup ####
