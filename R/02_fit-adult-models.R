@@ -112,12 +112,12 @@ UU <- core_tbl %>%
 ## cov matrix for processes (Q)
 QQ <- matrix(list(0), cc, cc)
 ## diagonal and unequal
-diag(QQ) <- core_tbl %>%
-  select(-n) %>%
-  unite("core_area", state:core_area, sep = ": ") %>%
-  unlist()
+# diag(QQ) <- core_tbl %>%
+#   select(-n) %>%
+#   unite("core_area", state:core_area, sep = ": ") %>%
+#   unlist()
 ## diagonal and equal (IID)
-# diag(QQ) <- rep("q", cc)
+diag(QQ) <- rep("q", cc)
 
 ## data for fitting
 
@@ -166,22 +166,22 @@ saveRDS(mod_fit, file.path(output_dir, "model_fits.rds"))
 #### bootstrapped CI's ####
 
 ## bootstrap parameters from the Hessian matrix
-mod_fit_CI <- MARSSboot(mod_fit, param.gen = "hessian", nboot = 1000)
+mod_fit_CI90 <- MARSSparamCIs(mod_fit, method = "hessian", alpha = 0.1, nboot = 1000)
 
 ## save bootstrapped model object
-saveRDS(mod_fit_CI, file.path(output_dir, "model_fits_CI.rds"))
+saveRDS(mod_fit_CI90, file.path(output_dir, "model_fits_CI.rds"))
 
 ## extract bias params
-bias_mat <- mod_fit_CI$boot.params[grep("U.", rownames(mod_fit_CI$boot.params)),]
+bias_mean <- mod_fit_CI90$parMean[grep("U.", names(mod_fit_CI90$parMean))]
 
 ## summary table of bias CI's
-bias_smry <- bias_mat %>%
-  apply(1, quantile, c(0.025, 0.5, 0.975)) %>%
-  round(digits = 3) %>%
-  t() %>%
+bias_smry <- cbind(mod_fit_CI90$par.lowCI$U,
+                   bias_mean,
+                   mod_fit_CI90$par.upCI$U) %>%
   as.data.frame()
+
 ## better row names
-rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", rownames(bias_smry))
+rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", names(bias_mean))
 
 ## summarize trends
 ## negative
@@ -195,8 +195,7 @@ pos <- bias_smry %>%
   t() %>%
   apply(1, all)
 ## add trend col
-bias_smry <- bias_smry %>%
-  mutate(trend = "0")
+bias_smry$trend = "0"
 bias_smry$trend[neg] <- "-"
 bias_smry$trend[pos] <- "+"
 
