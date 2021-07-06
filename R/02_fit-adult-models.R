@@ -96,7 +96,6 @@ AA <- matrix(0, rr, 1)
 ## covariance matrix for obs (R)
 RR <- matrix(list(0), rr, rr)
 diag(RR) <- yy$source
-# diag(RR) <- rep("r", rr)
 
 ## process eqn
 
@@ -169,7 +168,7 @@ saveRDS(mod_fit, file.path(output_dir, "model_fits.rds"))
 mod_fit_CI90 <- MARSSparamCIs(mod_fit, method = "hessian", alpha = 0.1, nboot = 1000)
 
 ## save bootstrapped model object
-saveRDS(mod_fit_CI90, file.path(output_dir, "model_fits_CI.rds"))
+saveRDS(mod_fit_CI90, file.path(output_dir, "model_fits_CI90.rds"))
 
 ## extract bias params
 bias_mean <- mod_fit_CI90$parMean[grep("U.", names(mod_fit_CI90$parMean))]
