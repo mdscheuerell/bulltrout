@@ -22,33 +22,12 @@ adult_data <- read_csv(file = file.path(clean_data_dir,
                                         "bull_trout_SSA_data_all_states_adults.csv"))
 
 
-#### data summary ####
-
-## select only abundance metrics
-model_data <- adult_data %>%
-  filter(metric == "abundance") %>%
-  select(-metric)
-
-## data summary for adults
-year_smry <- model_data %>%
-  group_by(state, 
-           dataset,
-           recovery_unit, 
-           core_area, 
-           popn_stream, 
-           source) %>%
-  summarise(first_year = min(year),
-            last_year = max(year))
-
-## write summary info to file
-year_smry %>% 
-  write_csv(file = file.path(output_dir, "bull_trout_SSA_adult_data_summary.csv"))
-
-## remove all-NA records
-# year_smry <- year_smry[-which(is.na(year_smry$state)),]
+#### data formatting ####
 
 ## trim years & reshape to "wide" format for MARSS
-yy <- model_data %>%
+yy <- adult_data %>%
+  filter(metric == "abundance") %>%
+  select(-metric) %>%
   filter(year >= yr_first) %>%
   pivot_wider(names_from = year,
               values_from = value,
