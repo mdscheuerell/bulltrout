@@ -231,14 +231,15 @@ mod_fit_late_CI90 <- MARSSparamCIs(mod_fit_late, method = "hessian", alpha = 0.1
 saveRDS(mod_fit_late_CI90, file.path(output_dir, "model_fits_late_CI90.rds"))
 
 ## extract bias params
-bias_late_mean <- mod_fit_late_CI90$parMean[grep("C.", names(mod_fit_late_CI90$parMean))]
+bias_late_mean <- mod_fit_late_CI90$parMean[grep("U.", names(mod_fit_late_CI90$parMean))]
 
 ## summary table of bias CI's
 bias_smry <- cbind(mod_fit_late_CI90$par.lowCI$U,
                    bias_late_mean,
                    mod_fit_late_CI90$par.upCI$U) %>%
   as.data.frame()
-
+## better col names
+colnames(bias_smry) <- c("lo95CI", "mean", "up95CI")
 ## better row names
 rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", names(bias_late_mean))
 
