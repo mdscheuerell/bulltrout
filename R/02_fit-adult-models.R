@@ -61,9 +61,9 @@ yy <- model_data %>%
   select(-n_yrs)
 
 ## number of core areas (processes, x)
-cc <- length(unique(yy$core_area))
+nc <- length(unique(yy$core_area))
 ## number of locations (streams/rivers, y)
-rr <- nrow(yy)
+nr <- nrow(yy)
 
 ## number of sites per core area
 core_tbl <- yy %>% 
@@ -76,10 +76,10 @@ core_tbl <- yy %>%
 ## observation eqn
 
 ## empty Z matrix for mapping obs to processes
-ZZ <- matrix(0, rr, cc)
+ZZ <- matrix(0, nr, nc)
 
 ## loop over core areas to set cols of Z
-for (jj in 1:cc) {
+for (jj in 1:nc) {
   ## seq for row indices
   ll <- seq(as.integer(core_tbl[jj, 3]))
   ## last row
@@ -91,32 +91,32 @@ for (jj in 1:cc) {
 }
 
 ## offsets for obs (a); data de-meaned so all 0's
-AA <- matrix(0, rr, 1)
+AA <- matrix(0, nr, 1)
 
 ## covariance matrix for obs (R)
-RR <- matrix(list(0), rr, rr)
+RR <- matrix(list(0), nr, nr)
 diag(RR) <- yy$source
 
 ## process eqn
 
 ## interactions matrix (B); set to I for RW's
-BB <- diag(cc)
+BB <- diag(nc)
 
 ## bias terms (u); each core area gets a unique bias term
 UU <- core_tbl %>%
   select(-n) %>%
   unite("core_area", state:core_area, sep = ": ") %>%
-  as.matrix(nrow = cc, ncol = 1)
+  as.matrix(nrow = nc, ncol = 1)
 
 ## cov matrix for processes (Q)
-QQ <- matrix(list(0), cc, cc)
+QQ <- matrix(list(0), nc, nc)
 ## diagonal and unequal
 # diag(QQ) <- core_tbl %>%
 #   select(-n) %>%
 #   unite("core_area", state:core_area, sep = ": ") %>%
 #   unlist()
 ## diagonal and equal (IID)
-diag(QQ) <- rep("q", cc)
+diag(QQ) <- rep("q", nc)
 
 ## data for fitting
 
@@ -202,5 +202,64 @@ bias_smry$trend[pos] <- "+"
 bias_smry %>% 
   write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_adults_biases.csv"))
 
+
+#### late-period trend ####
+
+## covariate for trend
+cc <- ((seq(yr_first, 2020) >= 2008) * 1) %>%
+  matrix(nrow = 1)
+
+## update model list
+mod_list$U <- matrix(0, ncol = 1, nrow = nc)
+  
+mod_list$C <- UU
+
+mod_list$c <- cc
+
+## fit late-period model
+mod_fit_late <- MARSS(yy, model = mod_list, control = con_list)
+
+## save fitted model object
+saveRDS(mod_fit_late, file.path(output_dir, "model_fits_late.rds"))
+
+#### late-period bootstrapped CI's ####
+
+## bootstrap parameters from the Hessian matrix
+mod_fit_late_CI90 <- MARSSparamCIs(mod_fit_late, method = "hessian", alpha = 0.1, nboot = 1000)
+
+## save bootstrapped model object
+saveRDS(mod_fit_late_CI90, file.path(output_dir, "model_fits_late_CI90.rds"))
+
+## extract bias params
+bias_late_mean <- mod_fit_late_CI90$parMean[grep("C.", names(mod_fit_late_CI90$parMean))]
+
+## summary table of bias CI's
+bias_smry <- cbind(mod_fit_late_CI90$par.lowCI$U,
+                   bias_late_mean,
+                   mod_fit_late_CI90$par.upCI$U) %>%
+  as.data.frame()
+
+## better row names
+rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", names(bias_late_mean))
+
+## summarize trends
+## negative
+neg <- bias_smry %>%
+  apply(1, function(x) x < 0) %>%
+  t() %>%
+  apply(1, all)
+## positive
+pos <- bias_smry %>%
+  apply(1, function(x) x > 0) %>%
+  t() %>%
+  apply(1, all)
+## add trend col
+bias_smry$trend = "0"
+bias_smry$trend[neg] <- "-"
+bias_smry$trend[pos] <- "+"
+
+## write bias summary to file
+bias_smry %>% 
+  write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_adults_late_biases.csv"))
 
 
