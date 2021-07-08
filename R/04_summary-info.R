@@ -102,7 +102,7 @@ for(i in 1:n_cores) {
   
   ## plot abundance index
   par(mai = c(0.9, 0.9, 0.6, 0.1))
-  matplot(seq(yr_first, yr_last), tmp,
+  matplot(t_index, tmp,
           type = "o", lty = "solid", pch = 16, col = clr,
           ylim = range(c(tmp, tmp2), na.rm = TRUE),
           las = 1, xaxt = "n", xlab = "Year", ylab = "Abundance index")
@@ -110,7 +110,7 @@ for(i in 1:n_cores) {
         side = 3, line = 0.5, adj = 0)
   axis(1, seq(5, 30, 5), seq(1995, 2020, 5))
   ## plot estimated trend
-  lines(tmp2, lwd = 3)
+  lines(t_index, tmp2, lwd = 3)
   
 }
 
