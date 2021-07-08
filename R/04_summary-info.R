@@ -8,7 +8,7 @@
 ## library(MARSS)
 library(tidyr)
 library(dplyr)
-library(RColorBrewer)
+library(viridisLite)
 
 ## set directories
 clean_data_dir <- here::here("data", "clean")
@@ -18,6 +18,7 @@ output_dir <- here::here("output")
 yr_first <- 1991
 yr_last <- 2020
 
+## time index for plots
 t_index <- seq(yr_first, yr_last)
 
 #### get observed data ####
@@ -28,39 +29,31 @@ adult_data <- readr::read_csv(file = file.path(clean_data_dir,
 
 ## trim years, reshape to "wide" format & transform for MARSS
 yy <- adult_data %>%
+  ## extract abundance data only
   filter(metric == "abundance") %>%
+  ## drop metric
   select(-metric) %>%
+  ## filter appropriate years
   filter(year >= yr_first) %>%
+  ## pivot to wide
   pivot_wider(names_from = year,
               values_from = value,
               names_prefix = "yr") %>%
+  ## sort by state & core area
   arrange(state, recovery_unit, core_area) %>%
+  ## get total years of data
   rowwise(state:source) %>%
   mutate(n_yrs = sum(!is.na(c_across(everything())))) %>%
   ungroup() %>%
+  ## select only those local popns with >=10 yrs of data
   filter(n_yrs >= 10) %>%
   select(-n_yrs) 
-  
-  
-yt <- yy %>%
-  ## drop ID cols
-  select(-(state:source)) %>%
-  ## convert to matrix
-  as.matrix() %>%
-  + 1 %>%
-  ## log-transform
-  log() %>%
-  ## remove the mean
-  MARSS:::zscore(mean.only = FALSE)
 
 
 #### entire time period ####
 
 ## get model fits
 mod_fit_CI90 <- readRDS((file = file.path(output_dir, "model_fits_CI90.rds")))
-
-
-#### summary plots of trends ####
 
 ## extract core area names
 core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
@@ -70,22 +63,20 @@ core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
   as.data.frame() %>%
   `colnames<-`(c("state", "core_area"))
 
-n_states <- length(unique(core_areas$state))
+## number of core areas
 n_cores <- nrow(core_areas)
 
 
+#### summary plots of trends ####
 
-tmp <- subset(yy, core_area == "LPO") %>%
-  select(starts_with("yr")) %>%
-  t() %>%
-  log() %>%
-  scale()
+## write plots to pdf
+pdf(file = file.path(output_dir, "bull_trout_SSA_summary_plots.pdf"),
+    height = 6, width = 9)
 
-
-n_cores <- 2
-
+## loop over core areas by state
 for(i in 1:n_cores) {
 
+  ## extract obs data for core area
   tmp <- yy %>%
     filter(core_area == core_areas[i,"core_area"]) %>%
     ## drop ID cols
@@ -97,24 +88,33 @@ for(i in 1:n_cores) {
     log() %>%
     ## remove the mean
     MARSS:::zscore(mean.only = FALSE) %>%
+    ## pivot to long
     t()
   
+  ## get estimated trend line
+  tmp2 <- mod_fit_CI90$states[i,]
+  
+  ## number of local popns in the core area
   nn <- ncol(tmp)
-  clr <- brewer.pal(nn, "Blues")
   
+  ## set colormap
+  clr <- mako(nn, begin = 0.4, end = 0.9)
+  
+  ## plot abundance index
   par(mai = c(0.9, 0.9, 0.6, 0.1))
-  
-  matplot(seq(1991:2020), tmp,
+  matplot(seq(yr_first, yr_last), tmp,
           type = "o", lty = "solid", pch = 16, col = clr,
+          ylim = range(c(tmp, tmp2), na.rm = TRUE),
           las = 1, xaxt = "n", xlab = "Year", ylab = "Abundance index")
   mtext(paste0(core_areas[i,"state"], ": ", core_areas[i,"core_area"]),
         side = 3, line = 0.5, adj = 0)
   axis(1, seq(5, 30, 5), seq(1995, 2020, 5))
-  lines(mod_fit_CI90$states[i,], lwd = 3)
+  ## plot estimated trend
+  lines(tmp2, lwd = 3)
   
 }
 
-
+dev.off()
 
 
 
