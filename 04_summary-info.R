@@ -8,6 +8,7 @@
 ## library(MARSS)
 library(tidyr)
 library(dplyr)
+library(RColorBrewer)
 
 ## set directories
 clean_data_dir <- here::here("data", "clean")
@@ -17,6 +18,7 @@ output_dir <- here::here("output")
 yr_first <- 1991
 yr_last <- 2020
 
+t_index <- seq(yr_first, yr_last)
 
 #### get observed data ####
 
@@ -65,8 +67,52 @@ core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
   rownames() %>%
   strsplit(": ") %>%
   do.call(what = rbind) %>%
+  as.data.frame() %>%
   `colnames<-`(c("state", "core_area"))
 
+n_states <- length(unique(core_areas$state))
+n_cores <- nrow(core_areas)
+
+
+
+tmp <- subset(yy, core_area == "LPO") %>%
+  select(starts_with("yr")) %>%
+  t() %>%
+  log() %>%
+  scale()
+
+
+n_cores <- 2
+
+for(i in 1:n_cores) {
+
+  tmp <- yy %>%
+    filter(core_area == core_areas[i,"core_area"]) %>%
+    ## drop ID cols
+    select(-(state:source)) %>%
+    ## convert to matrix
+    as.matrix() %>%
+    + 1 %>%
+    ## log-transform
+    log() %>%
+    ## remove the mean
+    MARSS:::zscore(mean.only = FALSE) %>%
+    t()
+  
+  nn <- ncol(tmp)
+  clr <- brewer.pal(nn, "Blues")
+  
+  par(mai = c(0.9, 0.9, 0.6, 0.1))
+  
+  matplot(seq(1991:2020), tmp,
+          type = "o", lty = "solid", pch = 16, col = clr,
+          las = 1, xaxt = "n", xlab = "Year", ylab = "Abundance index")
+  mtext(paste0(core_areas[i,"state"], ": ", core_areas[i,"core_area"]),
+        side = 3, line = 0.5, adj = 0)
+  axis(1, seq(5, 30, 5), seq(1995, 2020, 5))
+  lines(mod_fit_CI90$states[i,], lwd = 3)
+  
+}
 
 
 
