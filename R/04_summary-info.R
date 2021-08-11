@@ -88,16 +88,22 @@ for(i in 1:n_cores) {
     ## pivot to long
     t()
   
-  ## get estimated trend line
-  tmp2 <- mod_fit_CI90$states[i,]
-  
-  ## get SE of estimated trend line
-  tmp3u <- tmp2 + 1.645*mod_fit_CI90$states.se[i,]
-  tmp3l <- tmp2 - 1.645*mod_fit_CI90$states.se[i,]
-  
-  
   ## number of local popns in the core area
   nn <- ncol(tmp)
+  
+  ## trim states to data
+  tmp_na <- (!is.na(tmp)) %>%
+    apply(1, any)
+  tmp_sf <- seq(length(t_index))[tmp_na] %>%
+    range()
+  tmp_t <- seq(tmp_sf[1], tmp_sf[2])
+  
+  ## get estimated trend line
+  tmp2 <- mod_fit_CI90$states[i, tmp_t]
+  
+  ## get SE of estimated trend line
+  tmp3u <- tmp2 + 1.645*mod_fit_CI90$states.se[i, tmp_t]
+  tmp3l <- tmp2 - 1.645*mod_fit_CI90$states.se[i, tmp_t]
   
   ## set colormap
   clr <- mako(nn, begin = 0.4, end = 0.9)
@@ -106,14 +112,14 @@ for(i in 1:n_cores) {
   par(mai = c(0.9, 0.9, 0.6, 0.1))
   matplot(t_index, tmp,
           type = "o", lty = "solid", pch = 16, col = clr,
-          ylim = range(c(tmp, tmp2), na.rm = TRUE),
+          ylim = range(c(tmp, tmp2, tmp3u, tmp3l), na.rm = TRUE),
           las = 1, xlab = "Year", ylab = "Abundance index")
   mtext(paste0(core_areas[i,"state"], ": ", core_areas[i,"core_area"]),
         side = 3, line = 0.5, adj = 0)
   ## plot estimated trend
-  lines(t_index, tmp2, lwd = 3)
-  lines(t_index, tmp3u, lwd = 2, col = "gray")
-  lines(t_index, tmp3l, lwd = 2, col = "gray")
+  lines(t_index[tmp_t], tmp2, lwd = 3)
+  lines(t_index[tmp_t], tmp3u, lwd = 2, col = "gray")
+  lines(t_index[tmp_t], tmp3l, lwd = 2, col = "gray")
   
 }
 
