@@ -46,7 +46,7 @@ nr <- nrow(yy)
 
 ## number of sites per core area
 core_tbl <- yy %>% 
-  group_by(state, core_area) %>%
+  group_by(state, recovery_unit, core_area) %>%
   summarise(n = length(core_area))
 
 
@@ -60,7 +60,7 @@ ZZ <- matrix(0, nr, nc)
 ## loop over core areas to set cols of Z
 for (jj in 1:nc) {
   ## seq for row indices
-  ll <- seq(as.integer(core_tbl[jj, 3]))
+  ll <- seq(as.integer(core_tbl[jj, 4]))
   ## last row
   xx <- ifelse(jj == 1, 0, max(ii))
   ## seq for row indices
