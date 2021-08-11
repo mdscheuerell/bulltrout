@@ -156,6 +156,7 @@ bias_mean <- mod_fit_CI90$parMean[grep("U.", names(mod_fit_CI90$parMean))]
 bias_smry <- cbind(mod_fit_CI90$par.lowCI$U,
                    bias_mean,
                    mod_fit_CI90$par.upCI$U) %>%
+  round(4) %>%
   as.data.frame()
 
 ## better row names
@@ -216,6 +217,7 @@ bias_late_mean <- mod_fit_late_CI90$parMean[grep("U.", names(mod_fit_late_CI90$p
 bias_smry <- cbind(mod_fit_late_CI90$par.lowCI$U,
                    bias_late_mean,
                    mod_fit_late_CI90$par.upCI$U) %>%
+  round(4) %>%
   as.data.frame()
 ## better col names
 colnames(bias_smry) <- c("lo95CI", "mean", "up95CI")
