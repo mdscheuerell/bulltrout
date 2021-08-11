@@ -61,7 +61,7 @@ core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
   strsplit(": ") %>%
   do.call(what = rbind) %>%
   as.data.frame() %>%
-  `colnames<-`(c("state", "core_area"))
+  `colnames<-`(c("state", "recovery_unit", "core_area"))
 
 ## number of core areas
 n_cores <- nrow(core_areas)
@@ -91,6 +91,11 @@ for(i in 1:n_cores) {
   ## get estimated trend line
   tmp2 <- mod_fit_CI90$states[i,]
   
+  ## get SE of estimated trend line
+  tmp3u <- tmp2 + 1.645*mod_fit_CI90$states.se[i,]
+  tmp3l <- tmp2 - 1.645*mod_fit_CI90$states.se[i,]
+  
+  
   ## number of local popns in the core area
   nn <- ncol(tmp)
   
@@ -107,6 +112,8 @@ for(i in 1:n_cores) {
         side = 3, line = 0.5, adj = 0)
   ## plot estimated trend
   lines(t_index, tmp2, lwd = 3)
+  lines(t_index, tmp3u, lwd = 2, col = "gray")
+  lines(t_index, tmp3l, lwd = 2, col = "gray")
   
 }
 
