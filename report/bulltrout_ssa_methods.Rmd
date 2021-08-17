@@ -189,10 +189,10 @@ We can again express all of the population models in matrix form, such that
 
 \begin{equation} 
   \begin{gathered}
-    x_{1,t} = x_{1,t-1} + a_1 + w_{1,t} \\
-    x_{2,t} = x_{2,t-1} + a_2 + w_{2,t} \\
+    x_{1,t} = x_{1,t-1} + u_1 + w_{1,t} \\
+    x_{2,t} = x_{2,t-1} + u_2 + w_{2,t} \\
     \vdots \\
-    x_{n,t} = x_{n,t-1} + a_3 + w_{n,t} \\
+    x_{n,t} = x_{n,t-1} + u_3 + w_{n,t} \\
   \end{gathered} 
 \end{equation}
 
