@@ -468,7 +468,7 @@ $$\begin{gathered}
     x_{1,t} = x_{1,t-1} + u_1 + w_{1,t} \\
     x_{2,t} = x_{2,t-1} + u_2 + w_{2,t} \\
     \vdots \\
-    x_{n,t} = x_{n,t-1} + u_3 + w_{n,t} \\
+    x_{n,t} = x_{n,t-1} + u_n + w_{n,t} \\
   \end{gathered}$$
 
 
@@ -504,28 +504,41 @@ $$\begin{bmatrix}
 
 # Observation model for multiple time series
 
-### .blue-text[ Example with 4 popns (1-4) and 2 core areas (A & B) ]
+### .blue-text[ Core areas have from 1-22 populations within them ]
+
+### .blue-text[ We need a way to map populations to their respective core area ]
+
+
+---
+
+# Observation model for multiple time series
+
+### .blue-text[ Example with 5 popns (1-5) and 2 core areas (A & B) ]
 
 $$\begin{bmatrix}
     y_{1} \\
     y_{2} \\
     y_{3} \\
-    y_{4} \end{bmatrix}_t = 
+    y_{4} \\
+    y_{5} \end{bmatrix}_t = 
  \begin{bmatrix}
     x_{A} \\
     x_{A} \\
+    x_{B} \\
     x_{B} \\
     x_{B} \end{bmatrix}_t + 
  \begin{bmatrix}
     a_1 \\
     a_2 \\
     a_3 \\
-    a_4 \end{bmatrix} + 
+    a_4 \\
+    a_5 \end{bmatrix} + 
  \begin{bmatrix}
     v_{1} \\
     v_{2} \\
     v_{3} \\
-    v_{4} \end{bmatrix}_t$$
+    v_{4} \\
+    v_{5} \end{bmatrix}_t$$
     
 
 ---
@@ -538,10 +551,12 @@ $$\begin{bmatrix}
     y_{1} \\
     y_{2} \\
     y_{3} \\
-    y_{4} \end{bmatrix}_t = 
+    y_{4} \\
+    y_{5} \end{bmatrix}_t = 
 \begin{bmatrix}
     1 & 0 \\
     1 & 0 \\
+    0 & 1 \\
     0 & 1 \\
     0 & 1 \end{bmatrix}  
  \begin{bmatrix}
@@ -551,12 +566,14 @@ $$\begin{bmatrix}
     a_1 \\
     a_2 \\
     a_3 \\
-    a_4 \end{bmatrix} + 
+    a_4 \\
+    a_5 \end{bmatrix} + 
  \begin{bmatrix}
     v_{1} \\
     v_{2} \\
     v_{3} \\
-    v_{4} \end{bmatrix}_t \\[50pt]
+    v_{4} \\
+    v_{5} \end{bmatrix}_t \\[50pt]
     \begin{bmatrix}
     x_{A} \\
     x_{B} \end{bmatrix}_t = 
@@ -689,6 +706,8 @@ background-size: 90%
 ## Open science
 
 ### .blue-text[https://github.com/mdscheuerell/bulltrout]
+
+<br>
 
 ## Image sources
 
