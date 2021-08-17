@@ -10,6 +10,7 @@ output:
 
 ```{r setup, include=FALSE, message=FALSE}
 options(htmltools.dir.version = FALSE, servr.daemon = TRUE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, dpi=300, out.height="100%", out.width="100%")
 library(icons)
 ```
 
@@ -377,6 +378,25 @@ $$x_t = x_{t-1} + u + w_t$$
 
 ### .blue-text[is a so-called *biased random walk*]
 
+
+---
+
+# Examples of biased random walks
+
+```{r ex_biased_rw, fig.dim = c(8,5), fig.align = 'center'}
+set.seed(123)
+
+x1 <- cumsum(rnorm(30, 0.1, 0.2))
+
+x2 <- cumsum(rnorm(30, -0.1, 0.2))
+
+par(mfrow = c(1,2), mai = c(1, 1, 1, 0))
+plot.ts(x1, las = 1, col = "dodgerblue", lwd = 2,
+        ylab = expression(italic(x[t])), main = "Positive bias")
+
+plot.ts(x2, las = 1, col = "indianred", lwd = 2, 
+        ylab = expression(italic(x[t])), main = "Negative bias")
+```
 
 ---
 
