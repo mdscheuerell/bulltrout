@@ -386,9 +386,9 @@ $$x_t = x_{t-1} + u + w_t$$
 ```{r ex_biased_rw, fig.dim = c(8,5), fig.align = 'center'}
 set.seed(123)
 
-x1 <- cumsum(rnorm(30, 0.1, 0.2))
+x1 <- cumsum(rnorm(30, 0.1, 0.2)) + 10
 
-x2 <- cumsum(rnorm(30, -0.1, 0.2))
+x2 <- cumsum(rnorm(30, -0.1, 0.2)) + 10
 
 par(mfrow = c(1,2), mai = c(1, 1, 1, 0))
 plot.ts(x1, las = 1, col = "dodgerblue", lwd = 2,
@@ -397,6 +397,7 @@ plot.ts(x1, las = 1, col = "dodgerblue", lwd = 2,
 plot.ts(x2, las = 1, col = "indianred", lwd = 2, 
         ylab = expression(italic(x[t])), main = "Negative bias")
 ```
+
 
 ---
 
@@ -419,26 +420,23 @@ $$v_t \sim \text{N}(0, r)$$
 
 ---
 
-# Math side-by-side
+# Examples with observation error
 
-Here are two sets of equations. To do this, you have to use inline math (single $) with each equation on its own line.
+```{r ex_biased_rw_y, fig.dim = c(8,5), fig.align = 'center'}
+y1 <- x1 + rnorm(30, 0, 0.2)
 
-.pull-left.center[
-.under[Random walk]
+y2 <- x2 + rnorm(30, 0, 0.2)
 
-$\mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{w}_t$
+par(mfrow = c(1,2), mai = c(1, 1, 1, 0))
+plot.ts(x1, las = 1, col = "dodgerblue", lwd = 2, ylim = range(x1, y1),
+        ylab = expression(italic(x[t])), main = "Positive bias")
+lines(y1, col = "gray", lwd = 2)
 
-$\mathbf{y}_t = \mathbf{x}_t + \mathbf{v}_t$
-]
+plot.ts(x2, las = 1, col = "indianred", lwd = 2, ylim = range(x2, y2),
+        ylab = expression(italic(x[t])), main = "Negative bias")
+lines(y2, col = "gray", lwd = 2)
+```
 
-.pull-right.center[
-.under[Biased random walk]
-
-$\boldsymbol{\theta}_t = \boldsymbol{\theta}_{t-1} + \boldsymbol{\mu} + \boldsymbol{\omega}_t$
-
-$\mathbf{y}_t = \boldsymbol{\theta}_t + \boldsymbol{\eta}_t$
-
-]
 
 ---
 
