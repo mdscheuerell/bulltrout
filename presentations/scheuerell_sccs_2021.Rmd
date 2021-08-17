@@ -24,31 +24,33 @@ _U.S. Geological Survey<br>Washington Cooperative Fish and Wildlife Research Uni
 
 ---
 
-# Acknowledgments
+# Bull trout assessment team
 
 .pull-left[
 
-### .green-text[ Brett Bowersox ] (IDFG)
+### .green-text[ Brett Bowersox (IDFG) ]
 
-### .green-text[ Dan Brewer ] (USFWS)
+### .green-text[ Dan Brewer (USFWS) ]
 
-### .blue-text[ Erin Britton-Kuttel ] (USFWS)
+### .blue-text[ Erin Britton-Kuttel (USFWS) ]
 
-### .blue-text[ Sean Finn ] (USFWS)
+### .blue-text[ Sean Finn (USFWS) ]
 
-### .green-text[ Stephanie Gunckel ] (USFWS)
+### .green-text[ Stephanie Gunckel (USFWS) ]
 
 ]
 
 .pull-right[
 
-### .blue-text[ Rebecca Migala ] (USFWS)
+### .blue-text[ Craig Hansen (USFWS) ]
 
-### .blue-text[ Dan Nolfi ] (USFWS)
+### .blue-text[ Rebecca Migala (USFWS) ]
 
-### .green-text[ Marie Winkowski ] (WDFW)
+### .blue-text[ Dan Nolfi (USFWS) ]
 
-### .blue-text[ Alan Yanahan ] (USFWS)
+### .green-text[ Marie Winkowski (WDFW) ]
+
+### .blue-text[ Alan Yanahan (USFWS) ]
 
 ]
 
@@ -286,7 +288,102 @@ background-size: 40%
 
 ## 4. .gray-text[Data-poor] benefit from .green-text[data-rich]
 
-***
+
+---
+
+class: inverse, center, middle
+
+# Model for the state of nature
+
+
+---
+
+# Population dynamics
+
+### .blue-text[Exponential growth in continuous time]
+
+$$N(t) = N_0 \exp(u) \exp(w t)$$
+
+
+---
+
+# Population dynamics
+
+### .blue-text[Exponential growth in continuous time]
+
+$$N(t) = N_0 ~ \underbrace{\exp(u)}_{\substack{\text{growth} \\ \text{rate}}} \exp(w t)$$
+
+
+---
+
+# Population dynamics
+
+### .blue-text[Exponential growth in continuous time]
+
+$$N(t) = N_0 \exp(u) \underbrace{\exp(w t)}_{\substack{\text{stochastic} \\ \text{environment}}}$$
+
+
+---
+
+# Population dynamics
+
+### .blue-text[Exponential growth in continuous time]
+
+$$N(t) = N_0 \exp(u) \exp(w t)$$
+
+<br>
+
+### .blue-text[In discrete time, with a time step of 1 year, the model is]
+
+$$N_t = N_{t-1} \exp(u + w_t)$$
+
+---
+
+# Population dynamics
+
+### .blue-text[In discrete time, with a time step of 1 year, the model is]
+
+$$N_t = N_{t-1} \exp(u + w_t)$$
+
+<br>
+
+### .blue-text[Taking the logarithm of both sides yields]
+
+$$\log (N_t) = \log (N_{t-1}) + u + w_t$$
+
+---
+
+# Population dynamics
+
+### .blue-text[We can define]
+
+$$x = \log (N)$$
+
+### .blue-text[ such that ]
+
+$$\log (N_t) = \log (N_{t-1}) + u + w_t \\ \Downarrow \\ x_t = x_{t-1} + u + w_t$$
+
+---
+
+# Biased random walk
+
+### .blue-text[If we assume that the errors are white noise]
+
+$$w_t \sim \text{N}(0, q)$$
+
+### .blue-text[ then our model of populations dynamics]
+
+$$x_t = x_{t-1} + u + w_t$$
+
+### .blue-text[is a so-called *biased random walk*]
+
+
+---
+
+class: inverse, center, middle
+
+# Observation model
+
 
 ---
 
