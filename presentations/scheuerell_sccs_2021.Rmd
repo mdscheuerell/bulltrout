@@ -594,10 +594,76 @@ lines(y3, col = clr[3], lwd = 2)
 
 ---
 
+# Fitting the models
+
+### .blue-text[ We used the time period from 1991-2020 ]
+
+### .blue-text[ Time series needed at least 10 year of non-missing data ]
+
+### .green-text[ All models were fit in **R** using the `{MARSS}` package ]
+
+### .green-text[ I estimated 90% confidence intervals on bias terms ]
+
+
+---
+
 class: inverse, center, middle
 
 # RESULTS
 
+
+---
+
+# Bias in trends
+
+### .blue-text[ 35/61 core areas had a negative trend ]
+
+### .blue-text[ But only 3/61 were "signficantly" negative ]
+
+
+---
+
+class: frimg, center
+background-image: url(figs/kootenai.png)
+background-position: 50% 75%
+background-size: 90%
+
+# Example of a significant decline
+
+
+---
+
+# Bias in trends
+
+### .blue-text[ 35/61 core areas had a negative trend ]
+
+### .blue-text[ But only 3/61 were "signficantly" negative ]
+
+<br>
+
+### .green-text[ 26/61 core areas had a positive trend ]
+
+### .green-text[ But only 6/61 were "signficantly" positive ]
+
+
+---
+
+class: frimg, center
+background-image: url(figs/lower_deschutes.png)
+background-position: 50% 75%
+background-size: 90%
+
+# Example of a significant increase
+
+
+---
+
+class: frimg, center
+background-image: url(figs/skokomish.png)
+background-position: 50% 75%
+background-size: 90%
+
+# Example of no systematic trend
 
 
 ---
