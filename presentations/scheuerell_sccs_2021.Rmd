@@ -499,11 +499,86 @@ $$\begin{bmatrix}
     \vdots \\
     w_{n} \end{bmatrix}_t$$
     
-### .blue-text[ or more compactly as ]
 
-$$\mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t$$
+---
 
-  
+# Observation model for multiple time series
+
+### .blue-text[ Example with 4 popns (1-4) and 2 core areas (A & B) ]
+
+$$\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    y_{3} \\
+    y_{4} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_{A} \\
+    x_{A} \\
+    x_{B} \\
+    x_{B} \end{bmatrix}_t + 
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+    a_4 \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    v_{3} \\
+    v_{4} \end{bmatrix}_t$$
+    
+
+---
+
+# Full state-space form
+
+### .blue-text[ Combining the observation & state models ]
+
+$$\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    y_{3} \\
+    y_{4} \end{bmatrix}_t = 
+\begin{bmatrix}
+    1 & 0 \\
+    1 & 0 \\
+    0 & 1 \\
+    0 & 1 \end{bmatrix}  
+ \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_t +
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+    a_4 \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    v_{3} \\
+    v_{4} \end{bmatrix}_t \\[50pt]
+    \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_{t-1} + 
+ \begin{bmatrix}
+    u_A \\
+    u_B \end{bmatrix} + 
+ \begin{bmatrix}
+    w_A \\
+    w_B \end{bmatrix}_t$$
+    
+
+---
+
+class: inverse, center, middle
+
+# RESULTS
+
+
+
 ---
 
 # In summary
