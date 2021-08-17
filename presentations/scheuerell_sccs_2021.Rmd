@@ -15,7 +15,7 @@ library(icons)
 ```
 
 class: center, middle
-# Population trend analysis for bull trout core areas in OR, WA, ID & MT
+# Population trend analysis for bull trout in Oregon, Washington, Idaho & Montana
 ## Mark Scheuerell
 _U.S. Geological Survey<br>Washington Cooperative Fish and Wildlife Research Unit<br>School of Aquatic and Fishery Sciences<br>University of Washington<br>Seattle, WA_
 
@@ -611,6 +611,14 @@ lines(y3, col = clr[3], lwd = 2)
 
 ---
 
+# Different survey methods get different variances
+
+### .blue-text[ For example, weir counts are more accurate than snorkel surveys ]
+
+### .blue-text[ Multiple surveys of each type helps inform the variance estimates ]
+
+---
+
 # Fitting the models
 
 ### .blue-text[ We used the time period from 1991-2020 ]
@@ -725,6 +733,9 @@ background-size: 90%
 ### ~10% of core areas were increasing signficantly
 ]
 
+.futnote.purple-text[`r icon_style(fontawesome("envelope"), fill = "#844870")` scheuerl@uw.edu]
+
+.citation.blue-text[`r icon_style(fontawesome("twitter"), fill = "#488fdf")` @mark_scheuerell]
 
 ---
 

@@ -13,7 +13,7 @@
 
 
 class: center, middle
-# Population trend analysis for bull trout core areas in OR, WA, ID &amp; MT
+# Population trend analysis for bull trout in Oregon, Washington, Idaho &amp; Montana
 ## Mark Scheuerell
 _U.S. Geological Survey&lt;br&gt;Washington Cooperative Fish and Wildlife Research Unit&lt;br&gt;School of Aquatic and Fishery Sciences&lt;br&gt;University of Washington&lt;br&gt;Seattle, WA_
 
@@ -23,31 +23,33 @@ _U.S. Geological Survey&lt;br&gt;Washington Cooperative Fish and Wildlife Resear
 
 ---
 
-# Acknowledgments
+# Bull trout assessment team
 
 .pull-left[
 
-### .green-text[ Brett Bowersox ] (IDFG)
+### .green-text[ Brett Bowersox (IDFG) ]
 
-### .green-text[ Dan Brewer ] (USFWS)
+### .green-text[ Dan Brewer (USFWS) ]
 
-### .blue-text[ Erin Britton-Kuttel ] (USFWS)
+### .blue-text[ Erin Britton-Kuttel (USFWS) ]
 
-### .blue-text[ Sean Finn ] (USFWS)
+### .blue-text[ Sean Finn (USFWS) ]
 
-### .green-text[ Stephanie Gunckel ] (USFWS)
+### .green-text[ Stephanie Gunckel (USFWS) ]
 
 ]
 
 .pull-right[
 
-### .blue-text[ Rebecca Migala ] (USFWS)
+### .blue-text[ Craig Hansen (USFWS) ]
 
-### .blue-text[ Dan Nolfi ] (USFWS)
+### .blue-text[ Rebecca Migala (USFWS) ]
 
-### .green-text[ Marie Winkowski ] (WDFW)
+### .blue-text[ Dan Nolfi (USFWS) ]
 
-### .blue-text[ Alan Yanahan ] (USFWS)
+### .green-text[ Marie Winkowski (WDFW) ]
+
+### .blue-text[ Alan Yanahan (USFWS) ]
 
 ]
 
@@ -190,54 +192,421 @@ background-size: 40%
 
 ## 4. .gray-text[Data-poor] benefit from .green-text[data-rich]
 
-***
 
 ---
 
-# Math side-by-side
+class: inverse, center, middle
 
-Here are two sets of equations. To do this, you have to use inline math (single $) with each equation on its own line.
+# Model for the state of nature
 
-.pull-left.center[
-.under[Random walk]
 
-`\(\mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{w}_t\)`
+---
 
-`\(\mathbf{y}_t = \mathbf{x}_t + \mathbf{v}_t\)`
-]
+# Population dynamics
 
-.pull-right.center[
-.under[Biased random walk]
+### .blue-text[Exponential growth in continuous time]
 
-`\(\boldsymbol{\theta}_t = \boldsymbol{\theta}_{t-1} + \boldsymbol{\mu} + \boldsymbol{\omega}_t\)`
+`$$N(t) = N_0 \exp(u) \exp(w t)$$`
 
-`\(\mathbf{y}_t = \boldsymbol{\theta}_t + \boldsymbol{\eta}_t\)`
 
-]
+---
+
+# Population dynamics
+
+### .blue-text[Exponential growth in continuous time]
+
+`$$N(t) = N_0 ~ \underbrace{\exp(u)}_{\substack{\text{growth} \\ \text{rate}}} \exp(w t)$$`
+
+
+---
+
+# Population dynamics
+
+### .blue-text[Exponential growth in continuous time]
+
+`$$N(t) = N_0 \exp(u) \underbrace{\exp(w t)}_{\substack{\text{stochastic} \\ \text{environment}}}$$`
+
+
+---
+
+# Population dynamics
+
+### .blue-text[Exponential growth in continuous time]
+
+`$$N(t) = N_0 \exp(u) \exp(w t)$$`
+
+&lt;br&gt;
+
+### .blue-text[In discrete time, with a time step of 1 year, the model is]
+
+`$$N_t = N_{t-1} \exp(u + w_t)$$`
+
+---
+
+# Population dynamics
+
+### .blue-text[In discrete time, with a time step of 1 year, the model is]
+
+`$$N_t = N_{t-1} \exp(u + w_t)$$`
+
+&lt;br&gt;
+
+### .blue-text[Taking the logarithm of both sides yields]
+
+`$$\log (N_t) = \log (N_{t-1}) + u + w_t$$`
+
+---
+
+# Population dynamics
+
+### .blue-text[We can define]
+
+`$$x = \log (N)$$`
+
+### .blue-text[ such that ]
+
+`$$\log (N_t) = \log (N_{t-1}) + u + w_t \\ \Downarrow \\ x_t = x_{t-1} + u + w_t$$`
+
+---
+
+# Biased random walk
+
+### .blue-text[If we assume that the errors are white noise]
+
+`$$w_t \sim \text{N}(0, q)$$`
+
+### .blue-text[ then our model of populations dynamics]
+
+`$$x_t = x_{t-1} + u + w_t$$`
+
+### .blue-text[is a so-called *biased random walk*]
+
+
+---
+
+# Examples of biased random walks
+
+&lt;img src="scheuerell_sccs_2021_files/figure-html/ex_biased_rw-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+class: inverse, center, middle
+
+# Observation (data) model
+
+
+---
+
+# Observation model
+
+### .blue-text[ In log space ]
+
+`$$\underbrace{y_t}_{\substack{\text{observed} \\ \text{counts}}} = \underbrace{x_t}_{\substack{\text{true} \\ \text{counts}}} + \underbrace{v_t}_{\substack{\text{observer} \\ \text{error}}}$$`
+
+### .blue-text[ where ]
+
+`$$v_t \sim \text{N}(0, r)$$`
+
+---
+
+# Examples with observation error
+
+&lt;img src="scheuerell_sccs_2021_files/figure-html/ex_biased_rw_y-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+class: inverse, center, middle
+
+# Multiple time series of abundance
+
+
+---
+
+# Many populations within many core areas
+
+### .blue-text[ 4 states ]
+
+### .purple-text[ 8 recovery units ]
+
+### .orange-text[ 61 core areas ]
+
+### .green-text[ 242 populations ]
+
+
+---
+
+# Expanding our model for multiple core areas
+
+### .blue-text[ We are estimating population trends at the level of *core areas* ]
+
+`$$\begin{gathered}
+    x_{1,t} = x_{1,t-1} + u_1 + w_{1,t} \\
+    x_{2,t} = x_{2,t-1} + u_2 + w_{2,t} \\
+    \vdots \\
+    x_{n,t} = x_{n,t-1} + u_n + w_{n,t} \\
+  \end{gathered}$$`
+
+
+---
+
+# Expanding our model for multiple core areas
+
+### .blue-text[ In matrix notation we have ]
+
+`$$\begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n \end{bmatrix}_t + 
+ \begin{bmatrix}
+    u_1 \\
+    u_2 \\
+    \vdots \\
+    u_n \end{bmatrix} + 
+ \begin{bmatrix}
+    w_{1} \\
+    w_{2} \\
+    \vdots \\
+    w_{n} \end{bmatrix}_t$$`
+    
+
+---
+
+# Observation model for multiple time series
+
+### .blue-text[ Core areas have from 1-22 populations within them ]
+
+### .blue-text[ We need a way to map populations to their respective core area ]
+
+
+---
+
+# Observation model for multiple time series
+
+### .blue-text[ Example with 5 popns (1-5) and 2 core areas (A &amp; B) ]
+
+`$$\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    y_{3} \\
+    y_{4} \\
+    y_{5} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_{A} \\
+    x_{A} \\
+    x_{B} \\
+    x_{B} \\
+    x_{B} \end{bmatrix}_t + 
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+    a_4 \\
+    a_5 \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    v_{3} \\
+    v_{4} \\
+    v_{5} \end{bmatrix}_t$$`
+    
+
+---
+
+# Full state-space form
+
+### .blue-text[ Combining the observation &amp; state models ]
+
+`$$\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    y_{3} \\
+    y_{4} \\
+    y_{5} \end{bmatrix}_t = 
+\begin{bmatrix}
+    1 &amp; 0 \\
+    1 &amp; 0 \\
+    0 &amp; 1 \\
+    0 &amp; 1 \\
+    0 &amp; 1 \end{bmatrix}  
+ \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_t +
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+    a_4 \\
+    a_5 \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    v_{3} \\
+    v_{4} \\
+    v_{5} \end{bmatrix}_t \\[50pt]
+    \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_{t-1} + 
+ \begin{bmatrix}
+    u_A \\
+    u_B \end{bmatrix} + 
+ \begin{bmatrix}
+    w_A \\
+    w_B \end{bmatrix}_t$$`
+
+
+---
+
+# Example of 3 observations of a state
+
+&lt;img src="scheuerell_sccs_2021_files/figure-html/multi_obs-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+
+
+---
+
+# Different survey methods get different variances
+
+### .blue-text[ For example, weir counts are more accurate than snorkel surveys ]
+
+### .blue-text[ Multiple surveys of each type helps inform the variance estimates ]
+
+---
+
+# Fitting the models
+
+### .blue-text[ We used the time period from 1991-2020 ]
+
+### .blue-text[ Time series needed at least 10 year of non-missing data ]
+
+### .green-text[ All models were fit in **R** using the `{MARSS}` package ]
+
+### .green-text[ I estimated 90% confidence intervals on bias terms ]
+
+
+---
+
+class: inverse, center, middle
+
+# RESULTS
+
+
+---
+
+# Bias in trends
+
+### .blue-text[ 35/61 core areas had a negative trend ]
+
+### .blue-text[ But only 3/61 were "signficantly" negative ]
+
+
+---
+
+class: frimg, center
+background-image: url(figs/kootenai.png)
+background-position: 50% 75%
+background-size: 90%
+
+# Example of a significant decline
+
+
+---
+
+# Bias in trends
+
+### .blue-text[ 35/61 core areas had a negative trend ]
+
+### .blue-text[ But only 3/61 were "signficantly" negative ]
+
+&lt;br&gt;
+
+### .green-text[ 26/61 core areas had a positive trend ]
+
+### .green-text[ But only 6/61 were "signficantly" positive ]
+
+
+---
+
+class: frimg, center
+background-image: url(figs/lower_deschutes.png)
+background-position: 50% 75%
+background-size: 90%
+
+# Example of a significant increase
+
+
+---
+
+class: frimg, center
+background-image: url(figs/skokomish.png)
+background-position: 50% 75%
+background-size: 90%
+
+# Example of no systematic trend
+
+
+---
+
+class: inverse, center, middle
+
+# Data quality influences our ability to estimate biases
+
+---
+
+class: frimg, center
+background-image: url(figs/big_salmon.png)
+background-position: 50% 75%
+background-size: 90%
+
+# Example of a data poor core area
+
+
+---
+
+class: frimg, center
+background-image: url(figs/flathead.png)
+background-position: 50% 75%
+background-size: 90%
+
+# Example of a data rich core area
+
 
 ---
 
 # In summary
 
 .blue-text[
-### Evidence for density-dependent survival, combined with loss of juvenile rearing habitat, suggests habitat restoration could be beneficial
+### We found minimal evidence of systematic biases in estimated trends
+]
+
+.orange-text[
+### ~5% of core areas were declining signficantly
 ]
 
 .green-text[
-### Winter maximum flows appear more important than summer minimum flows
-
-### Ocean conditions are indeed important
+### ~10% of core areas were increasing signficantly
 ]
 
-.purple-text[
-### Trade-offs exist between providing harvest opportunities via hatchery production &amp; achieving wild steelhead recovery goals
-]
+.futnote.purple-text[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#844870;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"&gt;&lt;/path&gt;&lt;/svg&gt; scheuerl@uw.edu]
+
+.citation.blue-text[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#488fdf;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt; @mark_scheuerell]
 
 ---
 
 ## Open science
 
 ### .blue-text[https://github.com/mdscheuerell/bulltrout]
+
+&lt;br&gt;
 
 ## Image sources
 
