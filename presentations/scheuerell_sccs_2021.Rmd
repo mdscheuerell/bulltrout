@@ -440,6 +440,72 @@ lines(y2, col = "gray", lwd = 2)
 
 ---
 
+class: inverse, center, middle
+
+# Multiple time series of abundance
+
+
+---
+
+# Many populations within many core areas
+
+### .blue-text[ 4 states ]
+
+### .purple-text[ 8 recovery units ]
+
+### .orange-text[ 61 core areas ]
+
+### .green-text[ 242 populations ]
+
+
+---
+
+# Expanding our model for multiple core areas
+
+### .blue-text[ We are estimating population trends at the level of *core areas* ]
+
+$$\begin{gathered}
+    x_{1,t} = x_{1,t-1} + u_1 + w_{1,t} \\
+    x_{2,t} = x_{2,t-1} + u_2 + w_{2,t} \\
+    \vdots \\
+    x_{n,t} = x_{n,t-1} + u_3 + w_{n,t} \\
+  \end{gathered}$$
+
+
+---
+
+# Expanding our model for multiple core areas
+
+### .blue-text[ In matrix notation we have ]
+
+$$\begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n \end{bmatrix}_t = 
+ \begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n \end{bmatrix}_t + 
+ \begin{bmatrix}
+    u_1 \\
+    u_2 \\
+    \vdots \\
+    u_n \end{bmatrix} + 
+ \begin{bmatrix}
+    w_{1} \\
+    w_{2} \\
+    \vdots \\
+    w_{n} \end{bmatrix}_t$$
+    
+### .blue-text[ or more compactly as ]
+
+$$\mathbf{x}_t = \mathbf{x}_{t-1} + \mathbf{u} + \mathbf{w}_t$$
+
+  
+---
+
 # In summary
 
 .blue-text[
