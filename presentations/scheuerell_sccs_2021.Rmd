@@ -569,7 +569,28 @@ $$\begin{bmatrix}
  \begin{bmatrix}
     w_A \\
     w_B \end{bmatrix}_t$$
-    
+
+
+---
+
+# Example of 3 observations of a state
+
+```{r multi_obs, fig.dim = c(6,4), fig.align = 'center'}
+y2 <- x1 + rnorm(30, 0, 0.4)
+y3 <- x1 + rnorm(30, 0, 0.5)
+
+## set colormap
+clr <- viridisLite::mako(4, begin = 0.4, end = 0.9)
+
+par(mai = c(1, 1, 0.1, 0.1))
+
+plot.ts(x1, las = 1, col = "gray", lwd = 2, ylim = range(x1, y1, y2, y3),
+        ylab = expression(paste(italic(x[t]), "  or  ", italic(y[t]))), main = "")
+lines(y1, col = clr[1], lwd = 2)
+lines(y2, col = clr[2], lwd = 2)
+lines(y3, col = clr[3], lwd = 2)
+```
+
 
 ---
 
