@@ -714,18 +714,17 @@ background-size: 90%
 # In summary
 
 .blue-text[
-### Evidence for density-dependent survival, combined with loss of juvenile rearing habitat, suggests habitat restoration could be beneficial
+### We found minimal evidence of systematic biases in estimated trends
+]
+
+.orange-text[
+### ~5% of core areas were declining signficantly
 ]
 
 .green-text[
-### Winter maximum flows appear more important than summer minimum flows
-
-### Ocean conditions are indeed important
+### ~10% of core areas were increasing signficantly
 ]
 
-.purple-text[
-### Trade-offs exist between providing harvest opportunities via hatchery production & achieving wild steelhead recovery goals
-]
 
 ---
 
