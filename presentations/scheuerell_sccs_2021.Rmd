@@ -402,8 +402,20 @@ plot.ts(x2, las = 1, col = "indianred", lwd = 2,
 
 class: inverse, center, middle
 
+# Observation (data) model
+
+
+---
+
 # Observation model
 
+### .blue-text[ In log space ]
+
+$$\underbrace{y_t}_{\substack{\text{observed} \\ \text{counts}}} = \underbrace{x_t}_{\substack{\text{true} \\ \text{counts}}} + \underbrace{v_t}_{\substack{\text{observer} \\ \text{error}}}$$
+
+### .blue-text[ where ]
+
+$$v_t \sim \text{N}(0, r)$$
 
 ---
 
