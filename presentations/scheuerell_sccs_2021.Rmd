@@ -37,7 +37,7 @@ _U.S. Geological Survey<br>Washington Cooperative Fish and Wildlife Research Uni
 
 ### .blue-text[ Sean Finn (USFWS) ]
 
-### .green-text[ Stephanie Gunckel (USFWS) ]
+### .green-text[ Stephanie Gunckel (ODFW) ]
 
 ]
 
@@ -60,13 +60,7 @@ _U.S. Geological Survey<br>Washington Cooperative Fish and Wildlife Research Uni
 
 class: inverse, center, middle
 
-# Population trend analysis for bull trout
-
----
-
-class: center, middle, inverse
-
-# Models have 2 general parts
+# A model for estimating population trends with 2 general parts
 
 ---
 
@@ -301,7 +295,7 @@ class: inverse, center, middle
 
 # Population dynamics
 
-### .blue-text[Exponential growth in continuous time]
+### .blue-text[Exponential growth/decline in continuous time]
 
 $$N(t) = N_0 \exp(u) \exp(w t)$$
 
@@ -310,7 +304,7 @@ $$N(t) = N_0 \exp(u) \exp(w t)$$
 
 # Population dynamics
 
-### .blue-text[Exponential growth in continuous time]
+### .blue-text[Exponential growth/decline in continuous time]
 
 $$N(t) = N_0 ~ \underbrace{\exp(u)}_{\substack{\text{growth} \\ \text{rate}}} \exp(w t)$$
 
@@ -319,7 +313,7 @@ $$N(t) = N_0 ~ \underbrace{\exp(u)}_{\substack{\text{growth} \\ \text{rate}}} \e
 
 # Population dynamics
 
-### .blue-text[Exponential growth in continuous time]
+### .blue-text[Exponential growth/decline in continuous time]
 
 $$N(t) = N_0 \exp(u) \underbrace{\exp(w t)}_{\substack{\text{stochastic} \\ \text{environment}}}$$
 
@@ -328,13 +322,13 @@ $$N(t) = N_0 \exp(u) \underbrace{\exp(w t)}_{\substack{\text{stochastic} \\ \tex
 
 # Population dynamics
 
-### .blue-text[Exponential growth in continuous time]
+### .blue-text[Exponential growth/decline in continuous time]
 
 $$N(t) = N_0 \exp(u) \exp(w t)$$
 
 <br>
 
-### .blue-text[In discrete time, with a time step of 1 year, the model is]
+### .blue-text[In discrete time, with a time step of 1 year]
 
 $$N_t = N_{t-1} \exp(u + w_t)$$
 
@@ -386,16 +380,44 @@ $$x_t = x_{t-1} + u + w_t$$
 ```{r ex_biased_rw, fig.dim = c(8,5), fig.align = 'center'}
 set.seed(123)
 
-x1 <- cumsum(rnorm(30, 0.1, 0.2)) + 10
+x1 <- cumsum(rnorm(30, 0.1, 0.3)) + 10
 
-x2 <- cumsum(rnorm(30, -0.1, 0.2)) + 10
+x2 <- cumsum(rnorm(30, -0.1, 0.3)) + 10
+
+clr1 <- c("#f7fbff",
+          "#deebf7",
+          "#c6dbef",
+          "#9ecae1",
+          "#6baed6",
+          "#4292c6",
+          "#2171b5",
+          "#08519c",
+          "#08306b")
+
+clr2 <- c("#fff5f0",
+          "#fee0d2",
+          "#fcbba1",
+          "#fc9272",
+          "#fb6a4a",
+          "#ef3b2c",
+          "#cb181d",
+          "#a50f15",
+          "#67000d")
 
 par(mfrow = c(1,2), mai = c(1, 1, 1, 0))
-plot.ts(x1, las = 1, col = "dodgerblue", lwd = 2,
+plot.ts(x1, las = 1, col = "dodgerblue", lwd = 2, ylim = c(8, 16),
         ylab = expression(italic(x[t])), main = "Positive bias")
+for(i in 1:9) {
+  lines(cumsum(rnorm(30, 0.1, 0.3)) + 10,
+        col = clr1[i], lwd = 2)
+}
 
-plot.ts(x2, las = 1, col = "indianred", lwd = 2, 
+plot.ts(x2, las = 1, col = "indianred", lwd = 2,  ylim = c(4, 12),
         ylab = expression(italic(x[t])), main = "Negative bias")
+for(i in 1:9) {
+  lines(cumsum(rnorm(30, -0.1, 0.3)) + 10,
+        col = clr2[i], lwd = 2)
+}
 ```
 
 
@@ -462,7 +484,7 @@ class: inverse, center, middle
 
 # Expanding our model for multiple core areas
 
-### .blue-text[ We are estimating population trends at the level of *core areas* ]
+### .blue-text[ We're estimating population trends at the level of *core areas* ]
 
 $$\begin{gathered}
     x_{1,t} = x_{1,t-1} + u_1 + w_{1,t} \\
