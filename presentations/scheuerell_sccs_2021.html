@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>scheuerell_sccs_2021.knit</title>
+    <title>scheuerell_sccs_2021.utf8</title>
     <meta charset="utf-8" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="my-theme.css" type="text/css" />
   </head>
   <body>
@@ -293,7 +294,7 @@ class: inverse, center, middle
 
 # Observation model
 
-### .blue-text[ In log space ]
+### .blue-text[ In log-space ]
 
 `$$\underbrace{y_t}_{\substack{\text{observed} \\ \text{counts}}} = \underbrace{x_t}_{\substack{\text{true} \\ \text{counts}}} + \underbrace{v_t}_{\substack{\text{observer} \\ \text{error}}}$$`
 
@@ -357,7 +358,7 @@ class: inverse, center, middle
     x_1 \\
     x_2 \\
     \vdots \\
-    x_n \end{bmatrix}_t + 
+    x_n \end{bmatrix}_{t-1} + 
  \begin{bmatrix}
     u_1 \\
     u_2 \\
@@ -415,6 +416,41 @@ class: inverse, center, middle
 
 # Full state-space form
 
+### .blue-text[ Mapping populations onto core areas ]
+
+`$$\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    y_{3} \\
+    y_{4} \\
+    y_{5} \end{bmatrix}_t = 
+\underbrace{\begin{bmatrix}
+    1 &amp; 0 \\
+    1 &amp; 0 \\
+    0 &amp; 1 \\
+    0 &amp; 1 \\
+    0 &amp; 1 \end{bmatrix}}_{\substack{\text{rows are popns} \\ \text{cols are cores}}}  
+ \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_t +
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+    a_4 \\
+    a_5 \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    v_{3} \\
+    v_{4} \\
+    v_{5} \end{bmatrix}_t$$`
+
+
+---
+
+# Full state-space form
+
 ### .blue-text[ Combining the observation &amp; state models ]
 
 `$$\begin{bmatrix}
@@ -467,11 +503,11 @@ class: inverse, center, middle
 
 ---
 
-# Different survey methods get different variances
+# Different survey methods have different observation variances
 
 ### .blue-text[ For example, weir counts are more accurate than snorkel surveys ]
 
-### .blue-text[ Multiple surveys of each type helps inform the variance estimates ]
+### .blue-text[ Multiple surveys of each type help inform the variance estimates ]
 
 ---
 
@@ -479,7 +515,16 @@ class: inverse, center, middle
 
 ### .blue-text[ We used the time period from 1991-2020 ]
 
-### .blue-text[ Time series needed at least 10 year of non-missing data ]
+### .blue-text[ Time series needed at least 10 years of non-missing data ]
+
+
+---
+
+# Fitting the models
+
+### .blue-text[ We used the time period from 1991-2020 ]
+
+### .blue-text[ Time series needed at least 10 years of non-missing data ]
 
 ### .green-text[ All models were fit in **R** using the `{MARSS}` package ]
 
@@ -506,8 +551,18 @@ class: inverse, center, middle
 
 class: frimg, center
 background-image: url(figs/kootenai.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
+
+# Example of a significant decline
+
+
+---
+
+class: frimg, center
+background-image: url(figs/stillaguamish.png)
+background-position: 40% 70%
+background-size: 80%
 
 # Example of a significant decline
 
@@ -531,8 +586,18 @@ background-size: 90%
 
 class: frimg, center
 background-image: url(figs/lower_deschutes.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
+
+# Example of a significant increase
+
+
+---
+
+class: frimg, center
+background-image: url(figs/upper_whitefish.png)
+background-position: 40% 70%
+background-size: 80%
 
 # Example of a significant increase
 
@@ -541,8 +606,8 @@ background-size: 90%
 
 class: frimg, center
 background-image: url(figs/skokomish.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
 
 # Example of no systematic trend
 
@@ -557,20 +622,20 @@ class: inverse, center, middle
 
 class: frimg, center
 background-image: url(figs/big_salmon.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
 
-# Example of a data poor core area
+# Example of a data-poor core area
 
 
 ---
 
 class: frimg, center
 background-image: url(figs/flathead.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
 
-# Example of a data rich core area
+# Example of a data-rich core area
 
 
 ---
@@ -595,18 +660,39 @@ background-size: 90%
 
 ---
 
-## Open science
+# Next steps
+
+.blue-text[
+### Complete a similar analysis with juvenile data
+]
+
+.blue-text[
+### Use fitted models to project trends into the future
+]
+
+.futnote.purple-text[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#844870;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"&gt;&lt;/path&gt;&lt;/svg&gt; scheuerl@uw.edu]
+
+.citation.blue-text[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#488fdf;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt; @mark_scheuerell]
+
+---
+
+# Open science
 
 ### .blue-text[https://github.com/mdscheuerell/bulltrout]
 
 &lt;br&gt;
 
-## Image sources
+# Image sources
 
 .blue-text[
 Carnival: *Frank Kovalchek (2010)*   
 Robin Hood: *John Escott*  
 ]
+
+.futnote.purple-text[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#844870;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M464 64H48C21.49 64 0 85.49 0 112v288c0 26.51 21.49 48 48 48h416c26.51 0 48-21.49 48-48V112c0-26.51-21.49-48-48-48zm0 48v40.805c-22.422 18.259-58.168 46.651-134.587 106.49-16.841 13.247-50.201 45.072-73.413 44.701-23.208.375-56.579-31.459-73.413-44.701C106.18 199.465 70.425 171.067 48 152.805V112h416zM48 400V214.398c22.914 18.251 55.409 43.862 104.938 82.646 21.857 17.205 60.134 55.186 103.062 54.955 42.717.231 80.509-37.199 103.053-54.947 49.528-38.783 82.032-64.401 104.947-82.653V400H48z"&gt;&lt;/path&gt;&lt;/svg&gt; scheuerl@uw.edu]
+
+.citation.blue-text[&lt;svg viewBox="0 0 512 512" style="height:1em;position:relative;display:inline-block;top:.1em;fill:#488fdf;" xmlns="http://www.w3.org/2000/svg"&gt;  &lt;path d="M459.37 151.716c.325 4.548.325 9.097.325 13.645 0 138.72-105.583 298.558-298.558 298.558-59.452 0-114.68-17.219-161.137-47.106 8.447.974 16.568 1.299 25.34 1.299 49.055 0 94.213-16.568 130.274-44.832-46.132-.975-84.792-31.188-98.112-72.772 6.498.974 12.995 1.624 19.818 1.624 9.421 0 18.843-1.3 27.614-3.573-48.081-9.747-84.143-51.98-84.143-102.985v-1.299c13.969 7.797 30.214 12.67 47.431 13.319-28.264-18.843-46.781-51.005-46.781-87.391 0-19.492 5.197-37.36 14.294-52.954 51.655 63.675 129.3 105.258 216.365 109.807-1.624-7.797-2.599-15.918-2.599-24.04 0-57.828 46.782-104.934 104.934-104.934 30.213 0 57.502 12.67 76.67 33.137 23.715-4.548 46.456-13.32 66.599-25.34-7.798 24.366-24.366 44.833-46.132 57.827 21.117-2.273 41.584-8.122 60.426-16.243-14.292 20.791-32.161 39.308-52.628 54.253z"&gt;&lt;/path&gt;&lt;/svg&gt; @mark_scheuerell]
+
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>

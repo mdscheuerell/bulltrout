@@ -432,7 +432,7 @@ class: inverse, center, middle
 
 # Observation model
 
-### .blue-text[ In log space ]
+### .blue-text[ In log-space ]
 
 $$\underbrace{y_t}_{\substack{\text{observed} \\ \text{counts}}} = \underbrace{x_t}_{\substack{\text{true} \\ \text{counts}}} + \underbrace{v_t}_{\substack{\text{observer} \\ \text{error}}}$$
 
@@ -450,13 +450,13 @@ y1 <- x1 + rnorm(30, 0, 0.2)
 y2 <- x2 + rnorm(30, 0, 0.2)
 
 par(mfrow = c(1,2), mai = c(1, 1, 1, 0))
-plot.ts(x1, las = 1, col = "dodgerblue", lwd = 2, ylim = range(x1, y1),
+plot.ts(x1, las = 1, col = "gray", lwd = 2, ylim = range(x1, y1),
         ylab = expression(italic(x[t])), main = "Positive bias")
-lines(y1, col = "gray", lwd = 2)
+lines(y1, col = "dodgerblue", lwd = 2)
 
-plot.ts(x2, las = 1, col = "indianred", lwd = 2, ylim = range(x2, y2),
+plot.ts(x2, las = 1, col = "gray", lwd = 2, ylim = range(x2, y2),
         ylab = expression(italic(x[t])), main = "Negative bias")
-lines(y2, col = "gray", lwd = 2)
+lines(y2, col = "indianred", lwd = 2)
 ```
 
 
@@ -509,7 +509,7 @@ $$\begin{bmatrix}
     x_1 \\
     x_2 \\
     \vdots \\
-    x_n \end{bmatrix}_t + 
+    x_n \end{bmatrix}_{t-1} + 
  \begin{bmatrix}
     u_1 \\
     u_2 \\
@@ -562,6 +562,41 @@ $$\begin{bmatrix}
     v_{4} \\
     v_{5} \end{bmatrix}_t$$
     
+
+---
+
+# Full state-space form
+
+### .blue-text[ Mapping populations onto core areas ]
+
+$$\begin{bmatrix}
+    y_{1} \\
+    y_{2} \\
+    y_{3} \\
+    y_{4} \\
+    y_{5} \end{bmatrix}_t = 
+\underbrace{\begin{bmatrix}
+    1 & 0 \\
+    1 & 0 \\
+    0 & 1 \\
+    0 & 1 \\
+    0 & 1 \end{bmatrix}}_{\substack{\text{rows are popns} \\ \text{cols are cores}}}  
+ \begin{bmatrix}
+    x_{A} \\
+    x_{B} \end{bmatrix}_t +
+ \begin{bmatrix}
+    a_1 \\
+    a_2 \\
+    a_3 \\
+    a_4 \\
+    a_5 \end{bmatrix} + 
+ \begin{bmatrix}
+    v_{1} \\
+    v_{2} \\
+    v_{3} \\
+    v_{4} \\
+    v_{5} \end{bmatrix}_t$$
+
 
 ---
 
@@ -633,11 +668,11 @@ lines(y3, col = clr[3], lwd = 2)
 
 ---
 
-# Different survey methods get different variances
+# Different survey methods have different observation variances
 
 ### .blue-text[ For example, weir counts are more accurate than snorkel surveys ]
 
-### .blue-text[ Multiple surveys of each type helps inform the variance estimates ]
+### .blue-text[ Multiple surveys of each type help inform the variance estimates ]
 
 ---
 
@@ -645,7 +680,16 @@ lines(y3, col = clr[3], lwd = 2)
 
 ### .blue-text[ We used the time period from 1991-2020 ]
 
-### .blue-text[ Time series needed at least 10 year of non-missing data ]
+### .blue-text[ Time series needed at least 10 years of non-missing data ]
+
+
+---
+
+# Fitting the models
+
+### .blue-text[ We used the time period from 1991-2020 ]
+
+### .blue-text[ Time series needed at least 10 years of non-missing data ]
 
 ### .green-text[ All models were fit in **R** using the `{MARSS}` package ]
 
@@ -672,8 +716,18 @@ class: inverse, center, middle
 
 class: frimg, center
 background-image: url(figs/kootenai.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
+
+# Example of a significant decline
+
+
+---
+
+class: frimg, center
+background-image: url(figs/stillaguamish.png)
+background-position: 40% 70%
+background-size: 80%
 
 # Example of a significant decline
 
@@ -697,8 +751,18 @@ background-size: 90%
 
 class: frimg, center
 background-image: url(figs/lower_deschutes.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
+
+# Example of a significant increase
+
+
+---
+
+class: frimg, center
+background-image: url(figs/upper_whitefish.png)
+background-position: 40% 70%
+background-size: 80%
 
 # Example of a significant increase
 
@@ -707,8 +771,8 @@ background-size: 90%
 
 class: frimg, center
 background-image: url(figs/skokomish.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
 
 # Example of no systematic trend
 
@@ -723,20 +787,20 @@ class: inverse, center, middle
 
 class: frimg, center
 background-image: url(figs/big_salmon.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
 
-# Example of a data poor core area
+# Example of a data-poor core area
 
 
 ---
 
 class: frimg, center
 background-image: url(figs/flathead.png)
-background-position: 50% 75%
-background-size: 90%
+background-position: 40% 70%
+background-size: 80%
 
-# Example of a data rich core area
+# Example of a data-rich core area
 
 
 ---
@@ -761,17 +825,36 @@ background-size: 90%
 
 ---
 
-## Open science
+# Next steps
+
+.blue-text[
+### Complete a similar analysis with juvenile data
+]
+
+.blue-text[
+### Use fitted models to project trends into the future
+]
+
+.futnote.purple-text[`r icon_style(fontawesome("envelope"), fill = "#844870")` scheuerl@uw.edu]
+
+.citation.blue-text[`r icon_style(fontawesome("twitter"), fill = "#488fdf")` @mark_scheuerell]
+
+---
+
+# Open science
 
 ### .blue-text[https://github.com/mdscheuerell/bulltrout]
 
 <br>
 
-## Image sources
+# Image sources
 
 .blue-text[
 Carnival: *Frank Kovalchek (2010)*   
 Robin Hood: *John Escott*  
 ]
 
+.futnote.purple-text[`r icon_style(fontawesome("envelope"), fill = "#844870")` scheuerl@uw.edu]
+
+.citation.blue-text[`r icon_style(fontawesome("twitter"), fill = "#488fdf")` @mark_scheuerell]
 
