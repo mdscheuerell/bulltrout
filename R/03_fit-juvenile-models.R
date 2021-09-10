@@ -23,47 +23,32 @@ juvie_data <- read_csv(file = file.path(clean_data_dir,
                                         "bull_trout_SSA_data_all_states_juveniles.csv"))
 
 
-#### data summary ####
-
-## select only abundance metrics
-model_data <- juvie_data %>%
-  filter(metric == "abundance") %>%
-  select(-metric)
-
-## data summary for adults
-year_smry <- model_data %>%
-  group_by(state, 
-           dataset,
-           recovery_unit, 
-           core_area, 
-           popn_stream, 
-           source) %>%
-  summarise(first_year = min(year),
-            last_year = max(year))
-
-## write summary info to file
-year_smry %>% 
-  write_csv(file = file.path(output_dir, "bull_trout_SSA_juvie_data_summary.csv"))
-
-## remove all-NA records
-# year_smry <- year_smry[-which(is.na(year_smry$state)),]
-
-## number of sites per core area
-core_tbl <- year_smry %>% 
-  group_by(state, core_area) %>%
-  summarise(n = length(core_area))
+#### data formatting ####
 
 ## trim years & reshape to "wide" format for MARSS
-yy <- model_data %>%
+yy <- juvie_data %>%
+  filter(metric == "abundance") %>%
+  select(-metric) %>%
   filter(year >= yr_first) %>%
   pivot_wider(names_from = year,
               values_from = value,
-              names_prefix = "yr")
+              names_prefix = "yr") %>%
+  arrange(state, recovery_unit, core_area) %>%
+  rowwise(state:source) %>%
+  mutate(n_yrs = sum(!is.na(c_across(everything())))) %>%
+  ungroup() %>%
+  filter(n_yrs >= 10) %>%
+  select(-n_yrs)
 
 ## number of core areas (processes, x)
-cc <- length(core_tbl$core_area)
+nc <- length(unique(yy$core_area))
 ## number of locations (streams/rivers, y)
-rr <- length(year_smry$core_area)
+nr <- nrow(yy)
+
+## number of sites per core area
+core_tbl <- yy %>% 
+  group_by(state, recovery_unit, core_area) %>%
+  summarise(n = length(core_area))
 
 
 #### MARSS setup ####
@@ -71,12 +56,12 @@ rr <- length(year_smry$core_area)
 ## observation eqn
 
 ## empty Z matrix for mapping obs to processes
-ZZ <- matrix(0, rr, cc)
+ZZ <- matrix(0, nr, nc)
 
 ## loop over core areas to set cols of Z
-for (jj in 1:cc) {
+for (jj in 1:nc) {
   ## seq for row indices
-  ll <- seq(as.integer(core_tbl[jj, 3]))
+  ll <- seq(as.integer(core_tbl[jj, 4]))
   ## last row
   xx <- ifelse(jj == 1, 0, max(ii))
   ## seq for row indices
@@ -86,32 +71,32 @@ for (jj in 1:cc) {
 }
 
 ## offsets for obs (a); data de-meaned so all 0's
-AA <- matrix(0, rr, 1)
+AA <- matrix(0, nr, 1)
 
 ## covariance matrix for obs (R)
-RR <- matrix(list(0), rr, rr)
+RR <- matrix(list(0), nr, nr)
 diag(RR) <- yy$source
 
 ## process eqn
 
 ## interactions matrix (B); set to I for RW's
-BB <- diag(cc)
+BB <- diag(nc)
 
 ## bias terms (u); each core area gets a unique bias term
 UU <- core_tbl %>%
   select(-n) %>%
   unite("core_area", state:core_area, sep = ": ") %>%
-  as.matrix(nrow = cc, ncol = 1)
+  as.matrix(nrow = nc, ncol = 1)
 
 ## cov matrix for processes (Q)
-QQ <- matrix(list(0), cc, cc)
+QQ <- matrix(list(0), nc, nc)
 ## diagonal and unequal
 # diag(QQ) <- core_tbl %>%
 #   select(-n) %>%
 #   unite("core_area", state:core_area, sep = ": ") %>%
 #   unlist()
 ## diagonal and equal (IID)
-diag(QQ) <- rep("q", cc)
+diag(QQ) <- rep("q", nc)
 
 ## data for fitting
 
@@ -125,10 +110,13 @@ yy <- yy %>%
   ## log-transform
   log() %>%
   ## remove the mean
-  zscore(mean.only = TRUE)
+  zscore(mean.only = FALSE)
 
-## check number of non-NA values by year
-# apply(!is.na(yy), 2, sum)
+## remove upstream tibbles that are no longer necessary
+rm(juvie_data,
+   core_tbl,
+   model_data,
+   year_smry)
 
 
 #### model fitting ####
@@ -151,23 +139,29 @@ con_list <- list(
 ## fit base model
 mod_fit <- MARSS(yy, model = mod_list, control = con_list)
 
+## save fitted model object
+saveRDS(mod_fit, file.path(output_dir, "juv_model_fits.rds"))
 
 #### bootstrapped CI's ####
 
 ## bootstrap parameters from the Hessian matrix
-mod_fit_CI <- MARSSboot(mod_fit, param.gen = "hessian", nboot = 1000)
+mod_fit_CI90 <- MARSSparamCIs(mod_fit, method = "hessian", alpha = 0.1, nboot = 1000)
+
+## save bootstrapped model object
+saveRDS(mod_fit_CI90, file.path(output_dir, "juv_model_fits_CI90.rds"))
 
 ## extract bias params
-bias_mat <- mod_fit_CI$boot.params[grep("U.", rownames(mod_fit_CI$boot.params)),]
+bias_mean <- mod_fit_CI90$parMean[grep("U.", names(mod_fit_CI90$parMean))]
 
 ## summary table of bias CI's
-bias_smry <- bias_mat %>%
-  apply(1, quantile, c(0.025, 0.5, 0.975)) %>%
-  round(digits = 3) %>%
-  t() %>%
+bias_smry <- cbind(mod_fit_CI90$par.lowCI$U,
+                   bias_mean,
+                   mod_fit_CI90$par.upCI$U) %>%
+  round(4) %>%
   as.data.frame()
+
 ## better row names
-rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", rownames(bias_smry))
+rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", names(bias_mean))
 
 ## summarize trends
 ## negative
@@ -181,8 +175,7 @@ pos <- bias_smry %>%
   t() %>%
   apply(1, all)
 ## add trend col
-bias_smry <- bias_smry %>%
-  mutate(trend = "0")
+bias_smry$trend = "0"
 bias_smry$trend[neg] <- "-"
 bias_smry$trend[pos] <- "+"
 
