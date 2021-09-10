@@ -159,9 +159,10 @@ bias_smry <- cbind(mod_fit_CI90$par.lowCI$U,
                    mod_fit_CI90$par.upCI$U) %>%
   round(4) %>%
   as.data.frame()
-
 ## better row names
 rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", names(bias_mean))
+## better col names
+colnames(bias_smry) <- c("CI_lo_90", "mean", "CI_up_90")
 
 ## summarize trends
 ## negative
@@ -175,7 +176,7 @@ pos <- bias_smry %>%
   t() %>%
   apply(1, all)
 ## add trend col
-bias_smry$trend = "0"
+bias_smry$trend <- "0"
 bias_smry$trend[neg] <- "-"
 bias_smry$trend[pos] <- "+"
 
