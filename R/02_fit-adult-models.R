@@ -139,7 +139,7 @@ con_list <- list(
 mod_fit <- MARSS(yy, model = mod_list, control = con_list)
 
 ## save fitted model object
-saveRDS(mod_fit, file.path(output_dir, "model_fits.rds"))
+saveRDS(mod_fit, file.path(output_dir, "adult_model_fits.rds"))
 
 #### bootstrapped CI's ####
 
@@ -147,7 +147,7 @@ saveRDS(mod_fit, file.path(output_dir, "model_fits.rds"))
 mod_fit_CI90 <- MARSSparamCIs(mod_fit, method = "hessian", alpha = 0.1, nboot = 1000)
 
 ## save bootstrapped model object
-saveRDS(mod_fit_CI90, file.path(output_dir, "model_fits_CI90.rds"))
+saveRDS(mod_fit_CI90, file.path(output_dir, "adult_model_fits_CI90.rds"))
 
 ## extract bias params
 bias_mean <- mod_fit_CI90$parMean[grep("U.", names(mod_fit_CI90$parMean))]
@@ -200,7 +200,7 @@ mod_list$c <- cc
 mod_fit_late <- MARSS(yy, model = mod_list, control = con_list)
 
 ## save fitted model object
-saveRDS(mod_fit_late, file.path(output_dir, "model_fits_late.rds"))
+saveRDS(mod_fit_late, file.path(output_dir, "adult_model_fits_late.rds"))
 
 #### late-period bootstrapped CI's ####
 
@@ -208,7 +208,7 @@ saveRDS(mod_fit_late, file.path(output_dir, "model_fits_late.rds"))
 mod_fit_late_CI90 <- MARSSparamCIs(mod_fit_late, method = "hessian", alpha = 0.1, nboot = 1000)
 
 ## save bootstrapped model object
-saveRDS(mod_fit_late_CI90, file.path(output_dir, "model_fits_late_CI90.rds"))
+saveRDS(mod_fit_late_CI90, file.path(output_dir, "adult_model_fits_late_CI90.rds"))
 
 ## extract bias params
 bias_late_mean <- mod_fit_late_CI90$parMean[grep("U.", names(mod_fit_late_CI90$parMean))]
