@@ -115,7 +115,6 @@ yy <- yy %>%
 ## remove upstream tibbles that are no longer necessary
 rm(juvie_data,
    core_tbl,
-   model_data,
    year_smry)
 
 
