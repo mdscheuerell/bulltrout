@@ -134,7 +134,8 @@ df_tmp <- df_all %>%
 
 ## filter out non-adult sites
 adult_data <- left_join(adult_ID, df_tmp) %>%
-  select(-data_ID)
+  select(-data_ID) %>%
+  filter(if_any(everything(), ~ !is.na(.)))
 
 
 #### get juvenile data ####
@@ -147,7 +148,8 @@ juvie_ID <- metadata %>%
 
 ## filter out non-juvenile sites
 juvie_data <- left_join(juvie_ID, df_tmp) %>%
-  select(-data_ID)
+  select(-data_ID) %>%
+  filter(if_any(everything(), ~ !is.na(.)))
   
 
 #### data summary ####
