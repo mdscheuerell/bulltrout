@@ -53,6 +53,9 @@ ID,51,J,Screw Trap,Screw trap pulled due to change in anadromous program. Long t
 ID,52,J,Screw Trap,Screw trap pulled due to change in anadromous program. Long term dataset through 2014,NA
 ID,53,J,Screw Trap,"BT present at low abundance at trap, at the bottom of the system. But operated consistently across time.",NA
 ID,54,A,Redd Surveys,"Long-term index redd walk dataset in LPO Core Area. LPO is one of the strongest BT Core Areas in Idaho. Gold Creek (South) is it's own local population and flows directly into LPO, hence the separate reporting from NFK Gold Cr.",NA
+ID,55,A,Redd Surveys,Hayden Cr (Bear Valley Cr) redd walks. Consist of two transects consistently sampled 06-present. The old transect was also sampled in 02-05 but was not included since it was not paired with the new transect until 2006. Total transect length ~6.4km.,NA
+ID,56,A,Redd Surveys,New Hayden Cr transect contains the most suitable habitat in mainstem Hayden Cr. Has been surveyed since 2010. A second older transect has been surveyed intermittnetly (05-09 and 18-20) but because of inconsistency of survey completion the older transect data is not included. ,NA
+ID,57,A,Redd Surveys,"Big Timber Creek, tributary to the Lemhi River. Two transects are part of this dataset. However, transects were not completed or only one transect was completed in (09, 13, 16, 17, and 18). Therefore those years were excluded from the dataseries for consistency of transect length and survey method. ",NA
 MT,1,A,Redd Survey,NA,NA
 MT,2,A,Redd Survey,NA,NA
 MT,6,A,Redd Survey,NA,NA
@@ -366,3 +369,4 @@ WA,1074,A,Spawner redds,"Cumulative total of redds counted from a number of trib
 WA,1075,A,Spawner redds,"Cumulative total of redds counted from a number of tributaries throughout the season, no adjustment for fish/redd. Effort varies by year",Data are redd counts
 WA,1076,A,Spawner Fish,"Expanded estimate, census, or count of spawners that represents only a portion of spawner abundance for the entire stock and has been separated for management purposes.","Data are peak counts of adult char during snorkel surveys conducted by WDFW from Red Reef Pool (RM 29.7) to Lake Cushman Bridge (RM 28.1, inlet) in the NF Skokomish River upstream of Lake Cushman.  In 1995 the National Parks Service took over surveys."
 WA,1079,J,Skagit River mainstem trap near Mt Vernon WA operated by Washington Department of Fish and Wildlife,Totals from scoop and screw traps,Data are total annual catch
+WA,1080,J,IMW Bull Trout electrofishing data,Electrofishing fo juvenile  trout,NA
