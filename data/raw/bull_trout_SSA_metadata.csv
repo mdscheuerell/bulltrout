@@ -368,5 +368,5 @@ WA,1073,A,Spawner redds,"Cumulative total of redds counted from a number of trib
 WA,1074,A,Spawner redds,"Cumulative total of redds counted from a number of tributaries throughout the season, no adjustment for fish/redd. Effort varies by year",Data are redd counts
 WA,1075,A,Spawner redds,"Cumulative total of redds counted from a number of tributaries throughout the season, no adjustment for fish/redd. Effort varies by year",Data are redd counts
 WA,1076,A,Spawner Fish,"Expanded estimate, census, or count of spawners that represents only a portion of spawner abundance for the entire stock and has been separated for management purposes.","Data are peak counts of adult char during snorkel surveys conducted by WDFW from Red Reef Pool (RM 29.7) to Lake Cushman Bridge (RM 28.1, inlet) in the NF Skokomish River upstream of Lake Cushman.  In 1995 the National Parks Service took over surveys."
-WA,1079,J,Skagit River mainstem trap near Mt Vernon WA operated by Washington Department of Fish and Wildlife,Totals from scoop and screw traps,Data are total annual catch
-WA,1080,J,IMW Bull Trout electrofishing data,Electrofishing fo juvenile  trout,NA
+WA,1079,J,Trap Count,Totals from scoop and screw traps,Data are total annual catch
+WA,1080,J,Electrofishing,Electrofishing fo juvenile  trout,NA
