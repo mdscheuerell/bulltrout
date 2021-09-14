@@ -1,0 +1,28 @@
+state,recovery_unit,core_area,popn_stream,metric,source,first_year,last_year
+ID,Mid Columbia,Lochsa River,Colt Killed Creek,abundance,screw_trap,1999,2014
+ID,Mid Columbia,Lochsa River,Crooked Fork Creek,abundance,screw_trap,1992,2014
+ID,Mid Columbia,Lochsa River,n/a (Fish Creek),abundance,screw_trap,1998,2019
+ID,Mid Columbia,Selway River,SEL Multiple,abundance,snorkel,1995,2019
+ID,Mid Columbia,South Fork Clearwater,American River,abundance,screw_trap,2004,2014
+ID,Mid Columbia,South Fork Clearwater,Crooked River,abundance,screw_trap,1992,2019
+ID,Mid Columbia,South Fork Clearwater,Multiple,abundance,snorkel,1992,2019
+ID,Mid Columbia,South Fork Clearwater,Red River,abundance,screw_trap,1994,2014
+ID,Upper Snake,Lemhi River,Hayden Cr,abundance,screw_trap,2006,2019
+ID,Upper Snake,Lemhi River,Lower Lemhi River,abundance,screw_trap,2006,2019
+ID,Upper Snake,Lemhi River,Upper Lemhi River,abundance,screw_trap,2002,2019
+ID,Upper Snake,Little-Lower Salmon River,Multiple,abundance,snorkel,1985,2019
+ID,Upper Snake,Little-Lower Salmon River,Rapid River,abundance,screw_trap,2008,2019
+ID,Upper Snake,Middle Fork Salmon River,Big Cr,abundance,screw_trap,2007,2019
+ID,Upper Snake,Middle Fork Salmon River,Marsh Creek (upper trap),abundance,screw_trap,1993,2015
+ID,Upper Snake,Middle Fork Salmon River,Marsh Creek lower trap),abundance,screw_trap,2010,2019
+ID,Upper Snake,Middle Fork Salmon River,MFK Multiple,abundance,snorkel,1986,2018
+ID,Upper Snake,South Fork Salmon River,Lake Creek,abundance,screw_trap,1997,2013
+ID,Upper Snake,South Fork Salmon River,Sesesh River,abundance,screw_trap,1997,2013
+ID,Upper Snake,South Fork Salmon River,upper South Fork Salmon River,abundance,screw_trap,1992,2014
+ID,Upper Snake,Upper Salmon,East Fork Salmon River,abundance,screw_trap,1993,2014
+ID,Upper Snake,Upper Salmon,Pahsimeroi,abundance,screw_trap,1993,2019
+ID,Upper Snake,Upper Salmon,Upper Salmon (multiple),abundance,screw_trap,1998,2019
+ID,Upper Snake,Upper Salmon,West Fork Yankee Fork,abundance,screw_trap,1998,2014
+ID,Upper Snake,Weiser River,WR Multiple,abundance,snorkel,2004,2020
+OR,Coastal,Odell Lake,Trapper Creek,abundance,snorkel,1996,2017
+NA,NA,NA,NA,NA,NA,NA,NA
