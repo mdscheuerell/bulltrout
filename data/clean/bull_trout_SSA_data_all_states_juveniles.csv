@@ -529,40 +529,6 @@ OR,9,Coastal,Odell Lake,Trapper Creek,abundance,snorkel,2014,201
 OR,9,Coastal,Odell Lake,Trapper Creek,abundance,snorkel,2015,NA
 OR,9,Coastal,Odell Lake,Trapper Creek,abundance,snorkel,2016,NA
 OR,9,Coastal,Odell Lake,Trapper Creek,abundance,snorkel,2017,83
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2005,1
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2006,10
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2007,43
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2008,77
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2009,19
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2010,17
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2011,54
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2012,9
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2013,17
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2014,147
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2015,16
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2016,16
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2017,4
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2018,4
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2019,2
-WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2020,3
-NA,NA,NA,NA,NA,NA,NA,NA,NA
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2004,4
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2005,10
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2006,9
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2007,5
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2008,1
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2009,2
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2010,0
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2011,1
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2012,1
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2013,1
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2014,0
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2015,1
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2016,0
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2017,2
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2018,0
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2019,0
-WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2020,0
 NA,NA,NA,NA,NA,NA,NA,NA,NA
 NA,NA,NA,NA,NA,NA,NA,NA,NA
 NA,NA,NA,NA,NA,NA,NA,NA,NA
@@ -570,189 +536,18 @@ NA,NA,NA,NA,NA,NA,NA,NA,NA
 NA,NA,NA,NA,NA,NA,NA,NA,NA
 NA,NA,NA,NA,NA,NA,NA,NA,NA
 NA,NA,NA,NA,NA,NA,NA,NA,NA
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,1998,1
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,1999,0
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2000,4
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2001,3
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2002,4
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2003,4
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2004,18
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2005,3
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2006,6
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2007,9
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2008,26
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2009,29
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2010,8
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2011,5
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2012,4
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2013,30
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2014,3
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2015,3
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2016,0
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2017,1
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2018,1
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2019,0
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2020,8
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,1998,1
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,1999,0
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2000,4
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2001,3
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2002,4
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2003,4
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2004,18
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2005,3
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2006,6
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2007,9
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2008,26
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2009,29
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2010,8
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2011,5
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2012,4
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2013,30
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2014,3
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2015,3
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2016,0
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2017,1
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2018,1
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2019,0
-WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Count data,smolt_trap,2020,8
-WA,1041,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2008,91
-WA,1041,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2009,48
-WA,1041,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2010,30
-WA,1041,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2011,56
-WA,1041,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2012,53
-WA,1041,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2013,98
-WA,1041,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2014,78
-WA,1042,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2011,0
-WA,1042,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2012,4
-WA,1042,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2013,11
-WA,1042,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2014,4
-WA,1043,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2015,0
-WA,1043,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2016,2
-WA,1043,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2017,0
-WA,1043,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2018,6
-WA,1043,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2019,0
-WA,1043,Mid Columbia,Touchet River,Touchet River Bull Trout,abundance,trap_count,2020,0
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2008,78
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2009,42
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2010,81
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2011,25
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2012,90
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2013,45
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2014,59
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2015,25
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2016,22
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2017,21
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2018,NA
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2019,16
-WA,1044,Mid Columbia,Entiat River,Entiat River Bull Trout,Catch data,trap_count,2020,NA
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,1997,233
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,1998,605
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,1999,234
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2000,421
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2001,264
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2002,339
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2003,439
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2004,238
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2005,175
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2006,134
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2007,250
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2008,513
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2009,496
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2010,499
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2011,351
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2012,488
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2013,310
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2014,260
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2015,266
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2016,103
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2017,259
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2018,215
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2019,151
-WA,1045,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2020,201
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,1997,23
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,1998,57
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,1999,16
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2000,15
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2001,25
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2002,8
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2003,6
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2004,12
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2005,41
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2006,39
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2007,29
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2008,33
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2009,26
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2010,45
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2011,7
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2012,31
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2013,51
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2014,75
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2015,32
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2016,15
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2017,78
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2018,71
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2019,34
-WA,1046,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,Catch data,trap_count,2020,45
-WA,1047,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2013,6
-WA,1047,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2014,3
-WA,1047,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2015,0
-WA,1047,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2016,0
-WA,1047,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2017,0
-WA,1047,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2018,0
-WA,1047,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2019,4
-WA,1047,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2020,4
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2000,4
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2001,2
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2002,1
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2003,0
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2004,2
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2005,3
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2006,1
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2007,2
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2008,1
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2009,0
-WA,1048,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2010,2
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,1997,2
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,1998,1
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,1999,4
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2000,5
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2001,3
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2002,1
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2003,NA
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2004,0
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2005,5
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2006,3
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2007,5
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2008,3
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2009,8
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2010,4
-WA,1049,Mid Columbia,Wenatchee River,Wenatchee River Bull Trout,Catch data,trap_count,2011,14
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,1993,148
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,1994,448
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,1995,343
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,1996,244
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,1997,141
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,1998,358
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,1999,199
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2000,246
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2001,142
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2002,189
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2003,149
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2004,186
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2005,31
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2006,90
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2007,228
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2008,146
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2009,72
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2010,105
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2011,137
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2012,204
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2013,156
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2014,150
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2015,173
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2016,150
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2017,66
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2018,109
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2019,55
-WA,1079,Coastal,Lower Skagit River,Lower Skagit River Bull Trout,Catch data,trap_count,2020,49
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
+NA,NA,NA,NA,NA,NA,NA,NA,NA
