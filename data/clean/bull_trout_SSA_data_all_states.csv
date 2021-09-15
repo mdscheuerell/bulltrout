@@ -9243,18 +9243,18 @@ WA,42,Coastal,Stillaguamish River,SF Stillaguamish R. and Palmer Creek,abundance
 WA,42,Coastal,Stillaguamish River,SF Stillaguamish R. and Palmer Creek,abundance,redd_counts,2017,0
 WA,42,Coastal,Stillaguamish River,SF Stillaguamish R. and Palmer Creek,abundance,redd_counts,2018,1
 WA,42,Coastal,Stillaguamish River,SF Stillaguamish R. and Palmer Creek,abundance,redd_counts,2019,0
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2000,164
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2001,192
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2002,416
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2003,219
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2004,455
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2005,418
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2006,293
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2007,356
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2008,325
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2009,204
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2010,416
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2011,387
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2002,410
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2003,180
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2004,391
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2005,369
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2006,250
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2007,308
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2008,290
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2009,171
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2010,306
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2011,313
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2019,183
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2020,182
 WA,44,Coastal,Puyallup River,"Ranger Cr, Carbon R tributary",abundance,redd_counts,2002,0
 WA,44,Coastal,Puyallup River,"Ranger Cr, Carbon R tributary",abundance,redd_counts,2005,1
 WA,44,Coastal,Puyallup River,"Ranger Cr, Carbon R tributary",abundance,redd_counts,2007,0
@@ -9361,7 +9361,6 @@ WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_c
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2011,29
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2012,37
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2013,57
-WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2013,55
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2014,NA
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2015,14
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2016,12
@@ -9990,30 +9989,18 @@ WA,1055,Coastal,Lower Skagit River,Downey Creek,abundance,redd_counts,2016,186
 WA,1055,Coastal,Lower Skagit River,Downey Creek,abundance,redd_counts,2017,133
 WA,1055,Coastal,Lower Skagit River,Downey Creek,abundance,redd_counts,2018,129
 WA,1055,Coastal,Lower Skagit River,Downey Creek,abundance,redd_counts,2019,21
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2000,60
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2001,41
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2002,85
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2002,87
 WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2003,29
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2004,100
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2005,79
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2006,89
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2007,107
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2008,117
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2009,47
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2010,151
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2011,133
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2000,10
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2001,3
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2002,3
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2003,10
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2004,32
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2005,17
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2006,11
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2007,14
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2008,15
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2009,15
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2010,19
-WA,1057,Coastal,Chester Morse Lake,Rack River and Shotgun,abundance,redd_counts,2011,30
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2004,95
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2005,76
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2006,82
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2007,92
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2008,106
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2009,34
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2010,81
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2011,93
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2019,57
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2020,53
 WA,1058,Coastal,Puyallup River,"Antler Cr, White R tributary",abundance,redd_counts,2005,0
 WA,1058,Coastal,Puyallup River,"Antler Cr, White R tributary",abundance,redd_counts,2006,2
 WA,1058,Coastal,Puyallup River,"Antler Cr, White R tributary",abundance,redd_counts,2007,2
