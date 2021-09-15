@@ -113,9 +113,7 @@ yy <- yy %>%
 
 ## remove upstream tibbles that are no longer necessary
 rm(adult_data,
-   core_tbl,
-   model_data,
-   year_smry)
+   core_tbl)
 
 
 #### model fitting ####
