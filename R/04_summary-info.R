@@ -54,7 +54,7 @@ yy <- adult_data %>%
 #### entire time period ####
 
 ## get model fits
-mod_fit_CI90 <- readRDS((file = file.path(output_dir, "adult_model_fits_CI90.rds")))
+mod_fit_CI90 <- readRDS(file = file.path(output_dir, "adult_model_fits_CI90.rds"))
 
 ## extract core area names
 core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
@@ -130,7 +130,7 @@ dev.off()
 #### late-period trends ####
 
 ## get model fits
-mod_fit_late_CI90 <- readRDS((file = file.path(output_dir, "model_fits_late_CI90.rds")))
+mod_fit_late_CI90 <- readRDS(file = file.path(output_dir, "adult_model_fits_late_CI90.rds"))
 
 ## write plots to pdf
 pdf(file = file.path(output_dir, "bull_trout_SSA_adult_summary_plots_late_period.pdf"),
