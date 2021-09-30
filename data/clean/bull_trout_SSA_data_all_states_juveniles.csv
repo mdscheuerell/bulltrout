@@ -195,6 +195,29 @@ ID,10,Mid Columbia,Selway River,SEL Multiple,abundance,snorkel,2016,0.001
 ID,10,Mid Columbia,Selway River,SEL Multiple,abundance,snorkel,2017,0.09568783604451238
 ID,10,Mid Columbia,Selway River,SEL Multiple,abundance,snorkel,2018,0.02883606122472519
 ID,10,Mid Columbia,Selway River,SEL Multiple,abundance,snorkel,2019,0.001
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,1997,0.06194291533074118
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,1998,NA
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,1999,NA
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2000,NA
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2001,0.04970395565633661
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2002,0.03247791199056755
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2003,NA
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2004,0.041062552890899266
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2005,0.03246082535238596
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2006,0.042126235588138355
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2007,0.060367356870223356
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2008,0.06411143039493013
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2009,0.07078598547969964
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2010,0.07342625753773886
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2011,0.03197638858893086
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2012,0.03256560005903603
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2013,0.07033451774295033
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2014,0.051834664444924766
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2015,0.06852016307952635
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2016,0.011627906976744186
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2017,NA
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2018,0.054696621512659256
+ID,11,Upper Snake,Mid Salmon - Panther,MSP Multiple,abundance,electrofishing,2019,0.02315636897774631
 ID,12,Upper Snake,Lemhi River,Hayden Cr,abundance,screw_trap,2006,20
 ID,12,Upper Snake,Lemhi River,Hayden Cr,abundance,screw_trap,2007,468
 ID,12,Upper Snake,Lemhi River,Hayden Cr,abundance,screw_trap,2008,156
@@ -241,6 +264,22 @@ ID,14,Upper Snake,Lemhi River,Upper Lemhi River,abundance,screw_trap,2016,16
 ID,14,Upper Snake,Lemhi River,Upper Lemhi River,abundance,screw_trap,2017,11
 ID,14,Upper Snake,Lemhi River,Upper Lemhi River,abundance,screw_trap,2018,6
 ID,14,Upper Snake,Lemhi River,Upper Lemhi River,abundance,screw_trap,2019,15
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2004,0.9559191231436355
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2005,NA
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2006,NA
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2007,1.7318048131245902
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2008,NA
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2009,2.195015932695505
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2010,0.30927835051546393
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2011,1.1583399310730254
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2012,2.568864930164831
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2013,3.0855743225121
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2014,4.743859008309743
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2015,3.8295053814464732
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2016,3.0743514692378326
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2017,0.9684617759655754
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2018,2.1931899685815335
+ID,15,Upper Snake,Pahsimeroi,Multiple,abundance,electrofishing,2019,2.129688493324857
 ID,19,Upper Snake,Upper Salmon,Upper Salmon (multiple),abundance,screw_trap,1998,1
 ID,19,Upper Snake,Upper Salmon,Upper Salmon (multiple),abundance,screw_trap,1999,4
 ID,19,Upper Snake,Upper Salmon,Upper Salmon (multiple),abundance,screw_trap,2000,8
@@ -280,6 +319,53 @@ ID,20,Upper Snake,Weiser River,WR Multiple,abundance,snorkel,2017,NA
 ID,20,Upper Snake,Weiser River,WR Multiple,abundance,snorkel,2018,NA
 ID,20,Upper Snake,Weiser River,WR Multiple,abundance,snorkel,2019,NA
 ID,20,Upper Snake,Weiser River,WR Multiple,abundance,snorkel,2020,1.6094379124341003
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,1998,0.020114942528735632
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,1999,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2000,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2001,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2002,0.05630789155100087
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2003,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2004,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2005,0.23713903231975522
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2006,0.12434621093780357
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2007,0.04130684531877267
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2008,0.20427929911068063
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2009,0.21138282007847226
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2010,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2011,0.4488727053121289
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2012,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2013,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2014,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2015,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2016,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2017,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2018,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2019,NA
+ID,21,Upper Snake,Arrowrock,AR Multiple,abundance,electrofishing,2020,0.123
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,1995,2.467678487183904
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,1996,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,1997,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,1998,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,1999,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2000,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2001,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2002,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2003,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2004,2.6367965541767604
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2005,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2006,7.658579585742485
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2007,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2008,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2009,NA
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2010,5.0662445169604755
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2011,5.39199961922738
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2012,9.954638360573327
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2013,6.230612118993125
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2014,19.43055854895502
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2015,5.2931239281841425
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2016,4.991927207717751
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2017,4.628549911232337
+ID,22,Upper Snake,Little Lost,LL Multiple,abundance,electrofishing,2018,6.454107829869501
 ID,42,Mid Columbia,South Fork Clearwater,American River,abundance,screw_trap,2004,3
 ID,42,Mid Columbia,South Fork Clearwater,American River,abundance,screw_trap,2005,2
 ID,42,Mid Columbia,South Fork Clearwater,American River,abundance,screw_trap,2006,7
@@ -545,6 +631,15 @@ WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2017,4
 WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2018,4
 WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2019,2
 WA,39,Coastal,Dungeness,Dungeness,abundance,trap_count,2020,3
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2012,194
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2013,194
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2014,137
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2015,143
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2016,163
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2017,197
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2018,265
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2019,255
+WA,41,Coastal,Skokomish River,NF Skokomish,abundance,snorkel,2020,338
 WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2004,4
 WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2005,10
 WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2006,9
@@ -562,6 +657,10 @@ WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,20
 WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2018,0
 WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2019,0
 WA,992,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,trap_count,2020,0
+WA,1039,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,abundance,snorkel,2015,3
+WA,1039,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,abundance,snorkel,2016,14
+WA,1039,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,abundance,snorkel,2017,7
+WA,1039,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,abundance,snorkel,2018,11
 WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,1998,1
 WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,1999,0
 WA,1040,Mid Columbia,Tucannon River,Tuncannon River Bull Trout,Catch data,trap_count,2000,4

@@ -142,7 +142,7 @@ adult_data <- left_join(adult_ID, df_tmp) %>%
 
 ## create primary key for filtering adult data
 juvie_ID <- metadata %>%
-  filter(lifestage == "J") %>%
+  filter(lifestage == "J" | lifestage == "B") %>%
   tidyr::unite("data_ID", state:dataset, remove = TRUE) %>%
   select(data_ID)
 
