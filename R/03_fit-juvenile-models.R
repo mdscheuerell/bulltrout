@@ -27,7 +27,8 @@ juvie_data <- read_csv(file = file.path(clean_data_dir,
 
 ## trim years & reshape to "wide" format for MARSS
 yy <- juvie_data %>%
-  filter(metric == "abundance") %>%
+  arrange(year) %>%
+  # filter(metric == "abundance") %>%
   select(-metric) %>%
   filter(year >= yr_first) %>%
   pivot_wider(names_from = year,

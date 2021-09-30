@@ -201,8 +201,9 @@ juvie_data <- readr::read_csv(file = file.path(clean_data_dir,
 
 ## trim years, reshape to "wide" format & transform for MARSS
 yy <- juvie_data %>%
+  arrange(year) %>%
   ## extract abundance data only
-  filter(metric == "abundance") %>%
+  # filter(metric == "abundance") %>%
   ## drop metric
   select(-metric) %>%
   ## filter appropriate years
