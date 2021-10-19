@@ -67,8 +67,12 @@ core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
 ## number of core areas
 n_cores <- nrow(core_areas)
 
-## write plots to pdf
-pdf(file = file.path(output_dir, "bull_trout_SSA_adult_summary_plots.pdf"),
+## write plots to pdf - paper
+# pdf(file = file.path(output_dir, "bull_trout_SSA_adult_summary_plots.pdf"),
+#     height = 6, width = 9)
+
+## write plots to pdf - presentation
+pdf(file = file.path(output_dir, "bull_trout_SSA_adult_summary_plots_talk.pdf"),
     height = 6, width = 9)
 
 ## loop over core areas by state
@@ -114,8 +118,12 @@ for(i in 1:n_cores) {
   matplot(t_index, tmp,
           type = "o", lty = "solid", pch = 16, col = clr,
           ylim = range(c(tmp, tmp2, tmp3u, tmp3l), na.rm = TRUE),
+          # for talk
+          cex.axis = 1.5, cex.lab = 1.5,
           las = 1, xlab = "Year", ylab = "Abundance index")
   mtext(paste0(core_areas[i,"state"], ": ", core_areas[i,"core_area"]),
+        # for talk
+        cex = 1.5,
         side = 3, line = 0.5, adj = 0)
   ## plot estimated trend
   lines(t_index[tmp_t], tmp2, lwd = 3)
