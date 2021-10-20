@@ -119,13 +119,14 @@ for(i in 1:n_cores) {
   clr <- mako(nn, begin = 0.4, end = 0.9)
   
   ## plot abundance index
-  par(mai = c(0.9, 0.9, 0.6, 0.1))
+  par(mai = c(0.9, 1.4, 0.6, 0.1))
   matplot(t_index, tmp,
           type = "o", lty = "solid", pch = 16, col = clr,
           ylim = range(c(tmp, tmp2, tmp3u, tmp3l), na.rm = TRUE),
           # for talk
-          cex.axis = 1.5, cex.lab = 1.5,
-          las = 1, xlab = "Year", ylab = "Abundance index")
+          cex.axis = 1.5, cex.lab = 1.5, cex = 1.5, lwd = 2,
+          las = 1, xlab = "Year", ylab = "")
+  mtext("Abundance index", side = 2, cex = 1.5, line = 4.5)
   mtext(paste0(core_areas[i,"state"], ": ", core_areas[i,"core_area"]),
         # for talk
         cex = 1.5,
