@@ -185,3 +185,65 @@ bias_smry %>%
   write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_juveniles_biases.csv"))
 
 
+#### late-period trend ####
+
+## covariate for trend
+cc <- ((seq(yr_first, 2020) >= 2008) * 1) %>%
+  matrix(nrow = 1)
+
+## update model list
+mod_list$U <- matrix(0, ncol = 1, nrow = nc)
+
+mod_list$C <- UU
+
+mod_list$c <- cc
+
+## fit late-period model
+mod_fit_late <- MARSS(yy, model = mod_list, control = con_list)
+
+## save fitted model object
+saveRDS(mod_fit_late, file.path(output_dir, "juvenile_model_fits_late.rds"))
+
+#### late-period bootstrapped CI's ####
+
+## bootstrap parameters from the Hessian matrix
+mod_fit_late_CI90 <- MARSSparamCIs(mod_fit_late, method = "hessian", alpha = 0.1, nboot = 1000)
+
+## save bootstrapped model object
+saveRDS(mod_fit_late_CI90, file.path(output_dir, "juvenile_model_fits_late_CI90.rds"))
+
+## extract bias params
+bias_late_mean <- mod_fit_late_CI90$parMean[grep("U.", names(mod_fit_late_CI90$parMean))]
+
+## summary table of bias CI's
+bias_smry <- cbind(mod_fit_late_CI90$par.lowCI$U,
+                   bias_late_mean,
+                   mod_fit_late_CI90$par.upCI$U) %>%
+  round(4) %>%
+  as.data.frame()
+## better col names
+colnames(bias_smry) <- c("CI_lo_90", "mean", "CI_up_90")
+## better row names
+rownames(bias_smry) <- gsub("(U.)(.*)", "\\2", names(bias_late_mean))
+
+## summarize trends
+## negative
+neg <- bias_smry %>%
+  apply(1, function(x) x < 0) %>%
+  t() %>%
+  apply(1, all)
+## positive
+pos <- bias_smry %>%
+  apply(1, function(x) x > 0) %>%
+  t() %>%
+  apply(1, all)
+## add trend col
+bias_smry$trend = "0"
+bias_smry$trend[neg] <- "-"
+bias_smry$trend[pos] <- "+"
+
+## write bias summary to file
+bias_smry %>% 
+  write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_juvenile_late_biases.csv"))
+
+
