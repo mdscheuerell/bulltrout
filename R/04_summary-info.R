@@ -231,7 +231,7 @@ yy <- juvie_data %>%
   select(-n_yrs) 
 
 
-#### entire time period ####
+#### juvie entire time period ####
 
 ## get model fits
 mod_fit_CI90 <- readRDS((file = file.path(output_dir, "juv_model_fits_CI90.rds")))
@@ -305,5 +305,82 @@ for(i in 1:n_cores) {
 }
 
 dev.off()
+
+
+#### juvie late-period trends ####
+
+## get model fits
+mod_fit_late_CI90 <- readRDS(file = file.path(output_dir, "juvenile_model_fits_late_CI90.rds"))
+
+## extract core area names
+core_areas <- MARSS:::coef.marssMLE(mod_fit_late_CI90, matrix)$U %>%
+  rownames() %>%
+  strsplit(": ") %>%
+  do.call(what = rbind) %>%
+  as.data.frame() %>%
+  `colnames<-`(c("state", "recovery_unit", "core_area"))
+
+## number of core areas
+n_cores <- nrow(core_areas)
+
+## write plots to pdf
+pdf(file = file.path(output_dir, "bull_trout_SSA_juvenile_summary_plots_late_period.pdf"),
+    height = 6, width = 9)
+
+## loop over core areas by state
+for(i in 1:n_cores) {
+  
+  ## extract obs data for core area
+  tmp <- yy %>%
+    filter(core_area == core_areas[i,"core_area"]) %>%
+    ## drop ID cols
+    select(-(state:source)) %>%
+    ## convert to matrix
+    as.matrix() %>%
+    + 1 %>%
+    ## log-transform
+    log() %>%
+    ## remove the mean
+    MARSS:::zscore(mean.only = FALSE) %>%
+    ## pivot to long
+    t()
+  
+  ## number of local popns in the core area
+  nn <- ncol(tmp)
+  
+  ## trim states to data
+  tmp_na <- (!is.na(tmp)) %>%
+    apply(1, any)
+  tmp_sf <- seq(length(t_index))[tmp_na] %>%
+    range()
+  tmp_t <- seq(tmp_sf[1], tmp_sf[2])
+  
+  ## get estimated trend line
+  tmp2 <- mod_fit_late_CI90$states[i, tmp_t]
+  
+  ## get SE of estimated trend line
+  tmp3u <- tmp2 + 1.645*mod_fit_late_CI90$states.se[i, tmp_t]
+  tmp3l <- tmp2 - 1.645*mod_fit_late_CI90$states.se[i, tmp_t]
+  
+  ## set colormap
+  clr <- mako(nn, begin = 0.4, end = 0.9)
+  
+  ## plot abundance index
+  par(mai = c(0.9, 0.9, 0.6, 0.1))
+  matplot(t_index, tmp,
+          type = "o", lty = "solid", pch = 16, col = clr,
+          ylim = range(c(tmp, tmp2, tmp3u, tmp3l), na.rm = TRUE),
+          las = 1, xlab = "Year", ylab = "Abundance index")
+  mtext(paste0(core_areas[i,"state"], ": ", core_areas[i,"core_area"]),
+        side = 3, line = 0.5, adj = 0)
+  ## plot estimated trend
+  lines(t_index[tmp_t], tmp2, lwd = 3)
+  lines(t_index[tmp_t], tmp3u, lwd = 2, col = "gray")
+  lines(t_index[tmp_t], tmp3l, lwd = 2, col = "gray")
+  
+}
+
+dev.off()
+
 
 
