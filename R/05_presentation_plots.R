@@ -25,8 +25,8 @@ t_index <- seq(yr_first, yr_last)
 #### get observed adult data ####
 
 ## read data
-adult_data <- readr::read_csv(file = file.path(clean_data_dir,
-                                        "bull_trout_SSA_data_all_states_adults.csv"))
+adult_data <- readr::read_csv(file = here(clean_data_dir,
+                                          "bull_trout_SSA_data_all_states_adults.csv"))
 
 ## trim years, reshape to "wide" format & transform for MARSS
 yy <- adult_data %>%
@@ -54,7 +54,7 @@ yy <- adult_data %>%
 #### entire time period ####
 
 ## get model fits
-mod_fit_CI90 <- readRDS(file = file.path(output_dir, "adult_model_fits_CI90.rds"))
+mod_fit_CI90 <- readRDS(file = here(output_dir, "adult_model_fits_CI90.rds"))
 
 ## extract core area names
 core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
@@ -68,21 +68,21 @@ core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
 n_cores <- nrow(core_areas)
 
 ## write plots to pdf - paper
-# pdf(file = file.path(output_dir, "bull_trout_SSA_adult_summary_plots.pdf"),
+# pdf(file = here(output_dir, "bull_trout_SSA_adult_summary_plots.pdf"),
 #     height = 6, width = 9)
 
-bias_smry <- read.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_adults_biases.csv"))
+bias_smry <- read.csv(file = here(output_dir, "bull_trout_SSA_all_states_adults_biases.csv"))
 
 bias_smry$mean %>% hist(breaks = seq(-0.15, 0.15, 0.03), plot = FALSE)
 
 
 ## write plots to pdf - presentation
-pdf(file = file.path(output_dir, "bull_trout_SSA_adult_summary_plots_talk.pdf"),
+pdf(file = here(output_dir, "bull_trout_SSA_adult_summary_plots_talk.pdf"),
     height = 6, width = 9)
 
 ## loop over core areas by state
 for(i in 1:n_cores) {
-
+  
   ## extract obs data for core area
   tmp <- yy %>%
     filter(core_area == core_areas[i,"core_area"]) %>%
@@ -144,10 +144,10 @@ dev.off()
 #### late-period trends ####
 
 ## get model fits
-mod_fit_late_CI90 <- readRDS(file = file.path(output_dir, "adult_model_fits_late_CI90.rds"))
+mod_fit_late_CI90 <- readRDS(file = here(output_dir, "adult_model_fits_late_CI90.rds"))
 
 ## write plots to pdf
-pdf(file = file.path(output_dir, "bull_trout_SSA_adult_summary_plots_late_period.pdf"),
+pdf(file = here(output_dir, "bull_trout_SSA_adult_summary_plots_late_period.pdf"),
     height = 6, width = 9)
 
 ## loop over core areas by state
@@ -210,8 +210,8 @@ dev.off()
 #### get observed juvenile data ####
 
 ## read data
-juvie_data <- readr::read_csv(file = file.path(clean_data_dir,
-                                               "bull_trout_SSA_data_all_states_juveniles.csv"))
+juvie_data <- readr::read_csv(file = here(clean_data_dir,
+                                          "bull_trout_SSA_data_all_states_juveniles.csv"))
 
 ## trim years, reshape to "wide" format & transform for MARSS
 yy <- juvie_data %>%
@@ -240,7 +240,7 @@ yy <- juvie_data %>%
 #### entire time period ####
 
 ## get model fits
-mod_fit_CI90 <- readRDS((file = file.path(output_dir, "juv_model_fits_CI90.rds")))
+mod_fit_CI90 <- readRDS((file = here(output_dir, "juv_model_fits_CI90.rds")))
 
 ## extract core area names
 core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
@@ -254,7 +254,7 @@ core_areas <- MARSS:::coef.marssMLE(mod_fit_CI90, matrix)$U %>%
 n_cores <- nrow(core_areas)
 
 ## write plots to pdf
-pdf(file = file.path(output_dir, "bull_trout_SSA_juvenile_summary_plots.pdf"),
+pdf(file = here(output_dir, "bull_trout_SSA_juvenile_summary_plots.pdf"),
     height = 6, width = 9)
 
 ## loop over core areas by state

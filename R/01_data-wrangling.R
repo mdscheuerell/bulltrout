@@ -28,7 +28,7 @@ all_files <- dir(raw_data_dir)
 
 metadata_file <- grep("metadata", all_files, value = TRUE)
 
-metadata <- read_csv(file.path(raw_data_dir, metadata_file))
+metadata <- read_csv(here(raw_data_dir, metadata_file))
 
 
 #### read raw data ####
@@ -46,7 +46,7 @@ for (i in file_names) {
   st <- sub("(USFWS_bull_trout_SSA_data_)([A-Z]{2})(.*)", "\\2", i)
   
   ## read raw file into tmp
-  tmp <- file.path(raw_data_dir, i) %>%
+  tmp <- here(raw_data_dir, i) %>%
     read_xlsx(range = cell_cols("A:H"),
               col_types = c("guess", "text", "text", "text", "text", "text", "numeric", "numeric"),
               na = c("", "NA", "n/a", "na", ".")) %>%
@@ -150,7 +150,7 @@ juvie_ID <- metadata %>%
 juvie_data <- left_join(juvie_ID, df_tmp) %>%
   select(-data_ID) %>%
   filter(if_any(everything(), ~ !is.na(.)))
-  
+
 
 #### data summary ####
 
@@ -183,17 +183,17 @@ print(as.data.frame(year_smry))
 
 ## write all data for all states to one file
 df_all %>% 
-  write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states.csv"))
+  write_csv(file = here(clean_data_dir, "bull_trout_SSA_data_all_states.csv"))
 
 ## write adult summary info to file
 year_smry %>% 
-  write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_adult_data_summary.csv"))
+  write_csv(file = here(clean_data_dir, "bull_trout_SSA_adult_data_summary.csv"))
 
 ## write adult data only for all states to one file
 adult_data %>% 
-  write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states_adults.csv"))
+  write_csv(file = here(clean_data_dir, "bull_trout_SSA_data_all_states_adults.csv"))
 
 ## write juvenile data only for all states to one file
 juvie_data %>% 
-  write_csv(file = file.path(clean_data_dir, "bull_trout_SSA_data_all_states_juveniles.csv"))
+  write_csv(file = here(clean_data_dir, "bull_trout_SSA_data_all_states_juveniles.csv"))
 

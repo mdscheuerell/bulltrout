@@ -19,8 +19,8 @@ output_dir <- here("output")
 yr_first <- 1991
 
 ## read data
-juvie_data <- read_csv(file = file.path(clean_data_dir,
-                                        "bull_trout_SSA_data_all_states_juveniles.csv"))
+juvie_data <- read_csv(file = here(clean_data_dir,
+                                   "bull_trout_SSA_data_all_states_juveniles.csv"))
 
 
 #### data formatting ####
@@ -140,7 +140,7 @@ con_list <- list(
 mod_fit <- MARSS(yy, model = mod_list, control = con_list)
 
 ## save fitted model object
-saveRDS(mod_fit, file.path(output_dir, "juv_model_fits.rds"))
+saveRDS(mod_fit, here(output_dir, "juv_model_fits.rds"))
 
 #### bootstrapped CI's ####
 
@@ -148,7 +148,7 @@ saveRDS(mod_fit, file.path(output_dir, "juv_model_fits.rds"))
 mod_fit_CI90 <- MARSSparamCIs(mod_fit, method = "hessian", alpha = 0.1, nboot = 1000)
 
 ## save bootstrapped model object
-saveRDS(mod_fit_CI90, file.path(output_dir, "juv_model_fits_CI90.rds"))
+saveRDS(mod_fit_CI90, here(output_dir, "juv_model_fits_CI90.rds"))
 
 ## extract bias params
 bias_mean <- mod_fit_CI90$parMean[grep("U.", names(mod_fit_CI90$parMean))]
@@ -182,7 +182,7 @@ bias_smry$trend[pos] <- "+"
 
 ## write bias summary to file
 bias_smry %>% 
-  write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_juveniles_biases.csv"))
+  write.csv(file = here(output_dir, "bull_trout_SSA_all_states_juveniles_biases.csv"))
 
 
 #### late-period trend ####
@@ -202,7 +202,7 @@ mod_list$c <- cc
 mod_fit_late <- MARSS(yy, model = mod_list, control = con_list)
 
 ## save fitted model object
-saveRDS(mod_fit_late, file.path(output_dir, "juvenile_model_fits_late.rds"))
+saveRDS(mod_fit_late, here(output_dir, "juvenile_model_fits_late.rds"))
 
 #### late-period bootstrapped CI's ####
 
@@ -210,7 +210,7 @@ saveRDS(mod_fit_late, file.path(output_dir, "juvenile_model_fits_late.rds"))
 mod_fit_late_CI90 <- MARSSparamCIs(mod_fit_late, method = "hessian", alpha = 0.1, nboot = 1000)
 
 ## save bootstrapped model object
-saveRDS(mod_fit_late_CI90, file.path(output_dir, "juvenile_model_fits_late_CI90.rds"))
+saveRDS(mod_fit_late_CI90, here(output_dir, "juvenile_model_fits_late_CI90.rds"))
 
 ## extract bias params
 bias_late_mean <- mod_fit_late_CI90$parMean[grep("U.", names(mod_fit_late_CI90$parMean))]
@@ -244,6 +244,6 @@ bias_smry$trend[pos] <- "+"
 
 ## write bias summary to file
 bias_smry %>% 
-  write.csv(file = file.path(output_dir, "bull_trout_SSA_all_states_juvenile_late_biases.csv"))
+  write.csv(file = here(output_dir, "bull_trout_SSA_all_states_juvenile_late_biases.csv"))
 
 
