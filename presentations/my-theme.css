@@ -154,14 +154,27 @@ a, a > code {
   float: left;
   width: 47%;
 }
+.pull-left-wide {
+  float: left;
+  width: 70%;
+}
 .pull-left-img {
   float: left;
   width: 35%;
-  padding-left: 5em;
+  padding-left: 2em;
 }
 .pull-right {
   float: right;
   width: 47%;
+}
+.pull-right-wide {
+  float: right;
+  width: 60%;
+}
+.pull-right-img {
+  float: right;
+  width: 35%;
+  padding-right: 2em;
 }
 .pull-right ~ * {
   clear: both;
