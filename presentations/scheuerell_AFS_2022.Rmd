@@ -774,11 +774,7 @@ background-size: 80%
 # Big picture
 
 .blue-text[
-## The ESA is an unfortunate, but necessary & successful piece of legislation
-
-## Data quality affects our ability to make decisions
-
-## Great minds <u>do not</u> think alike
+## Status of bull trout in the Pacific Northwest is mixed 
 ]
 
 .futnote.purple-text[`r icon_style(fontawesome("envelope"), fill = "#844870")` scheuerl@uw.edu]
@@ -788,25 +784,55 @@ background-size: 80%
 
 ---
 
-## Image credits
+# Big picture
 
 .blue-text[
-IUCN List: *Statista*  
+## Status of bull trout in the Pacific Northwest is mixed 
 
-Chimps: *Lantern Press*  
-
-Carnival: *Frank Kovalchek*   
-
-Robin Hood: *John Escott*  
-
-Bull trout sampling: *Brett Bowersox*  
+## Data quality affects our ability to assess trends
 ]
 
+.futnote.purple-text[`r icon_style(fontawesome("envelope"), fill = "#844870")` scheuerl@uw.edu]
+
+.citation.blue-text[`r icon_style(fontawesome("twitter"), fill = "#488fdf")` @mark_scheuerell]
+
+
+---
+
+# Big picture
+
+.blue-text[
+## Status of bull trout in the Pacific Northwest is mixed 
+
+## Data quality affects our ability to assess trends
+
+## State-space models can help 
+]
+
+.futnote.purple-text[`r icon_style(fontawesome("envelope"), fill = "#844870")` scheuerl@uw.edu]
+
+.citation.blue-text[`r icon_style(fontawesome("twitter"), fill = "#488fdf")` @mark_scheuerell]
+
+
+---
 
 ## Open science
 
 ### https://github.com/mdscheuerell/bulltrout
 
+## Image credits
+
+.blue-text[
+#### IUCN List: *Statista*  
+
+#### Chimps: *Lantern Press*  
+
+#### Carnival: *Frank Kovalchek*   
+
+#### Robin Hood: *John Escott*  
+
+#### Bull trout sampling: *Brett Bowersox*  
+]
 
 .futnote.purple-text[`r icon_style(fontawesome("envelope"), fill = "#844870")` scheuerl@uw.edu]
 
