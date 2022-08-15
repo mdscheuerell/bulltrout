@@ -12,6 +12,8 @@ output:
 options(htmltools.dir.version = FALSE, servr.daemon = TRUE)
 knitr::opts_chunk$set(echo = FALSE, message = FALSE, dpi=300, out.height="100%", out.width="100%")
 library(icons)
+
+## chakra: libs/remark-latest.min.js
 ```
 
 
