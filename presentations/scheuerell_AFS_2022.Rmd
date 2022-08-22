@@ -65,14 +65,6 @@ _U.S. Geological Survey<br>Washington Cooperative Fish and Wildlife Research Uni
 
 ---
 
-class: frimg, inverse
-background-image: url(figs/iucn_species.jpeg)
-background-position: 50% 50%
-background-size: 75%
-
-
----
-
 class: middle
 
 # Endangered Species Act of 1973
@@ -823,8 +815,6 @@ background-size: 80%
 ## Image credits
 
 .blue-text[
-#### IUCN List: *Statista*  
-
 #### Chimps: *Lantern Press*  
 
 #### Carnival: *Frank Kovalchek*   
