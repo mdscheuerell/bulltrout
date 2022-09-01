@@ -26,7 +26,7 @@ urlcolor: blue
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE, message = FALSE)
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE)
 
 ## load {knitcitations}
 library("knitcitations")
@@ -69,6 +69,8 @@ The data coordinators also provided me with some metadata indicating which of th
 * Montana: Dan Brewer (USFWS)
 
 The data from Montana came via biologists with the USGS (Clint Muhlfeld, Tim Cline), and did not conform to the template file I had provided. Thus, those data were subjected to additional cleaning prior to their inclusion with the data from other states (see below).
+
+Prior to analysis, all of the count data were log-transformed and standardized to a mean of zero and variance of one, which aided in model fitting and, in particular, the estimation of the process and observation (sampling) variances.
 
 # Modeling framework
 
@@ -180,10 +182,10 @@ where $\mathbf{y}_t$, $\mathbf{x}_t$, $\mathbf{a}$, $\mathbf{v}_t$ are all $n \t
 Just as we did for the observation model, we can write the models for population dynamics as
 
 \begin{equation}
-  x_{i,t} = x_{i,t-1} + u_i + w_{i,t}
+  x_{j,t} = x_{j,t-1} + u_j + w_{j,t}
 \end{equation}
 
-where $u_i$ is the bias, which is unique to each population\footnote{It might be reasonable to assume that some/all of the populations have the same bias, given their membership within a core area.}, and $w_{i,t} \sim \text{N}(0, q_i)$\footnote{Here the variance of the process errors is assumed to be population specific, but it might be reasonable to assume that they all have the same variance, given their membership within a core area, such that $w_{i,t} \sim \text{N}(0, q)$.}.
+where $u_i$ is the bias, which is unique to each population\footnote{It might be reasonable to assume that some/all of the populations have the same bias, given their membership within a core area.}, and $w_{j,t} \sim \text{N}(0, q)$}.
 
 We can again express all of the population models in matrix form, such that
 
@@ -395,15 +397,97 @@ or identically distributed, but not independent
 
 # Model fitting
 
-All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for the **R** computing software `r citep(citation())`. All of the data and code necessary to reproduce the results of the analysis can be found online at https://github.com/mdscheuerell/bulltrout.
+The adult data come from 242 populations within 62 core area spread across the 6 recovery domains. Thus, $\mathbf{y}_t$ is a 242 $\times$ 1 vector of transformed observed counts in year $t$, and $\mathbf{x}_t$ is a 62 $\times$ 1 vector of underlying states in year $t$. The matrix $\mathbf{Z}$ is a 242 $\times$ 62 matrix of 1's and 0's that maps each of the respective observations onto their respective states.
+
+Because the source of the data varies by location, I estimated different variance terms for each of the methods (e.g., screw trap, snorkel survey, weir). Specifically, the covariance matrix is given by
+
+\begin{equation} 
+  \mathbf{R} = 
+    \begin{bmatrix}
+      r_i & 0 & \cdots & 0 \\
+      0 & r_i & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & r_i \\
+    \end{bmatrix}.
+\end{equation} 
+
+where $i$ indicates the source of the data.
+
+In this particular case, the data were standardized prior to model fitting, so I assumed that the process errors ($w_{j,t}$) were independent and identically distributed, such that
+
+\begin{equation} 
+  \mathbf{Q} = 
+    \begin{bmatrix}
+      q & 0 & \cdots & 0 \\
+      0 & q & \cdots & 0 \\
+      \vdots & \vdots & \ddots & \vdots \\
+      0 & 0 & \cdots & q \\
+    \end{bmatrix}.
+\end{equation} 
+
+All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for the **R** computing software `r citep(citation())`. I estimated 90% confidence intervals (CI's) around each of the estimated bias terms $(u_j)$ using the `MARSSparamCIs()` function based upon an asymptotic variance assumption. All of the data and code necessary to reproduce the results of the analysis can be found online at https://github.com/mdscheuerell/bulltrout.
+
+
+# Results
+
+Estimated trends in abundance were rather mixed (Tables 1-4), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Model trend lines and their associated CI's are provided at the end of this report.
+
+```{r tbl_results}
+library(dplyr)
+## get point estimates and CI's
+tbl_res <- read.csv(here::here("output", "bull_trout_SSA_all_states_adults_biases.csv"))
+
+state_core_popn <- stringr::str_split_fixed(tbl_res$X, pattern = ": ", 3) %>%
+  as.data.frame()
+colnames(state_core_popn) <- c("state", "domain", "popn")
+
+tbl_res <- cbind(state_core_popn, tbl_res[,-1])
+
+## MT
+tbl_res_MT <- tbl_res %>%
+  filter(state == "MT") %>%
+  select(!(state:domain))
+
+kableExtra::kable(tbl_res_MT, booktabs = TRUE,
+                  col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "lcccc",
+                  caption = "Estimated trends and uncertainty for core areas in Montana. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).")
+
+## ID
+tbl_res_MT <- tbl_res %>%
+  filter(state == "ID") %>%
+  select(!(state:domain))
+
+kableExtra::kable(tbl_res_MT, booktabs = TRUE,
+                  col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "lcccc",
+                  caption = "Estimated trends and uncertainty for core areas in Idaho. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).")
+
+## WA
+tbl_res_WA <- tbl_res %>%
+  filter(state == "WA") %>%
+  select(!(state:domain))
+
+kableExtra::kable(tbl_res_WA, booktabs = TRUE,
+                  col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "lcccc",
+                  caption = "Estimated trends and uncertainty for core areas in Washington. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).")
+
+## OR
+tbl_res_OR <- tbl_res %>%
+  filter(state == "OR") %>%
+  select(!(state:domain))
+
+kableExtra::kable(tbl_res_OR, booktabs = TRUE,
+                  col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "lcccc",
+                  caption = "Estimated trends and uncertainty for core areas in Oregon. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).")
+```
+
+
 
 
 # References
-
-\setlength{\parindent}{-0.375in}
-\setlength{\leftskip}{0.375in}
-\setlength{\parskip}{8pt}
-\noindent
 
 ```{r}
 ## create ref cited section
