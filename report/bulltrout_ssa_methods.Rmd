@@ -40,7 +40,7 @@ options("citation_format" = "pandoc")
 
 \vspace{4in}
 
-This draft manuscript is distributed solely for purposes of scientific peer review. Its content is deliberative and predecisional, so it must not be disclosed or released by reviewers. Because the manuscript has not yet been approved for publication by the U.S. Geological Survey (USGS), it does not represent any official USGS finding or policy.
+This draft is distributed solely for purposes of internal review. Its content is deliberative and predecisional, so it must not be disclosed or released. Because it has not yet been approved for publication by the U.S. Geological Survey (USGS), it does not represent any official USGS finding or policy.
 
 \newpage
 
@@ -430,7 +430,7 @@ All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for
 
 # Results
 
-Estimated trends in abundance were rather mixed (Tables 1-4), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Model trend lines and their associated CI's are provided at the end of this report.
+Estimated trends in abundance were rather mixed (Tables 1-4), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided at the end of this report.
 
 ```{r tbl_results}
 library(dplyr)
