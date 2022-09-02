@@ -155,28 +155,28 @@ juvie_data <- left_join(juvie_ID, df_tmp) %>%
 #### data summary ####
 
 ## data summary for adults
-year_smry <- adult_data %>%
-  group_by(state, 
-           recovery_unit, 
-           core_area, 
-           popn_stream, 
-           metric,
-           source) %>%
-  summarise(first_year = min(year), last_year = max(year))
-
-print(as.data.frame(year_smry))
+# year_smry <- adult_data %>%
+#   group_by(state, 
+#            recovery_unit, 
+#            core_area, 
+#            popn_stream, 
+#            metric,
+#            source) %>%
+#   summarise(first_year = min(year), last_year = max(year))
+# 
+# print(as.data.frame(year_smry))
 
 ## data summary for juveniles
-year_smry <- juvie_data %>%
-  group_by(state, 
-           recovery_unit, 
-           core_area, 
-           popn_stream, 
-           metric,
-           source) %>%
-  summarise(first_year = min(year), last_year = max(year))
-
-print(as.data.frame(year_smry))
+# year_smry <- juvie_data %>%
+#   group_by(state, 
+#            recovery_unit, 
+#            core_area, 
+#            popn_stream, 
+#            metric,
+#            source) %>%
+#   summarise(first_year = min(year), last_year = max(year))
+# 
+# print(as.data.frame(year_smry))
 
 
 #### write data ####
@@ -186,8 +186,8 @@ df_all %>%
   write_csv(file = here(clean_data_dir, "bull_trout_SSA_data_all_states.csv"))
 
 ## write adult summary info to file
-year_smry %>% 
-  write_csv(file = here(clean_data_dir, "bull_trout_SSA_adult_data_summary.csv"))
+# year_smry %>% 
+#   write_csv(file = here(clean_data_dir, "bull_trout_SSA_adult_data_summary.csv"))
 
 ## write adult data only for all states to one file
 adult_data %>% 
