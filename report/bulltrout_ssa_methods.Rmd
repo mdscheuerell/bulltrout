@@ -18,6 +18,7 @@ geometry: margin=1in
 linestretch: 1.1
 fontsize: 12pt
 header-includes:
+  - \usepackage{pdfpages}
   - \usepackage{lineno}
   - \linenumbers
 bibliography: "references.bib"
@@ -397,9 +398,9 @@ or identically distributed, but not independent
 
 # Model fitting
 
-The adult data come from 242 populations within 62 core area spread across the 6 recovery domains. Thus, $\mathbf{y}_t$ is a 242 $\times$ 1 vector of transformed observed counts in year $t$, and $\mathbf{x}_t$ is a 62 $\times$ 1 vector of underlying states in year $t$. The matrix $\mathbf{Z}$ is a 242 $\times$ 62 matrix of 1's and 0's that maps each of the respective observations onto their respective states.
+The adult data come from 244 populations within 62 core area spread across the 6 recovery domains. Thus, $\mathbf{y}_t$ is a 244 $\times$ 1 vector of transformed observed counts in year $t$, and $\mathbf{x}_t$ is a 62 $\times$ 1 vector of underlying states in year $t$. The matrix $\mathbf{Z}$ is a 244 $\times$ 62 matrix of 1's and 0's that maps each of the respective observations onto their respective states. 
 
-The juvenile data are much more restricted, coming from 38 populations within 19 core area spread across the 6 recovery domains. Thus, $\mathbf{y}_t$ is a 38 $\times$ 1 vector of transformed observed counts in year $t$, and $\mathbf{x}_t$ is a 38 $\times$ 1 vector of underlying states in year $t$. The matrix $\mathbf{Z}$ is a 38 $\times$ 19 matrix of 1's and 0's that maps each of the respective observations onto their respective states.
+The juvenile data are much more restricted, coming from 31 populations within 15 core area spread across the 6 recovery domains. Thus, $\mathbf{y}_t$ is a 31 $\times$ 1 vector of transformed observed counts in year $t$, and $\mathbf{x}_t$ is a 15 $\times$ 1 vector of underlying states in year $t$. The matrix $\mathbf{Z}$ is a 31 $\times$ 15 matrix of 1's and 0's that maps each of the respective observations onto their respective states.
 
 All trends were estimated for the period covering 2008-2020 to reflect the most recent data.
 
@@ -436,12 +437,12 @@ All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for
 
 ## Adult abundance
 
-Estimated trends in adult abundance were rather mixed (Tables 1-4), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided at the end of this report.
+Estimated trends in adult abundance were rather mixed (Tables 1-4), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided in Appendix A.
 
 
 ## Juvenile abundance
 
-Estimated trends in juvenile abundance were also rather mixed (Table 5), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided at the end of this report.
+Estimated trends in juvenile abundance were also rather mixed (Table 5), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided in Appendix B.
 
 \newpage
 
@@ -533,6 +534,22 @@ kableExtra::kable(tbl_res_j, booktabs = TRUE,
 
 \newpage
 
-# Appendix
+# Appendix A
+
+The following pages contain plots of standardized indices of log-abundance for adults over time by core area (i.e., location given by `State: Core area`. Fitted trend lines (black) and associated 90% confidence intervals (gray) are also shown.
+
+\newpage
+
+\includepdf[pages={1-}, pagecommand={}, scale=0.8]{../output/bull_trout_SSA_adult_summary_plots_late_period.pdf}
+
+\newpage
+
+# Appendix B
+
+The following pages contain plots of standardized indices of log-abundance for juveniles over time by core area (i.e., location given by `State: Core area`. Fitted trend lines (black) and associated 90% confidence intervals (gray) are also shown.
+
+\newpage
+
+\includepdf[pages={1-}, pagecommand={}, scale=0.8]{../output/bull_trout_SSA_juvenile_summary_plots_late_period.pdf}
 
 
