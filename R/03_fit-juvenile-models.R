@@ -11,24 +11,21 @@ library(tidyr)
 library(MARSS)
 
 ## set directories
-raw_data_dir <- here("data", "raw")
-clean_data_dir <- here("data", "clean")
 output_dir <- here("output")
 
 ## first year of data to consider in model
 yr_first <- 1991
 
 ## read data
-juvie_data <- read_csv(file = here(clean_data_dir,
+juvie_data <- read_csv(file = here("data", "clean",
                                    "bull_trout_SSA_data_all_states_juveniles.csv"))
 
 
 #### data formatting ####
 
 ## trim years & reshape to "wide" format for MARSS
-yy <- juvie_data %>%
-  arrange(year) %>%
-  # filter(metric == "abundance") %>%
+juvie_smry <- juvie_data %>%
+  filter(metric == "abundance") %>%
   select(-metric) %>%
   filter(year >= yr_first) %>%
   pivot_wider(names_from = year,
@@ -38,7 +35,16 @@ yy <- juvie_data %>%
   rowwise(state:source) %>%
   mutate(n_yrs = sum(!is.na(c_across(everything())))) %>%
   ungroup() %>%
-  filter(n_yrs >= 10) %>%
+  filter(n_yrs >= 10)
+
+## write data summary to file
+juvie_smry %>% 
+  select(state, core_area, popn_stream, source, n_yrs) %>%
+  mutate(source = stringr::str_replace(source, "_", " ")) %>%
+  write_csv(file = here(output_dir, "bull_trout_SSA_data_summary_juvies.csv"))
+
+## data for MARSS
+yy <- juvie_smry %>%
   select(-n_yrs)
 
 ## number of core areas (processes, x)
