@@ -10,15 +10,13 @@ library(tidyr)
 library(MARSS)
 
 ## set directories
-raw_data_dir <- here("data", "raw")
-clean_data_dir <- here("data", "clean")
 output_dir <- here("output")
 
 ## first year of data to consider in model
 yr_first <- 1991
 
 ## read data
-adult_data <- read_csv(file = here(clean_data_dir,
+adult_data <- read_csv(file = here("data", "clean",
                                    "bull_trout_SSA_data_all_states_adults.csv"))
 
 
@@ -41,7 +39,8 @@ adult_smry <- adult_data %>%
 ## write data summary to file
 adult_smry %>% 
   select(state, core_area, popn_stream, source, n_yrs) %>%
-  write_csv(file = here(clean_data_dir, "bull_trout_SSA_data_summary_adults.csv"))
+  mutate(source = stringr::str_replace(source, "_", " ")) %>%
+  write_csv(file = here(output_dir, "bull_trout_SSA_data_summary_adults.csv"))
 
 yy <- adult_smry %>%
   select(-n_yrs)
