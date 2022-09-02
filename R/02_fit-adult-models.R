@@ -25,7 +25,7 @@ adult_data <- read_csv(file = here(clean_data_dir,
 #### data formatting ####
 
 ## trim years & reshape to "wide" format for MARSS
-yy <- adult_data %>%
+adult_smry <- adult_data %>%
   filter(metric == "abundance") %>%
   select(-metric) %>%
   filter(year >= yr_first) %>%
@@ -36,7 +36,14 @@ yy <- adult_data %>%
   rowwise(state:source) %>%
   mutate(n_yrs = sum(!is.na(c_across(everything())))) %>%
   ungroup() %>%
-  filter(n_yrs >= 10) %>%
+  filter(n_yrs >= 10)
+
+## write data summary to file
+adult_smry %>% 
+  select(state, core_area, popn_stream, source, n_yrs) %>%
+  write_csv(file = here(clean_data_dir, "bull_trout_SSA_data_summary_adults.csv"))
+
+yy <- adult_smry %>%
   select(-n_yrs)
 
 ## number of core areas (processes, x)
