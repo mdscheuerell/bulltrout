@@ -536,7 +536,7 @@ kableExtra::kable(tbl_res_j, booktabs = TRUE,
 
 # Appendix A
 
-The following pages contain plots of standardized indices of log-abundance for adults over time by core area (i.e., location given by `State: Core area`. Fitted trend lines (black) and associated 90% confidence intervals (gray) are also shown.
+The following pages contain plots of standardized indices of log-abundance for adults over time by core area (i.e., location indicated on plots by `State: Core area`). Fitted trend lines (black) and associated 90% confidence intervals (gray) are also shown.
 
 \newpage
 
@@ -546,7 +546,7 @@ The following pages contain plots of standardized indices of log-abundance for a
 
 # Appendix B
 
-The following pages contain plots of standardized indices of log-abundance for juveniles over time by core area (i.e., location given by `State: Core area`. Fitted trend lines (black) and associated 90% confidence intervals (gray) are also shown.
+The following pages contain plots of standardized indices of log-abundance for juveniles over time by core area (i.e., location indicated on plots by `State: Core area`). Fitted trend lines (black) and associated 90% confidence intervals (gray) are also shown.
 
 \newpage
 
