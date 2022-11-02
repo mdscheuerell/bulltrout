@@ -8699,8 +8699,6 @@ WA,7,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,redd_counts,201
 WA,7,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,redd_counts,2018,NA
 WA,7,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,redd_counts,2019,NA
 WA,7,Mid Columbia,Asotin Creek,Asotin Creek Bull Trout,abundance,redd_counts,2020,NA
-WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,1996,9
-WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,1997,1
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,1998,2
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,1999,0
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2000,3
@@ -8708,7 +8706,6 @@ WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_co
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2002,6
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2003,0
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2004,1
-WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2005,3
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2006,12
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2007,12
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2008,6
@@ -8719,13 +8716,9 @@ WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_co
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2015,11
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2016,12
 WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2017,NA
-WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,1995,0
-WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,1996,NA
-WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,1997,NA
-WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,1998,NA
-WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,1999,NA
-WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2000,11
-WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2001,0
+WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2018,12
+WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2019,8
+WA,10,Mid Columbia,Methow River,Early Winters Creek Bull Trout,abundance,redd_counts,2020,8
 WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2002,4
 WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2003,3
 WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2004,12
@@ -8738,27 +8731,7 @@ WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2011
 WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2012,17
 WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2013,9
 WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2015,11
-WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2016,3
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,1995,5
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,1996,0
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,1997,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,1998,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,1999,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2000,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2001,2
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2002,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2003,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2004,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2005,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2006,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2007,NA
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2008,9
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2009,16
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2011,69
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2012,112
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2013,53
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2015,48
-WA,12,Mid Columbia,Methow River,Lost River Bull Trout,abundance,redd_counts,2016,54
+WA,11,Mid Columbia,Methow River,Goat Creek Bull Trout,abundance,redd_counts,2020,5
 WA,13,Mid Columbia,Touchet River,North Fork Touchet Bull Trout,abundance,redd_counts,1990,49
 WA,13,Mid Columbia,Touchet River,North Fork Touchet Bull Trout,abundance,redd_counts,1991,56
 WA,13,Mid Columbia,Touchet River,North Fork Touchet Bull Trout,abundance,redd_counts,1992,46
@@ -9243,6 +9216,8 @@ WA,42,Coastal,Stillaguamish River,SF Stillaguamish R. and Palmer Creek,abundance
 WA,42,Coastal,Stillaguamish River,SF Stillaguamish R. and Palmer Creek,abundance,redd_counts,2017,0
 WA,42,Coastal,Stillaguamish River,SF Stillaguamish R. and Palmer Creek,abundance,redd_counts,2018,1
 WA,42,Coastal,Stillaguamish River,SF Stillaguamish R. and Palmer Creek,abundance,redd_counts,2019,0
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2019,183
+WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2020,182
 WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2002,410
 WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2003,180
 WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2004,391
@@ -9253,8 +9228,6 @@ WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2008,290
 WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2009,171
 WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2010,306
 WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2011,313
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2019,183
-WA,43,Coastal,Chester Morse Lake,Cedar River,abundance,redd_counts,2020,182
 WA,44,Coastal,Puyallup River,"Ranger Cr, Carbon R tributary",abundance,redd_counts,2002,0
 WA,44,Coastal,Puyallup River,"Ranger Cr, Carbon R tributary",abundance,redd_counts,2005,1
 WA,44,Coastal,Puyallup River,"Ranger Cr, Carbon R tributary",abundance,redd_counts,2007,0
@@ -9361,6 +9334,7 @@ WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_c
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2011,29
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2012,37
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2013,57
+WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2013,55
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2014,NA
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2015,14
 WA,1000,Mid Columbia,Wenatchee River,Chiwaukum Creek Bull Trout,abundance,redd_counts,2016,12
@@ -9416,27 +9390,11 @@ WA,1002,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,abundance,redd_cou
 WA,1002,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,abundance,redd_counts,2006,212
 WA,1002,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,abundance,redd_counts,2011,38
 WA,1002,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,abundance,redd_counts,2012,NA
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,1995,4
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,1996,0
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,1997,NA
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,1998,0
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,1999,0
 WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2000,0
 WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2001,2
 WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2002,3
 WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2003,2
 WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2004,0
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2005,3
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2006,3
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2007,0
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2008,1
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2009,NA
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2011,2
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2012,1
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2013,0
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2015,1
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2016,NA
-WA,1005,Mid Columbia,Methow River,East Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2017,NA
 WA,1006,Mid Columbia,Entiat River,Entiat Bull Trout,abundance,redd_counts,1994,3
 WA,1006,Mid Columbia,Entiat River,Entiat Bull Trout,abundance,redd_counts,1995,3
 WA,1006,Mid Columbia,Entiat River,Entiat Bull Trout,abundance,redd_counts,1996,2
@@ -9464,42 +9422,32 @@ WA,1006,Mid Columbia,Entiat River,Entiat Bull Trout,abundance,redd_counts,2017,7
 WA,1006,Mid Columbia,Entiat River,Entiat Bull Trout,abundance,redd_counts,2018,14
 WA,1006,Mid Columbia,Entiat River,Entiat Bull Trout,abundance,redd_counts,2019,NA
 WA,1006,Mid Columbia,Entiat River,Entiat Bull Trout,abundance,redd_counts,2020,30
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,1996,2
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,1997,2
 WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,1998,1
 WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,1999,0
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2000,NA
 WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2001,0
 WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2002,1
 WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2003,0
 WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2004,3
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2005,14
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2006,NA
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2007,4
+WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2005,4
+WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2006,3
 WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2008,4
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2009,3
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2011,1
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2012,NA
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2013,NA
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2015,NA
-WA,1007,Mid Columbia,Methow River,Gold Creek (Methow) Bull Trout,abundance,redd_counts,2016,NA
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,1995,22
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,1996,13
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,1996,NA
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,1997,9
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,1998,8
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,1999,0
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2000,18
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2001,22
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2000,8
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2001,21
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2002,11
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2003,14
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2003,10
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2004,6
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2005,24
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2006,20
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2007,27
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2008,38
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2009,38
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2011,33
-WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2012,22
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2006,15
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2007,25
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2008,10
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2009,17
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2011,14
+WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2012,12
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2013,9
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2015,3
 WA,1010,Mid Columbia,Methow River,Lake Creek Bull Trout,abundance,redd_counts,2016,NA
@@ -9601,8 +9549,6 @@ WA,1013,Mid Columbia,Entiat River,Mad River Bull Trout,abundance,redd_counts,201
 WA,1013,Mid Columbia,Entiat River,Mad River Bull Trout,abundance,redd_counts,2018,NA
 WA,1013,Mid Columbia,Entiat River,Mad River Bull Trout,abundance,redd_counts,2019,NA
 WA,1013,Mid Columbia,Entiat River,Mad River Bull Trout,abundance,redd_counts,2020,16
-WA,1014,Mid Columbia,Methow River,Monument Creek Bull Trout,abundance,redd_counts,2012,6
-WA,1014,Mid Columbia,Methow River,Monument Creek Bull Trout,abundance,redd_counts,2013,1
 WA,1015,Mid Columbia,Wenatchee River,Nason Creek Bull Trout,abundance,redd_counts,1989,1
 WA,1015,Mid Columbia,Wenatchee River,Nason Creek Bull Trout,abundance,redd_counts,1990,0
 WA,1015,Mid Columbia,Wenatchee River,Nason Creek Bull Trout,abundance,redd_counts,1996,3
@@ -9660,12 +9606,6 @@ WA,1016,Mid Columbia,Wenatchee River,Panther Creek Bull Trout,abundance,redd_cou
 WA,1016,Mid Columbia,Wenatchee River,Panther Creek Bull Trout,abundance,redd_counts,2018,NA
 WA,1016,Mid Columbia,Wenatchee River,Panther Creek Bull Trout,abundance,redd_counts,2019,NA
 WA,1016,Mid Columbia,Wenatchee River,Panther Creek Bull Trout,abundance,redd_counts,2020,NA
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,1990,4
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,1991,5
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,1994,4
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,1995,25
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,1996,0
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,1997,2
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,1998,86
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,1999,101
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2000,105
@@ -9674,39 +9614,25 @@ WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2002,93
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2003,86
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2004,101
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2005,87
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2006,NA
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2007,92
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2008,104
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2009,79
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2006,89
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2007,86
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2008,89
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2009,56
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2011,68
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2012,95
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2013,82
-WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2015,72
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2012,84
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2013,90
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2014,100
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2015,61
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2016,NA
 WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2017,NA
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2002,7
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2003,9
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2004,2
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2005,4
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2006,1
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2007,1
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2008,1
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2009,NA
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2011,7
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2012,6
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2013,5
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2015,2
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2016,NA
-WA,1020,Mid Columbia,Methow River,West Fork Buttermilk Creek Bull Trout,abundance,redd_counts,2017,NA
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2019,31
+WA,1018,Mid Columbia,Methow River,Twisp Bull Trout,abundance,redd_counts,2020,62
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,1995,27
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,1996,15
-WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,1997,13
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,1998,11
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,1999,1
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2000,2
-WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2001,NA
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2002,54
-WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2003,NA
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2004,21
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2005,44
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2006,25
@@ -9716,9 +9642,11 @@ WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_cou
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2011,12
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2012,14
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2013,13
-WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2015,8
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2016,NA
 WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2017,NA
+WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2018,33
+WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2019,15
+WA,1021,Mid Columbia,Methow River,West Fork Methow Bull Trout,abundance,redd_counts,2020,17
 WA,1022,Mid Columbia,Wenatchee River,White River (Wenatchee) Bull Trout,abundance,redd_counts,1999,30
 WA,1022,Mid Columbia,Wenatchee River,White River (Wenatchee) Bull Trout,abundance,redd_counts,2000,43
 WA,1022,Mid Columbia,Wenatchee River,White River (Wenatchee) Bull Trout,abundance,redd_counts,2001,10
@@ -9746,9 +9674,6 @@ WA,1023,Mid Columbia,Methow River,Wolf Creek Bull Trout,abundance,redd_counts,20
 WA,1023,Mid Columbia,Methow River,Wolf Creek Bull Trout,abundance,redd_counts,2011,17
 WA,1023,Mid Columbia,Methow River,Wolf Creek Bull Trout,abundance,redd_counts,2012,3
 WA,1023,Mid Columbia,Methow River,Wolf Creek Bull Trout,abundance,redd_counts,2013,9
-WA,1023,Mid Columbia,Methow River,Wolf Creek Bull Trout,abundance,redd_counts,2015,4
-WA,1023,Mid Columbia,Methow River,Wolf Creek Bull Trout,abundance,redd_counts,2016,NA
-WA,1023,Mid Columbia,Methow River,Wolf Creek Bull Trout,abundance,redd_counts,2017,NA
 WA,1025,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,abundance,redd_counts,2013,204
 WA,1025,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,abundance,redd_counts,2014,374
 WA,1025,Mid Columbia,Wenatchee River,Chiwawa River Bull Trout,abundance,redd_counts,2015,297
@@ -9989,6 +9914,8 @@ WA,1055,Coastal,Lower Skagit River,Downey Creek,abundance,redd_counts,2016,186
 WA,1055,Coastal,Lower Skagit River,Downey Creek,abundance,redd_counts,2017,133
 WA,1055,Coastal,Lower Skagit River,Downey Creek,abundance,redd_counts,2018,129
 WA,1055,Coastal,Lower Skagit River,Downey Creek,abundance,redd_counts,2019,21
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2019,57
+WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2020,53
 WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2002,87
 WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2003,29
 WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2004,95
@@ -9999,8 +9926,6 @@ WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2008,106
 WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2009,34
 WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2010,81
 WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2011,93
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2019,57
-WA,1056,Coastal,Chester Morse Lake,Rex River,abundance,redd_counts,2020,53
 WA,1058,Coastal,Puyallup River,"Antler Cr, White R tributary",abundance,redd_counts,2005,0
 WA,1058,Coastal,Puyallup River,"Antler Cr, White R tributary",abundance,redd_counts,2006,2
 WA,1058,Coastal,Puyallup River,"Antler Cr, White R tributary",abundance,redd_counts,2007,2
