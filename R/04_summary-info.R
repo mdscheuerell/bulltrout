@@ -3,16 +3,16 @@
 #### setup ####
 
 ## required libraries
-## library(here)
 ## library(readr)
 ## library(MARSS)
+library(here)
 library(tidyr)
 library(dplyr)
 library(viridisLite)
 
 ## set directories
-clean_data_dir <- here::here("data", "clean")
-output_dir <- here::here("output")
+clean_data_dir <- here("data", "clean")
+output_dir <- here("output")
 
 ## first & last years of data considered in model
 yr_first <- 1991
