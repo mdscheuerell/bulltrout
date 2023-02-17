@@ -10,7 +10,7 @@ institute:
 output:
   pdf_document:
     highlight: haddock
-    pandoc_args:
+    pandoc_args: 
       - '--lua-filter=scholarly-metadata.lua'
       - '--lua-filter=author-info-blocks.lua'
 documentclass: article
@@ -437,12 +437,12 @@ All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for
 
 ## Adult abundance
 
-Estimated trends in adult abundance were rather mixed (Tables 1-4), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided in Appendix A.
+Estimated trends in adult abundance were rather mixed (Tables 1-4, 6-9), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided in Appendix A.
 
 
 ## Juvenile abundance
 
-Estimated trends in juvenile abundance were also rather mixed (Table 5), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided in Appendix B.
+Estimated trends in juvenile abundance were also rather mixed (Tables 5 \& 10), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided in Appendix B.
 
 \newpage
 
@@ -458,7 +458,83 @@ write.bibtex(file = "references.bib")
 
 \newpage
 
-```{r tbl_results_adults, results = 'hold'}
+```{r tbl_results_adults_full, results = 'hold'}
+library(dplyr)
+## get point estimates and CI's
+tbl_res <- read.csv(here::here("output", "bull_trout_SSA_all_states_adults_biases.csv"))
+
+state_core_popn <- stringr::str_split_fixed(tbl_res$X, pattern = ": ", 3) %>%
+  as.data.frame()
+colnames(state_core_popn) <- c("state", "domain", "core")
+
+tbl_res <- cbind(state_core_popn, tbl_res[,-1])
+
+## MT
+tbl_res_MT <- tbl_res %>%
+  filter(state == "MT") %>%
+  select(!(state:domain))
+
+kableExtra::kable(tbl_res_MT, booktabs = TRUE,
+                  col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "lcccc",
+                  caption = "Estimated full period trends and uncertainty for adult bull trout in core areas in Montana. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+## ID
+tbl_res_MT <- tbl_res %>%
+  filter(state == "ID") %>%
+  select(!(state:domain))
+
+kableExtra::kable(tbl_res_MT, booktabs = TRUE,
+                  col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "lcccc",
+                  caption = "Estimated full period trends and uncertainty for adult bull trout in core areas in Idaho. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+## WA
+tbl_res_WA <- tbl_res %>%
+  filter(state == "WA") %>%
+  select(!(state:domain))
+
+kableExtra::kable(tbl_res_WA, booktabs = TRUE,
+                  col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "lcccc",
+                  caption = "Estimated full period trends and uncertainty for adult bull trout in core areas in Washington. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+## OR
+tbl_res_OR <- tbl_res %>%
+  filter(state == "OR") %>%
+  select(!(state:domain))
+
+kableExtra::kable(tbl_res_OR, booktabs = TRUE,
+                  col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "lcccc",
+                  caption = "Estimated full period trends and uncertainty for adult bull trout in core areas in Oregon. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+## get point estimates and CI's
+tbl_res_j <- read.csv(here::here("output", "bull_trout_SSA_all_states_juveniles_biases.csv"))
+
+state_core_popn_j <- stringr::str_split_fixed(tbl_res_j$X, pattern = ": ", 3) %>%
+  as.data.frame()
+colnames(state_core_popn_j) <- c("state", "domain", "core")
+
+tbl_res_j <- cbind(state_core_popn_j, tbl_res_j[,-1]) %>%
+  select(!domain)
+
+kableExtra::kable(tbl_res_j, booktabs = TRUE,
+                  col.names = c("State", "Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
+                  align = "llcccc",
+                  caption = "Estimated full period trends and uncertainty for juvenile bull trout in Idaho, Washington, and Oregon. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+  kableExtra::kable_styling(latex_options = "HOLD_position")
+
+```
+
+
+\newpage
+
+```{r tbl_results_adults_late, results = 'hold'}
 library(dplyr)
 ## get point estimates and CI's
 tbl_res <- read.csv(here::here("output", "bull_trout_SSA_all_states_adults_late_biases.csv"))
@@ -477,7 +553,7 @@ tbl_res_MT <- tbl_res %>%
 kableExtra::kable(tbl_res_MT, booktabs = TRUE,
                   col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
                   align = "lcccc",
-                  caption = "Estimated trends and uncertainty for adult bull trout in core areas in Montana. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+                  caption = "Estimated late period (2008-2020) trends and uncertainty for adult bull trout in core areas in Montana. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
   kableExtra::kable_styling(latex_options = "HOLD_position")
 
 ## ID
@@ -488,7 +564,7 @@ tbl_res_MT <- tbl_res %>%
 kableExtra::kable(tbl_res_MT, booktabs = TRUE,
                   col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
                   align = "lcccc",
-                  caption = "Estimated trends and uncertainty for adult bull trout in core areas in Idaho. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+                  caption = "Estimated late period (2008-2020) trends and uncertainty for adult bull trout in core areas in Idaho. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
   kableExtra::kable_styling(latex_options = "HOLD_position")
 
 ## WA
@@ -499,7 +575,7 @@ tbl_res_WA <- tbl_res %>%
 kableExtra::kable(tbl_res_WA, booktabs = TRUE,
                   col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
                   align = "lcccc",
-                  caption = "Estimated trends and uncertainty for adult bull trout in core areas in Washington. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+                  caption = "Estimated late period (2008-2020) trends and uncertainty for adult bull trout in core areas in Washington. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
   kableExtra::kable_styling(latex_options = "HOLD_position")
 
 ## OR
@@ -510,7 +586,7 @@ tbl_res_OR <- tbl_res %>%
 kableExtra::kable(tbl_res_OR, booktabs = TRUE,
                   col.names = c("Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
                   align = "lcccc",
-                  caption = "Estimated trends and uncertainty for adult bull trout in core areas in Oregon. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+                  caption = "Estimated late period (2008-2020) trends and uncertainty for adult bull trout in core areas in Oregon. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
   kableExtra::kable_styling(latex_options = "HOLD_position")
 
 ## get point estimates and CI's
@@ -526,7 +602,7 @@ tbl_res_j <- cbind(state_core_popn_j, tbl_res_j[,-1]) %>%
 kableExtra::kable(tbl_res_j, booktabs = TRUE,
                   col.names = c("State", "Core area", "Lower CI", "Mean", "Upper CI", "Trend"),
                   align = "llcccc",
-                  caption = "Estimated trends and uncertainty for juvenile bull trout in Idaho, Washington, and Oregon. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
+                  caption = "Estimated late period (2008-2020) trends and uncertainty for juvenile bull trout in Idaho, Washington, and Oregon. The trend column indicates if the estimated trend was significantly positive (+), negative (-), or neutral (0).") %>%
   kableExtra::kable_styling(latex_options = "HOLD_position")
 
 ```
