@@ -437,12 +437,16 @@ All models were fit using the `{MARSS}` package `r citep(citation("MARSS"))` for
 
 ## Adult abundance
 
-Estimated trends in adult abundance were rather mixed (Tables 1-4, 6-9), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided in Appendix A.
+Estimated trends in adult abundance were rather mixed. For trends fit over the entire time period, such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0 (Tables 1-4). The remaining 25 core areas had increasing trends, but only 5 of them had 90% CI's that did not overlap 0 (Tables (1-4). Fitted trend lines and their associated CI's are provided in Appendix A.
+
+For trends fit over the later time period from 2008-2020, the results were less optimistic. There were negative trends in 41 of 62 core areas, and 12 of them were significantly so (Tables 6-9). The remaining 21 core areas had generally positive trends, but only one of them was significant (Tables 6-9). Fitted trend lines and their associated CI's are provided in Appendix B.
 
 
 ## Juvenile abundance
 
-Estimated trends in juvenile abundance were also rather mixed (Tables 5 \& 10), such that 37 out of 62 core areas showed decreasing trends, but only 3 of trends had 90% CI's that did not overlap 0. The remaining 25 core areas had decreasing trends, but only 5 of them had 90% CI's that did not overlap 0. Fitted trend lines and their associated CI's are provided in Appendix B.
+Estimated trends in juvenile abundance were also mixed. When fit over the entire time period, 10 of 19 core areas were decreasing, but only 4 of trends had 90% CI's that did not overlap 0 (Table 5). The remaining 9 core areas had increasing trends, and 6 of them had 90% CI's that did not overlap 0 (Tables 5). Fitted trend lines and their associated CI's are provided in Appendix C.
+
+For trends fit the to more recent period of 2008-2020, 11 of 19 core areas had decreasing trends, and 6 of them were significantly so. The remaining 8 core areas we generally increasing, but only 2 of them showed significant trends over time. Fitted trend lines and their associated CI's are provided in Appendix D.
 
 \newpage
 
@@ -616,13 +620,33 @@ The following pages contain plots of standardized indices of log-abundance for a
 
 \newpage
 
-\includepdf[pages={1-}, pagecommand={}, scale=0.8]{../output/bull_trout_SSA_adult_summary_plots_late_period.pdf}
+\includepdf[pages={1-}, pagecommand={}, scale=0.8]{../output/bull_trout_SSA_adult_summary_plots.pdf}
 
 \newpage
 
 # Appendix B
 
-The following pages contain plots of standardized indices of log-abundance for juveniles over time by core area (i.e., location indicated on plots by `State: Core area`). Fitted trend lines (black) and associated 90% confidence intervals (gray) are also shown.
+The following pages contain plots of standardized indices of log-abundance for adults over time by core area (i.e., location indicated on plots by `State: Core area`). Fitted trend lines (black) based on the more recent period of 2008-2020, and their associated 90% confidence intervals (gray), are also shown.
+
+\newpage
+
+\includepdf[pages={1-}, pagecommand={}, scale=0.8]{../output/bull_trout_SSA_adult_summary_plots_late_period.pdf}
+
+\newpage
+
+# Appendix C
+
+The following pages contain plots of standardized indices of log-abundance for juveniles over time by core area (i.e., location indicated on plots by `State: Core area`). Trend lines (black) fit to the entire time period and their associated 90% confidence intervals (gray) are also shown.
+
+\newpage
+
+\includepdf[pages={1-}, pagecommand={}, scale=0.8]{../output/bull_trout_SSA_juvenile_summary_plots.pdf}
+
+\newpage
+
+# Appendix D
+
+The following pages contain plots of standardized indices of log-abundance for juveniles over time by core area (i.e., location indicated on plots by `State: Core area`). Fitted trend lines (black) based on the more recent period of 2008-2020, and their associated 90% confidence intervals (gray), are also shown.
 
 \newpage
 
