@@ -106,13 +106,13 @@ class: inverse, center, middle
 
 # ESA status reviews
 
-.blue-text[
+.gray-text[
 ### Required every 5 years to ensure appropriate protections
 
 ### Considerations include
 ]
 
-* ### .orange-text[population trends] .gray-text[, distribution, demographics & genetics]
+* ### .green-text[population trends].gray-text[, distribution, demographics & genetics]
 
 .gray-text[
 * ### habitat conditions
@@ -139,31 +139,60 @@ background-size: 90%
 
 ---
 
-class: inverse, center, middle
+# The data are gappy
 
-# Most of the data are gappy, noisy, and come from disparate sources
-
-
----
-
-# Most of the data are gappy
-
-```{r data_gappy, dpi=300, fig.height=4, fig.width=8, out.height="100%", out.width="100%", fig.align='center', echo=FALSE, warning=FALSE}
+```{r data_gappy, dpi=300, fig.height=5, fig.width=8, out.height="100%", out.width="100%", fig.align='center', echo=FALSE, warning=FALSE}
 nn <- 20
 tt <- rpois(nn, 10)
 na <- sample(tt, 5)
 tt[na] <- NA
-par(mai = c(1, 1, 0, 0), omi = rep(0, 4))
+par(mai = c(1, 1, 0.2, 0), omi = rep(0, 4))
 plot(seq(nn), tt, type = "o", 
-     pch = 16, lwd = 3, cex = 1.2,
+     pch = 16, lwd = 3, cex = 1.5,
      col = "dodgerblue",
      las = 1, ylim = c(0, max(tt, na.rm = TRUE)),
      xlab = "Time", ylab = "Count",
-     cex.lab = 1.5,
-     cex.axis = 1.2)
+     cex.lab = 1.7,
+     cex.axis = 1.5)
 ```
 
 
+---
+
+# The data are noisy
+
+<br>
+
+.center[
+.green-text[
+## Non-exhaustive surveys
+]
+.blue-text[
+## Undetected individuals
+]
+.orange-text[
+## Misidentification
+]
+]
+
+
+---
+
+# The data are disparate
+
+<br>
+
+.center[
+.green-text[
+## direct vs remotely sensed
+]
+.blue-text[
+## design-based vs opportunistic
+]
+.orange-text[
+## scientific surveys vs recreational sampling
+]
+]
 
 
 ---
@@ -171,10 +200,10 @@ plot(seq(nn), tt, type = "o",
 class: middle
 
 .blue-text[
-# Q: How can we use this information to inform decisions?
+> # How can we use this information to inform decisions?
 ]
 .green-text[
-# A: For trends over time, one option is a state-space model
+> # For trends over time, one option is a state-space model
 ]
 
 
@@ -218,6 +247,9 @@ text("Time", x=cc/2, y=-ss/2+ss*2, xpd=NA, pos=1, cex=2)
 
 # States of nature might be
 
+<br>
+
+.center[
 .green-text[
 ## Animal location
 ]
@@ -230,6 +262,8 @@ text("Time", x=cc/2, y=-ss/2+ss*2, xpd=NA, pos=1, cex=2)
 .purple-text[
 ## Reproductive status
 ]
+]
+
 
 ---
 
