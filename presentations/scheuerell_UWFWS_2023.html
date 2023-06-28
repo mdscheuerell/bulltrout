@@ -403,16 +403,27 @@ class: inverse, center, middle
 
 `$$w_t \sim \text{N}(0, q)$$`
 
+
+---
+
+# Biased random walk
+
+### .blue-text[If we assume that the errors are white noise]
+
+`$$w_t \sim \text{N}(0, q)$$`
+
 ### .blue-text[ then our model of populations dynamics]
 
 `$$x_t = x_{t-1} + u + w_t$$`
 
-### .blue-text[is a] *biased random walk*
+### .blue-text[is known as a] *biased random walk*
 
 
 ---
 
 # Examples of biased random walks
+
+`$$x_t = x_{t-1} + \text{bias} \pm \text{error}$$`
 
 &lt;img src="scheuerell_UWFWS_2023_files/figure-html/ex_biased_rw-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
@@ -435,7 +446,7 @@ class: inverse, center, middle
 
 ---
 
-# Example: biased RW's with observation error
+# Ex: biased random walk with obs error
 
 &lt;img src="scheuerell_UWFWS_2023_files/figure-html/ex_biased_rw_y-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
@@ -493,7 +504,7 @@ class: center
 
 # Observation model for multiple time series
 
-### .blue-text[ Example with 5 popns (1-5) from 2 core areas (A &amp; B) ]
+### .center.blue-text[ Example of 5 popns (1-5) from 2 core areas (A &amp; B) ]
 
 `$$\begin{gathered}
     y_{1,t} = x_{A} + v_{1,t} \\
