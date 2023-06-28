@@ -36,6 +36,20 @@ _U.S. Geological Survey<br>Washington Cooperative Fish and Wildlife Research Uni
 
 ---
 
+class: frimg
+background-image: url(figs/wacfwru.png)
+background-size: 95%
+
+
+---
+
+class: frimg
+background-image: url(figs/mark_safs.png)
+background-size: 100%
+
+
+---
+
 # Collaborators
 
 .pull-left[
@@ -165,13 +179,13 @@ plot(seq(nn), tt, type = "o",
 
 .center[
 .green-text[
-## Non-exhaustive surveys
+## non-exhaustive surveys
 ]
 .blue-text[
-## Undetected individuals
+## undetected individuals
 ]
 .orange-text[
-## Misidentification
+## misidentified individuals
 ]
 ]
 
