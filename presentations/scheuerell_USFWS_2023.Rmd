@@ -751,7 +751,7 @@ $$\begin{gathered}
 
 # Observation model for multiple time series
 
-## .center.blue-text[ Example of 5 popns, 2 core areas & 2 methods ]
+## .center.blue-text[ Example of 5 popns, 2 core areas via 2 methods (i & j)]
 
 $$\begin{gathered}
     v_{1,t} \sim \text{N}(0, r_i) \\
@@ -767,31 +767,31 @@ $$\begin{gathered}
 
 # Fitting the models
 
-### .blue-text[ We used the 30-year time period from 1991-2020 ]
+## .blue-text[ Used the 30-year time period from 1991-2020 ]
 
-### .blue-text[ Time series needed at least 10 years of non-missing data ]
+## .blue-text[ Time series needed &ge;10 years of non-missing data ]
 
 
 ---
 
 # Fitting the models
 
-### .blue-text[ We used the 30-year time period from 1991-2020 ]
+## .blue-text[ Used the 30-year time period from 1991-2020 ]
 
-### .blue-text[ Time series needed at least 10 years of non-missing data ]
+## .blue-text[ Time series needed &ge;10 years of non-missing data ]
 
-### .green-text[ All models were fit in **R** using the `{MARSS}` package ]
+## .green-text[ All models fit in **R** using the `{MARSS}` package ]
 
-### .green-text[ I estimated 90% confidence intervals on bias terms ]
+## .green-text[ Estimated 90% confidence intervals on bias terms ]
 
 
 ---
 
 # Bias in trends
 
-### .blue-text[ 37/62 core areas had a negative trend ]
+## .blue-text[ 37/62 core areas had a negative trend ]
 
-### .center.blue-text[ but only 3/62 were "significantly" negative ]
+## .center.blue-text[ but only 3/62 were "significantly" negative ]
 
 
 ---
@@ -818,15 +818,15 @@ background-size: 80%
 
 # Bias in trends
 
-### .blue-text[ 37/62 core areas had a negative trend ]
+## .blue-text[ 37/62 core areas had a negative trend ]
 
-### .center.blue-text[ but only 3/62 were "significantly" negative ]
+## .center.blue-text[ but only 3/62 were "significantly" negative ]
 
 <br>
 
-### .green-text[ 25/62 core areas had a positive trend ]
+## .green-text[ 25/62 core areas had a positive trend ]
 
-### .center.green-text[ but only 5/62 were "significantly" positive ]
+## .center.green-text[ but only 5/62 were "significantly" positive ]
 
 
 ---

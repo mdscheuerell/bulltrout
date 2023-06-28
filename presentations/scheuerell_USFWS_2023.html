@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="" xml:lang="">
   <head>
-    <title>scheuerell_UWFWS_2023.knit</title>
+    <title>scheuerell_USFWS_2023.knit</title>
     <meta charset="utf-8" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="my-theme.css" type="text/css" />
@@ -133,7 +133,7 @@ background-size: 90%
 
 # The data are gappy
 
-&lt;img src="scheuerell_UWFWS_2023_files/figure-html/data_gappy-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="scheuerell_USFWS_2023_files/figure-html/data_gappy-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -192,7 +192,7 @@ class: middle
 
 ## Describes the .blue-text[true state of nature] over time
 
-&lt;img src="scheuerell_UWFWS_2023_files/figure-html/state_diag-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="scheuerell_USFWS_2023_files/figure-html/state_diag-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -265,7 +265,7 @@ background-size: cover
 
 ## .purple-text[Data] = .blue-text[Truth] &amp;#177; .red-text[Errors]
 
-&lt;img src="scheuerell_UWFWS_2023_files/figure-html/obs_diag-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="scheuerell_USFWS_2023_files/figure-html/obs_diag-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -293,7 +293,7 @@ class: inverse, center, middle
 
 ## 2. .gray-text[Missing data] are easily accommodated
 
-&lt;img src="scheuerell_UWFWS_2023_files/figure-html/obs_NA-1.png" width="90%" height="90%" style="display: block; margin: auto;" /&gt;
+&lt;img src="scheuerell_USFWS_2023_files/figure-html/obs_NA-1.png" width="90%" height="90%" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -425,7 +425,7 @@ class: inverse, center, middle
 
 `$$x_t = x_{t-1} + \text{bias} \pm \text{error}$$`
 
-&lt;img src="scheuerell_UWFWS_2023_files/figure-html/ex_biased_rw-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="scheuerell_USFWS_2023_files/figure-html/ex_biased_rw-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -448,7 +448,7 @@ class: inverse, center, middle
 
 # Ex: biased random walk with obs error
 
-&lt;img src="scheuerell_UWFWS_2023_files/figure-html/ex_biased_rw_y-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="scheuerell_USFWS_2023_files/figure-html/ex_biased_rw_y-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -518,7 +518,7 @@ class: center
 
 # Example: 3 observations of a common state
 
-&lt;img src="scheuerell_UWFWS_2023_files/figure-html/multi_obs-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
+&lt;img src="scheuerell_USFWS_2023_files/figure-html/multi_obs-1.png" width="100%" height="100%" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -569,7 +569,7 @@ class: center, middle, inverse
 
 # Observation model for multiple time series
 
-## .center.blue-text[ Example of 5 popns, 2 core areas &amp; 2 methods ]
+## .center.blue-text[ Example of 5 popns, 2 core areas via 2 methods (i &amp; j)]
 
 `$$\begin{gathered}
     v_{1,t} \sim \text{N}(0, r_i) \\
@@ -585,31 +585,31 @@ class: center, middle, inverse
 
 # Fitting the models
 
-### .blue-text[ We used the 30-year time period from 1991-2020 ]
+## .blue-text[ Used the 30-year time period from 1991-2020 ]
 
-### .blue-text[ Time series needed at least 10 years of non-missing data ]
+## .blue-text[ Time series needed &amp;ge;10 years of non-missing data ]
 
 
 ---
 
 # Fitting the models
 
-### .blue-text[ We used the 30-year time period from 1991-2020 ]
+## .blue-text[ Used the 30-year time period from 1991-2020 ]
 
-### .blue-text[ Time series needed at least 10 years of non-missing data ]
+## .blue-text[ Time series needed &amp;ge;10 years of non-missing data ]
 
-### .green-text[ All models were fit in **R** using the `{MARSS}` package ]
+## .green-text[ All models fit in **R** using the `{MARSS}` package ]
 
-### .green-text[ I estimated 90% confidence intervals on bias terms ]
+## .green-text[ Estimated 90% confidence intervals on bias terms ]
 
 
 ---
 
 # Bias in trends
 
-### .blue-text[ 37/62 core areas had a negative trend ]
+## .blue-text[ 37/62 core areas had a negative trend ]
 
-### .center.blue-text[ but only 3/62 were "significantly" negative ]
+## .center.blue-text[ but only 3/62 were "significantly" negative ]
 
 
 ---
@@ -636,15 +636,15 @@ background-size: 80%
 
 # Bias in trends
 
-### .blue-text[ 37/62 core areas had a negative trend ]
+## .blue-text[ 37/62 core areas had a negative trend ]
 
-### .center.blue-text[ but only 3/62 were "significantly" negative ]
+## .center.blue-text[ but only 3/62 were "significantly" negative ]
 
 &lt;br&gt;
 
-### .green-text[ 25/62 core areas had a positive trend ]
+## .green-text[ 25/62 core areas had a positive trend ]
 
-### .center.green-text[ but only 5/62 were "significantly" positive ]
+## .center.green-text[ but only 5/62 were "significantly" positive ]
 
 
 ---
