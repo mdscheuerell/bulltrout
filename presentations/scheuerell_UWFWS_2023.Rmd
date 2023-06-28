@@ -645,11 +645,9 @@ class: center
 
 ---
 
-# Expanding our model for multiple core areas
+# State model for multiple core areas
 
-### .blue-text[ We're estimating population trends at the level of *core areas* ]
-
-### .blue-text[ Each core area gets its own model ]
+## .center.blue-text[ Each _core area_ gets its own model ]
 
 $$\begin{gathered}
     x_{1,t} = x_{1,t-1} + u_1 + w_{1,t} \\
@@ -663,24 +661,24 @@ $$\begin{gathered}
 
 # Observation model for multiple time series
 
-### .blue-text[ Core areas have 1-22 populations within them ]
+## .blue-text[ Core areas comprise 1-22 populations ]
 
-### .blue-text[ Each population is an observation from its respective core area ]
+## .blue-text[ Each population is considered an observation from its respective core area ]
 
 
 ---
 
 # Observation model for multiple time series
 
-### .center.blue-text[ Example of 5 popns (1-5) from 2 core areas (A & B) ]
+## .center.blue-text[ Example of 5 popns across 2 core areas (A & B) ]
 
 $$\begin{gathered}
-    y_{1,t} = x_{A} + v_{1,t} \\
-    y_{2,t} = x_{A} + v_{2,t} \\
+    y_{1,t} = x_{A,t} + v_{1,t} \\
+    y_{2,t} = x_{A,t} + v_{2,t} \\
     \hline 
-    y_{3,t} = x_{B} + v_{3,t} \\
-    y_{4,t} = x_{B} + v_{4,t} \\
-    y_{5,t} = x_{B} + v_{5,t}
+    y_{3,t} = x_{B,t} + v_{3,t} \\
+    y_{4,t} = x_{B,t} + v_{4,t} \\
+    y_{5,t} = x_{B,t} + v_{5,t}
   \end{gathered}$$
 
 
@@ -720,10 +718,50 @@ background-size: 95%
 # Varying sampling methods
 
 .blue-text[ 
-### Different methods have different levels of observation errors<br>(eg, weir counts are more accurate than snorkel surveys)
+## Different methods have different observation errors
 
-### Multiple surveys of each type help inform the variance estimates 
+## Ex: Weir counts are more precise than snorkel surveys
 ]
+
+
+---
+
+class: center, middle, inverse
+
+# Multiple surveys of each type help inform the variance estimates 
+
+
+---
+
+# Observation model for multiple time series
+
+## .center.blue-text[ Example of 5 popns across 2 core areas (A & B) ]
+
+$$\begin{gathered}
+    y_{1,t} = x_{A,t} + v_{1,t} \\
+    y_{2,t} = x_{A,t} + v_{2,t} \\
+    \hline 
+    y_{3,t} = x_{B,t} + v_{3,t} \\
+    y_{4,t} = x_{B,t} + v_{4,t} \\
+    y_{5,t} = x_{B,t} + v_{5,t}
+  \end{gathered}$$
+
+
+---
+
+# Observation model for multiple time series
+
+## .center.blue-text[ Example of 5 popns, 2 core areas & 2 methods ]
+
+$$\begin{gathered}
+    v_{1,t} \sim \text{N}(0, r_i) \\
+    v_{2,t} \sim \text{N}(0, r_j) \\
+    \hline 
+    v_{3,t} \sim \text{N}(0, r_j) \\
+    v_{4,t} \sim \text{N}(0, r_i) \\
+    v_{5,t} \sim \text{N}(0, r_j)
+  \end{gathered}$$
+
 
 ---
 
