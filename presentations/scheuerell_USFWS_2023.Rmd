@@ -45,7 +45,7 @@ background-size: 95%
 
 class: frimg
 background-image: url(figs/mark_safs.png)
-background-size: 100%
+background-size: 95%
 
 
 ---
